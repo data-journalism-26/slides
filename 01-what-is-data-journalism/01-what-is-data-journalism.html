@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Data Journalism</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Simon Munzert" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+    <script src="https://tikzjax.com/v1/tikzjax.js"></script>
+    <link rel="stylesheet" href="../simons-touch.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Data Journalism
+]
+.subtitle[
+## Session 1: What is data journalism?
+]
+.author[
+### Simon Munzert
+]
+.institute[
+### Hertie School | <a href="https://github.com/data-journalism-26">GRAD-E1493</a>
+]
+
+---
+
+
+
+&lt;style type="text/css"&gt;
+@media print { # print out incremental slides; see https://stackoverflow.com/questions/56373198/get-xaringan-incremental-animations-to-print-to-pdf/56374619#56374619
+  .has-continuation {
+    display: block !important;
+  }
+}
+&lt;/style&gt;
+
+
+
+# Table of contents
+
+&lt;/br&gt;&lt;/br&gt;
+
+1. [Welcome!](#welcome)
+
+2. [Class logistics](#logistics)
+
+3. [Origins of data journalism](#djorigins)
+
+4. [Data journalism today](#djtoday)
+
+5. [Discussion](#discussion)
+
+
+---
+class: inverse, center, middle
+name: welcome
+
+# Welcome!
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+---
+# Introductions
+
+### Course
+
+<svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M352 256c0 22.2-1.2 43.6-3.3 64H163.3c-2.2-20.4-3.3-41.8-3.3-64s1.2-43.6 3.3-64H348.7c2.2 20.4 3.3 41.8 3.3 64zm28.8-64H503.9c5.3 20.5 8.1 41.9 8.1 64s-2.8 43.5-8.1 64H380.8c2.1-20.6 3.2-42 3.2-64s-1.1-43.4-3.2-64zm112.6-32H376.7c-10-63.9-29.8-117.4-55.3-151.6c78.3 20.7 142 77.5 171.9 151.6zm-149.1 0H167.7c6.1-36.4 15.5-68.6 27-94.7c10.5-23.6 22.2-40.7 33.5-51.5C239.4 3.2 248.7 0 256 0s16.6 3.2 27.8 13.8c11.3 10.8 23 27.9 33.5 51.5c11.6 26 20.9 58.2 27 94.7zm-209 0H18.6C48.6 85.9 112.2 29.1 190.6 8.4C165.1 42.6 145.3 96.1 135.3 160zM8.1 192H131.2c-2.1 20.6-3.2 42-3.2 64s1.1 43.4 3.2 64H8.1C2.8 299.5 0 278.1 0 256s2.8-43.5 8.1-64zM194.7 446.6c-11.6-26-20.9-58.2-27-94.6H344.3c-6.1 36.4-15.5 68.6-27 94.6c-10.5 23.6-22.2 40.7-33.5 51.5C272.6 508.8 263.3 512 256 512s-16.6-3.2-27.8-13.8c-11.3-10.8-23-27.9-33.5-51.5zM135.3 352c10 63.9 29.8 117.4 55.3 151.6C112.2 482.9 48.6 426.1 18.6 352H135.3zm358.1 0c-30 74.1-93.6 130.9-171.9 151.6c25.5-34.2 45.2-87.7 55.3-151.6H493.4z"/></svg> https://github.com/data-journalism-26
+
+Parts of this course live on GitHub. You will find slides and additional materials there. Furthermore, we will use our GitHub organization to host projects that you are going to create during the semester. We also have Moodle, which is is for everything else (literature, communication, grades).
+
+--
+
+### Me
+
+<svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M384 48c8.8 0 16 7.2 16 16V448c0 8.8-7.2 16-16 16H96c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16H384zM96 0C60.7 0 32 28.7 32 64V448c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H96zM240 256a64 64 0 1 0 0-128 64 64 0 1 0 0 128zm-32 32c-44.2 0-80 35.8-80 80c0 8.8 7.2 16 16 16H336c8.8 0 16-7.2 16-16c0-44.2-35.8-80-80-80H208zM512 80c0-8.8-7.2-16-16-16s-16 7.2-16 16v64c0 8.8 7.2 16 16 16s16-7.2 16-16V80zM496 192c-8.8 0-16 7.2-16 16v64c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm16 144c0-8.8-7.2-16-16-16s-16 7.2-16 16v64c0 8.8 7.2 16 16 16s16-7.2 16-16V336z"/></svg> I'm [Simon Munzert](https://simonmunzert.github.io/) [si'mən munsɜrt], or just Simon [saɪmən].
+
+<svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M64 112c-8.8 0-16 7.2-16 16v22.1L220.5 291.7c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16H64zM48 212.2V384c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128C0 92.7 28.7 64 64 64H448c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z"/></svg> [munzert@hertie-school.org](mailto:munzert@hertie-school.org)
+
+<svg aria-hidden="true" role="img" viewBox="0 0 640 512" style="height:1em;width:1.25em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M320 32c-8.1 0-16.1 1.4-23.7 4.1L15.8 137.4C6.3 140.9 0 149.9 0 160s6.3 19.1 15.8 22.6l57.9 20.9C57.3 229.3 48 259.8 48 291.9v28.1c0 28.4-10.8 57.7-22.3 80.8c-6.5 13-13.9 25.8-22.5 37.6C0 442.7-.9 448.3 .9 453.4s6 8.9 11.2 10.2l64 16c4.2 1.1 8.7 .3 12.4-2s6.3-6.1 7.1-10.4c8.6-42.8 4.3-81.2-2.1-108.7C90.3 344.3 86 329.8 80 316.5V291.9c0-30.2 10.2-58.7 27.9-81.5c12.9-15.5 29.6-28 49.2-35.7l157-61.7c8.2-3.2 17.5 .8 20.7 9s-.8 17.5-9 20.7l-157 61.7c-12.4 4.9-23.3 12.4-32.2 21.6l159.6 57.6c7.6 2.7 15.6 4.1 23.7 4.1s16.1-1.4 23.7-4.1L624.2 182.6c9.5-3.4 15.8-12.5 15.8-22.6s-6.3-19.1-15.8-22.6L343.7 36.1C336.1 33.4 328.1 32 320 32zM128 408c0 35.3 86 72 192 72s192-36.7 192-72L496.7 262.6 354.5 314c-11.1 4-22.8 6-34.5 6s-23.5-2-34.5-6L143.3 262.6 128 408z"/></svg> Professor of Data Science and Public Policy | Director of the Data Science Lab
+
+--
+
+### You
+
+What do you want to take away from this course? Let's collect your expectations! 🖍️
+
+
+---
+# Where my interest in data journalism is coming from
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="pics/zweitstimme-webseite-screenshot.png" style="width:100%; height: auto;"&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+&lt;br&gt;&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="pics/zweitstimme-qrcode.png" style="width:50%; height: auto;"&gt;
+&lt;/div&gt;
+]
+
+
+---
+# Where my interest in data journalism is coming from
+
+&lt;div align="center"&gt;
+&lt;img src="pics/zweitstimme-medien.png" style="width:92%; height: auto;margin-top:-20px;""&gt;
+&lt;/div&gt;
+
+
+
+---
+# Oh, and then there's this (pls don't share...)
+
+
+.pull-left[
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="pics/suedkurier-wetter.png" style="width:92%; height: auto;margin-top:-20px;""&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="pics/weather-turnout-abstract.png" style="width:40%; height: auto;"&gt;
+&lt;img src="pics/maps-rainfall-dev.png" style="width:80%; height: auto;"&gt;
+&lt;/div&gt;
+]
+
+
+
+---
+class: inverse, center, middle
+name: logistics
+
+# Class logistics
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+---
+# Course schedule
+
+&lt;table style="border-collapse:collapse;width:50%;font-size:14px;"&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style="border:1px solid #ddd;padding:6px;text-align:left;"&gt;&amp;nbsp;&lt;/th&gt;
+      &lt;th style="border:1px solid #ddd;padding:6px;text-align:left;"&gt;Session&lt;/th&gt;
+      &lt;th style="border:1px solid #ddd;padding:6px;text-align:right;"&gt;Date&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style="border:1px solid #ddd;padding:6px;text-align:left;"&gt;1&lt;/td&gt;
+      &lt;td style="border:1px solid #ddd;padding:6px;text-align:left;"&gt;What is data journalism?&lt;/td&gt;
+      &lt;td style="border:1px solid #ddd;padding:6px;text-align:right;"&gt;Feb 9&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style="border:1px solid #ddd;padding:6px;text-align:left;"&gt;2&lt;/td&gt;
+      &lt;td style="border:1px solid #ddd;padding:6px;text-align:left;"&gt;Global models of data journalism&lt;/td&gt;
+      &lt;td style="border:1px solid #ddd;padding:6px;text-align:right;"&gt;Feb 16&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style="border:1px solid #ddd;padding:6px;text-align:left;"&gt;3&lt;/td&gt;
+      &lt;td style="border:1px solid #ddd;padding:6px;text-align:left;"&gt;How people understand numbers and visuals&lt;/td&gt;
+      &lt;td style="border:1px solid #ddd;padding:6px;text-align:right;"&gt;Feb 23&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style="border:1px solid #ddd;padding:6px;text-align:left;"&gt;4&lt;/td&gt;
+      &lt;td style="border:1px solid #ddd;padding:6px;text-align:left;"&gt;Collecting data: web, APIs, open sources&lt;/td&gt;
+      &lt;td style="border:1px solid #ddd;padding:6px;text-align:right;"&gt;Mar 2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style="border:1px solid #ddd;padding:6px;text-align:left;"&gt;5&lt;/td&gt;
+      &lt;td style="border:1px solid #ddd;padding:6px;text-align:left;"&gt;Dealing with numbers, samples, and surveys&lt;/td&gt;
+      &lt;td style="border:1px solid #ddd;padding:6px;text-align:right;"&gt;Mar 9&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style="border:1px solid #ddd;padding:6px;text-align:left;"&gt;6&lt;/td&gt;
+      &lt;td style="border:1px solid #ddd;padding:6px;text-align:left;"&gt;Mapping and geodata&lt;/td&gt;
+      &lt;td style="border:1px solid #ddd;padding:6px;text-align:right;"&gt;Mar 16&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style="border:1px solid #ddd;padding:6px;text-align:left;"&gt;7&lt;/td&gt;
+      &lt;td style="border:1px solid #ddd;padding:6px;text-align:left;"&gt;Designing effective visualizations&lt;/td&gt;
+      &lt;td style="border:1px solid #ddd;padding:6px;text-align:right;"&gt;Mar 23&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style="border:1px solid #ddd;padding:6px;text-align:left;"&gt;&lt;/td&gt;
+      &lt;td style="border:1px solid #ddd;padding:6px;text-align:left;"&gt;&lt;strong&gt;Spring break - 2 weeks!&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style="border:1px solid #ddd;padding:6px;text-align:right;"&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style="border:1px solid #ddd;padding:6px;text-align:left;"&gt;8&lt;/td&gt;
+      &lt;td style="border:1px solid #ddd;padding:6px;text-align:left;"&gt;Interactive graphics and narrative structures&lt;/td&gt;
+      &lt;td style="border:1px solid #ddd;padding:6px;text-align:right;"&gt;Apr 13&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style="border:1px solid #ddd;padding:6px;text-align:left;"&gt;9&lt;/td&gt;
+      &lt;td style="border:1px solid #ddd;padding:6px;text-align:left;"&gt;Writing with data&lt;/td&gt;
+      &lt;td style="border:1px solid #ddd;padding:6px;text-align:right;"&gt;Apr 20&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style="border:1px solid #ddd;padding:6px;text-align:left;"&gt;10&lt;/td&gt;
+      &lt;td style="border:1px solid #ddd;padding:6px;text-align:left;"&gt;Engaging with experts I&lt;/td&gt;
+      &lt;td style="border:1px solid #ddd;padding:6px;text-align:right;"&gt;Apr 27&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style="border:1px solid #ddd;padding:6px;text-align:left;"&gt;11&lt;/td&gt;
+      &lt;td style="border:1px solid #ddd;padding:6px;text-align:left;"&gt;Engaging with experts II&lt;/td&gt;
+      &lt;td style="border:1px solid #ddd;padding:6px;text-align:right;"&gt;May 4&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style="border:1px solid #ddd;padding:6px;text-align:left;"&gt;12&lt;/td&gt;
+      &lt;td style="border:1px solid #ddd;padding:6px;text-align:left;"&gt;Final presentations&lt;/td&gt;
+      &lt;td style="border:1px solid #ddd;padding:6px;text-align:right;"&gt;May 11&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+
+
+---
+# Grading and assignments
+
+| Component                           | Weight |
+|:-|-:|
+| 2(3) × data bits | 25% each |
+| 1 × final project  | 40% |
+| class participation 	| 10% |
+
+### Data bits
+
+- Short data journalism pieces.
+- Focus on one technique or concept (e.g., scraping, use of survey or geographic data, building an interactive visualization). 
+- You identify a small, newsworthy angle, carry out the necessary technical work, and present your findings in a brief written piece with at least one visualization.
+- All data bits have to be submitted by Session 10 (April 27).
+
+
+---
+# Grading and assignments
+
+| Component                           | Weight |
+|:-|-:|
+| 2(3) × data bits | 25% each |
+| 1 × final project  | 40% |
+| class participation 	| 10% |
+
+### Final data journalism project
+
+- Produce a full data-driven article that demonstrates your ability to conceive, investigate, analyze, and present a compelling story grounded in evidence. 
+- You identify a topic, gather and clean the data, conduct the analysis, create the visualizations, and craft a narrative that is accurate, accessible, and engaging.
+- You will workshop your idea, receive feedback from peers and instructors, and iterate through drafts.
+- Your final submission should read like a near-publishable piece of data journalism, integrating rigorous data work with clear and effective storytelling.
+- Deadline: May 15.
+
+
+---
+# Grading and assignments
+
+| Component                           | Weight |
+|:-|-:|
+| 2(3) × data bits | 25% each |
+| 1 × final project  | 40% |
+| class participation 	| 10% |
+
+### Participation
+
+- Participate actively.
+- Be prepared to discuss the readings.
+- There will be opportunities to contribute during and outside class.
+
+
+---
+# Setting expectations straight
+
+.pull-left[
+
+## What this course is about
+
+1. Understanding the origins, evolution, and current state of data journalism as a field of practice
+
+2. Getting hands-on experience with data journalism techniques and tools
+
+## What the course is not about
+
+- Learning to code (but you will have plenty of opportunities to do so)
+- Mastering specific software (but you will get introduced to a variety of tools)
+- Data journalism as research subject (at least not in depth, but we will touch on it)
+]
+
+.pull-right[
+&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="pics/mona-lisa.png" style="width:90%; height: auto;"&gt;
+&lt;/div&gt;
+]
+
+
+
+
+---
+class: inverse, center, middle
+name: djorigins
+
+# Origins of data journalism
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+class: exercise, center, middle
+
+# What is data journalism?
+
+.content-box-white[
+
+Share your personal definition.
+
+**Excalidraw - **[excalidraw.com](https://excalidraw.com/)
+]
+
+
+
+---
+# What is data journalism?
+
+.pull-left[
+## A working definition
+
+&gt; "Data journalism is journalism that uses data as the basis of its reporting. Data can be used to find stories, to tell stories, and to verify stories." - [Global Investigative Journalism Network](https://gijn.org/data-journalism/)
+
+&gt; “Obtaining, reporting on, curating and publishing data in the public interest" - [Jonathan Stray, 2011](http://jonathanstray.com/a-computational-journalism-reading-list)
+
+## Key elements
+- Data acquisition and cleaning
+- Statistical analysis and visualization
+- Storytelling with evidence
+- Transparency and reproducibility
+]
+
+.pull-right[
+&lt;br&gt;&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="pics/adrian-holovaty-dj-definition.png" style="width:100%; height: auto;"&gt;
+&lt;/div&gt;
+[Adrian Holovaty](https://www.holovaty.com/writing/data-is-journalism/)
+]
+
+
+---
+# A short history of data in journalism
+
+.pull-left[
+## Journalism has always been about evidence
+
+The use of data in journalism is not new. Journalists have long used numbers, records, and documents to hold power accountable.
+
+What has changed:
+- **Scale**: The volume of available data has exploded
+- **Tools**: Software puts advanced analyses within reach
+- **Speed**: Real-time data enables (near-)live reporting
+- **Reach**: Interactive graphics engage readers
+]
+
+.pull-right[
+&lt;br&gt;
+
+| Era | Key development |
+|:----|:----------------|
+| 1820s | First data tables in newspapers |
+| 1850s | Statistical graphics for advocacy |
+| 1960s | Social science methods in reporting |
+| 1980s | Computer-assisted reporting |
+| 2000s | Proliferation of digital data |
+| 2010s | Dedicated data teams in newsrooms |
+| 2020s | AI and automation |
+]
+
+
+---
+# The Guardian's data tables (1821)
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="pics/ManchesterGuardianbackfull.jpg" style="width:82%; height: auto;margin-top:-20px;""&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+## The Manchester Guardian
+
+In 1821, the (Manchester) Guardian published a table comparing the number of students attending school in Manchester and Salford together with average spending.
+
+The published data caused a sensation, showing how official estimates of only 8,000 children receiving free education were inaccurate - in fact the total was closer to 25,000.
+
+`Source` [The Guardian, 2011](https://www.theguardian.com/news/datablog/2011/sep/26/data-journalism-guardian)
+]
+
+
+---
+# Nightingale's rose (1858)
+
+.pull-left-wide[
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;img src="pics/Nightingale-mortality.jpg" style="width:100%; height: auto;"&gt;
+&lt;/div&gt;
+]
+
+.pull-right-small[
+
+## Advocacy through data viz
+
+One of the most influential graphs is by [Florence Nightingale](https://en.wikipedia.org/wiki/Florence_Nightingale), statistician and founder of modern nursing.
+
+Nightingale's Rose, a polar area diagram, illustrates seasonal sources of soldier mortality in the field hospital Nightingale managed during the Crimean War and highlights the role epidemic diseases. 
+
+Her work revolutionized points hygiene and other practices in hospitals, ultimately saving millions of lives.
+]
+
+
+---
+# Precision journalism (1960s–1970s)
+
+.pull-left-small[
+&lt;div align="center"&gt;
+&lt;img src="pics/Philip_meyer.jpg" width=210&gt;
+&lt;img src="pics/meyer-precision-journalism.jpg" width=210&gt;
+&lt;/div&gt;
+]
+
+.pull-right-wide[
+## Philip Meyer and the Detroit riots
+
+In 1967, [Philip Meyer](https://en.wikipedia.org/wiki/Philip_Meyer) applied social science survey methods to investigate the Detroit riots for the Detroit Free Press.
+
+Contrary to popular belief, rioters were not recent migrants from the South but long-term residents frustrated by lack of opportunity.
+
+Meyer's book *Precision Journalism* (1973) argued that reporters should use the same rigorous methods as social scientists.
+
+&gt; "Precision journalism is the use of social and behavioral science research methods to
+gather and analyze information for news stories."
+]
+
+---
+# Precision journalism (1960s–1970s)
+
+&lt;div align="center"&gt;
+&lt;img src="pics/detroit-free-press-1967.png" width=700&gt;
+&lt;/div&gt;
+
+`Source` [Detroit Free Press 1967](https://eu.freep.com/picture-gallery/news/2017/07/22/detroit-free-press-pages-during-the-1967-riots/103925508/)
+
+---
+# Precision journalism (1960s–1970s)
+
+
+&lt;div align="center"&gt;
+&lt;a href="https://www.youtube.com/watch?v=FbYR78vyhw0" target="_blank"&gt;
+&lt;img src="pics/philip-meyer-youtube.png" width="900"/&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+
+---
+# Computer-Assisted Reporting (1980s–1990s)
+
+.pull-left[
+## From mainframes to newsrooms
+
+The introduction of personal computers transformed investigative journalism.
+
+**Milestones:**
+- 1989: [Elliot Jaspin](https://en.wikipedia.org/wiki/Elliot_G._Jaspin) uses [database records of school bus drivers](https://www.rcfp.org/wp-content/uploads/imported/LOSTSTORIES.pdf) to expose school bus safety violations
+- 1992: The [Miami Herald](https://www.flickr.com/photos/juggernautco/sets/72157607210036175/) analyzes Hurricane Andrew damages
+- 1993: Founding of [NICAR](https://en.wikipedia.org/wiki/Investigative_Reporters_and_Editors) (National Institute for Computer-Assisted Reporting)
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;img src="pics/ire-nicar-logo.png" height=150&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;img src="pics/vintage-office-computers.jpg" height=250&gt;
+&lt;/div&gt;
+]
+
+
+---
+# The digital revolution (2000s)
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="pics/guardian-iraq-war-logs.png" height=400&gt;
+&lt;/div&gt;
+
+&lt;br&gt;
+`Source` [The Guardian, 2010](https://www.theguardian.com/world/iraq-war-logs)
+]
+
+.pull-right[
+## WikiLeaks and the new transparency
+
+The 2010 release of the [Iraq War Logs](https://en.wikipedia.org/wiki/Iraq_War_documents_leak) marked a turning point. For the first time, major news organizations collaborated to analyze massive document leaks, provided by [WikiLeaks](https://en.wikipedia.org/wiki/WikiLeaks).
+
+**What changed:**
+
+- Scale of data required new tools and methods
+- Collaboration across newsrooms became essential
+- Visualization helped make sense of complexity
+- Questions of security and ethics became central
+
+Outlets like The Guardian, New York Times, and Der Spiegel built interactive databases allowing readers to explore the data themselves.
+]
+
+
+---
+# The digital revolution (2000s)
+
+.pull-left[
+## The Panama Papers (2016)
+
+- **11.5 million documents** leaked from Mossack Fonseca
+- **400 journalists** from 80 countries collaborated
+- Exposed offshore holdings of world leaders, celebrities, and criminals
+- Led to resignations, investigations, and policy reforms worldwide
+
+**Technical innovations:**
+- Machine learning for document classification
+- Network analysis to map company relationships
+- Interactive tools for readers to explore connections
+
+`Source` [ICIJ, 2016](https://www.icij.org/investigations/panama-papers/)
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;img src="pics/icij-offshore-leaks-database.png" height=300&gt;
+&lt;/div&gt;
+
+`Source` [Offshore Leaks, ICIJ](https://offshoreleaks.icij.org/)
+
+
+
+]
+
+
+---
+# The rise of data teams (2010s)
+
+.pull-left[
+## Dedicated data journalism units
+
+Major news organizations established specialized teams. These teams combine journalists, developers, designers, and statisticians.
+
+
+| Newsroom | Team | Founded |
+|:---------|:-----|--------:|
+| The Guardian | Datablog | 2009 |
+| New York Times | The Upshot | 2014 |
+| FiveThirtyEight | — | 2008/2014 |
+| ProPublica | Data Team | 2008 |
+| The Economist | Data Team | ~2015 |
+| ZEIT Online | Data Journalism | ~2015 |
+
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="pics/FiveThirtyEight_Logo.svg.png" height=80&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;img src="pics/the-upshot.png" height=60&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;img src="pics/ProPublica_text_logo.svg.png" height=60&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;img src="pics/The_Economist_Logo.svg.png" height=60&gt;
+&lt;/div&gt;
+]
+
+
+
+
+
+---
+class: inverse, center, middle
+name: djtoday
+
+# Data journalism today
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+
+---
+# Data journalism today
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="pics/ft-covid-dashboard.png" height=450&gt;
+&lt;/div&gt;
+
+`Source` [Financial Times COVID Tracker](https://ig.ft.com/coronavirus-chart/)
+]
+
+.pull-right[
+## COVID-19: A stress test for data journalism
+
+The pandemic demonstrated both the power and limitations of data journalism:
+
+**Successes:**
+- Real-time tracking dashboards (Johns Hopkins, FT)
+- Explaining exponential growth to general audiences
+- Holding governments accountable for data reporting
+
+**Challenges:**
+- Data quality varied wildly across countries
+- Uncertainty was difficult to communicate
+- Misinformation spread faster than corrections
+]
+
+
+---
+# The value proposition of data journalism
+
+.pull-left[
+## Why data matters for journalism
+
+- **Accountability**: Data enables systematic investigation of institutions
+- **Scale**: Stories impossible to tell through traditional reporting
+- **Precision**: Quantitative evidence strengthens claims
+- **Engagement**: Interactive graphics invite reader exploration
+- **Trust**: Transparent methods build credibility
+]
+
+.pull-right[
+## The fundamental tension
+
+Data journalism must balance:
+- Accuracy vs. accessibility
+- Complexity vs. clarity
+- Speed vs. verification
+- Engagement vs. manipulation
+]
+
+
+---
+# Data journalism as research subject
+
+.pull-left[
+## An emerging field of study
+
+Data journalism has become an object of scholarly inquiry in **communication** and **journalism studies**.
+
+**Research questions:**
+- How do data teams operate within newsrooms?
+- What skills define the data journalist?
+- How does data journalism differ across countries?
+- What ethical challenges are unique to data work?
+
+**Key outlets:**
+- *Digital Journalism*
+- *Journalism Studies*
+- *Journalism Practice*
+- *Journalism*
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="pics/digital-journalism.png" height=250&gt;
+&lt;img src="pics/journalism-studies.webp" height=250&gt;
+&lt;img src="pics/journalism-practice.jpg" height=250&gt;
+&lt;img src="pics/journalism.jpg" height=250&gt;
+
+&lt;/div&gt;
+]
+
+
+---
+# Effects of data journalism
+
+.pull-left[
+## Does data journalism work?
+
+Researchers study how audiences respond to data-driven content.
+
+**Potential benefits:**
+- Increased credibility and trust
+- Better comprehension of complex issues
+- Reduced misperceptions
+- Higher engagement
+
+**Potential risks:**
+- Overconfidence in uncertain forecasts
+- Demobilization effects from probabilistic reporting
+- Misinterpretation of statistics
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="pics/westwood-messing-lelkes.png" width=370&gt;
+&lt;/div&gt;
+
+`Source` [Westwood, Messing &amp; Lelkes (2020)](https://www.journals.uchicago.edu/doi/abs/10.1086/708682)
+
+]
+
+
+---
+class: inverse, center, middle
+name: discussion
+
+# Discussion
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+class: exercise, middle
+
+# Class discussion: Shaping our semester together
+
+.content-box-white[
+
+Data journalism is learned by doing. Let's discuss how we can make this semester more **hands-on** and **collaborative**.
+
+### Possible activities
+
+- **Build a class blog** – publish our work and advertise it
+- **Develop a common brand** – logo, style guide, identity
+- **Co-run the talk series** – moderate sessions
+- **Organize a field visit** – tour a newsroom data team
+- **Weekly critique** – analyze one DJ piece together
+
+## Discussion questions
+
+1. **Which activities interest you most?**
+2. **What skills would you like to develop this semester?**
+3. **Are there other ideas we should consider?**
+
+]
+
+
+---
+# Coming up next week
+
+&lt;br&gt;
+
+## Global Models of Data Journalism
+
+1. Read **Ilyuk** to make yourself familiar with the MH17 case and the rise of Bellingcat.
+
+2. From **Mutsvairo et al.**'s "Data journalism in the Global South", choose two chapters and be prepared to discuss them.
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+  "highlightStyle": "github",
+  "highlightLines": true,
+  "countIncrementalSlides": false,
+  "ratio": "16:9",
+  "hash": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+<style>
+  .logo {
+    background-image: url("../hertieschool-neg.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 1.5em;
+    right: 1em;
+    width: 150px;
+    height: 128px;
+    z-index: 0;
+  }
+</style>
+  
+  <script>
+  document
+.querySelectorAll(
+  '.remark-slide-content' +
+    ':not(.title-slide)' +
+    ':not(.inverse)' +
+	
+    // add additional classes to exclude here, e.g.
+  // ':not(.inverse)' +
+    ':not(.hide-logo)'
+)
+.forEach(el => {
+  el.innerHTML += '<div class="logo"></div>';
+});
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
