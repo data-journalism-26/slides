@@ -437,6 +437,69 @@ Her work revolutionized points hygiene and other practices in hospitals, ultimat
 
 
 ---
+# An early data journalism disaster
+
+<div align="center">
+<img src="pics/literary-digest-1.png" height=520>
+</div>
+
+---
+# Literary Digest's 1936 election poll
+
+.pull-left[
+## Background
+
+- The weekly magazine *Literary Digest* had correctly predicted the outcomes of all presidential elections between 1920 and 1932 using straw polls.
+- Their 1936 poll of 10m voters indicated that Republican candidate Alfred Landon would be the overwhelming winner.
+
+## Aftermath
+
+- The poll was a disaster: Landon lost in a landslide to Franklin D. Roosevelt, who carried 46 out of 48 states and won 60.8% of the popular vote.
+- The outcome was correctly predicted by George Gallup with sample of 50k people.
+- The magazine went bankrupt in 1938.
+]
+
+.pull-right[
+<div align="center">
+<img src="pics/fdr-happy.jpeg" height=480>
+</div>
+]
+
+
+---
+# Literary Digest's 1936 election poll
+
+<div align="center">
+<img src="pics/literary-digest-2.png" height=520>
+</div>
+
+---
+# Literary Digest's 1936 election poll
+
+.pull-left[
+## Anatomy of a debacle
+
+1. **Sampling frame**: (1) own readers, (2) registered automobile owners, (3) registered telephone users
+2. **Data collection**: everyone was mailed a mock ballot and asked to return marked ballot
+3. **Response rate**: 2.4m out of 10m
+
+**Selection bias** as a consequence of **coverage** and **nonresponse bias**: overrepresentation of wealthier individuals with a preference for Landon
+
+
+<br><br><br><br><br>
+`Source` [Peverill Squire, 1988, Public Opinion Quarterly](https://www.jstor.org/stable/2749114)
+]
+
+.pull-right[
+<div align="center">
+<img src="pics/literary-digest-squire-1.png" width=350>
+<img src="pics/literary-digest-squire-2.png" width=350>
+<img src="pics/literary-digest-squire-3.png" width=350>
+</div>
+]
+
+
+---
 # Precision journalism (1960s–1970s)
 
 .pull-left-small[
@@ -508,10 +571,9 @@ The introduction of personal computers transformed investigative journalism.
 .pull-left[
 <div align="center">
 <br>
-<img src="pics/guardian-iraq-war-logs.png" height=400>
+<img src="pics/guardian-iraq-war-logs.png" height=270>
 </div>
 
-<br>
 `Source` [The Guardian, 2010](https://www.theguardian.com/world/iraq-war-logs)
 ]
 
@@ -585,12 +647,12 @@ Major news organizations established specialized teams. These teams combine jour
 
 .pull-right[
 <div align="center">
-<br>
-<img src="pics/FiveThirtyEight_Logo.svg.png" height=80>
+<br><br>
+<img src="pics/FiveThirtyEight_Logo.svg.png" height=50>
 <br><br>
 <img src="pics/the-upshot.png" height=60>
 <br><br>
-<img src="pics/ProPublica_text_logo.svg.png" height=60>
+<img src="pics/ProPublica_text_logo.svg.png" height=50>
 <br><br>
 <img src="pics/The_Economist_Logo.svg.png" height=60>
 </div>
@@ -613,8 +675,9 @@ name: djtoday
 # Data journalism today
 
 .pull-left[
+<br>
 <div align="center">
-<img src="pics/ft-covid-dashboard.png" height=450>
+<img src="pics/ft-covid-dashboard.png" height=350>
 </div>
 
 `Source` [Financial Times COVID Tracker](https://ig.ft.com/coronavirus-chart/)
@@ -712,15 +775,15 @@ Researchers study how audiences respond to data-driven content.
 - Overconfidence in uncertain forecasts
 - Demobilization effects from probabilistic reporting
 - Misinterpretation of statistics
+
+`Source (right)` [Westwood, Messing & Lelkes (2020)](https://www.journals.uchicago.edu/doi/abs/10.1086/708682)
+
 ]
 
 .pull-right[
 <div align="center">
-<img src="pics/westwood-messing-lelkes.png" width=370>
+<img src="pics/westwood-messing-lelkes.png" width=400>
 </div>
-
-`Source` [Westwood, Messing & Lelkes (2020)](https://www.journals.uchicago.edu/doi/abs/10.1086/708682)
-
 ]
 
 
@@ -765,7 +828,10 @@ Data journalism is learned by doing. Let's discuss how we can make this semester
 
 ## Global Models of Data Journalism
 
-1. Read **Ilyuk** to make yourself familiar with the MH17 case and the rise of Bellingcat.
+<br> 
+1. Read **Yuliya Ilyuk**'s *Journalistic investigations in the digital age of post-truth politics* to make yourself familiar with the MH17 case and the rise of Bellingcat.
 
-2. From **Mutsvairo et al.**'s "Data journalism in the Global South", choose two chapters and be prepared to discuss them.
+2. From **Mutsvairo et al.**'s *"Data journalism in the Global South"*, choose two chapters and be prepared to discuss them.
+
+3. Engage with a data journalism project (to be shared).
 
