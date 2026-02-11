@@ -5,6 +5,8 @@
 
 1. What is data journalism? \[[**.html**](https://raw.githack.com/data-journalism-26/slides/main/01-what-is-data-journalism/01-what-is-data-journalism.html) | [**.pdf**](https://raw.githack.com/data-journalism-26/slides/main/01-what-is-data-journalism/01-what-is-data-journalism.pdf) | [**.Rmd**](https://raw.githack.com/data-journalism-26/slides/main/01-what-is-data-journalism/01-what-is-data-journalism.Rmd)\]
 
+2. Global models of data journalism \[[**.html**](https://raw.githack.com/data-journalism-26/slides/main/02-global-models/002-global-models.html) | [**.pdf**](https://raw.githack.com/data-journalism-26/slides/main/02-global-models/02-global-models.pdf) | [**.Rmd**](https://raw.githack.com/data-journalism-26/slides/main/02-global-models/02-global-models.Rmd)\]
+
 ## Summary
 
 This is a course taught by [Simon Munzert](https://simonmunzert.github.io/) at the [Hertie School, Berlin](https://www.hertie-school.org/en/).

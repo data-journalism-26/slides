@@ -1,0 +1,666 @@
+---
+title: "Data Journalism"
+subtitle: "Session 2: Global models of data journalism"
+author: "Simon Munzert"
+institute: "Hertie School | [GRAD-E1493](https://github.com/data-journalism-26)" #"`r format(Sys.time(), '%d %B %Y')`"
+output:
+  xaringan::moon_reader:
+    includes:
+      after_body: "../add_hertie_logo.html"
+      in_header: "../my_header.html"
+    css: [default,'../simons-touch.css', metropolis, metropolis-fonts] 
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: '16:9'
+      hash: true
+---
+
+
+```{css, echo=FALSE} 
+@media print { # print out incremental slides; see https://stackoverflow.com/questions/56373198/get-xaringan-incremental-animations-to-print-to-pdf/56374619#56374619
+  .has-continuation {
+    display: block !important;
+  }
+}
+```
+
+```{r setup, include=FALSE}
+# figures formatting setup
+options(htmltools.dir.version = FALSE)
+library(knitr)
+opts_chunk$set(
+  prompt = T,
+  fig.align="center", #fig.width=6, fig.height=4.5, 
+  # out.width="748px", #out.length="520.75px",
+  dpi=300, #fig.path='Figs/',
+  cache=T, #echo=F, warning=F, message=F
+  engine.opts = list(bash = "-l")
+  )
+
+## Next hook based on this SO answer: https://stackoverflow.com/a/39025054
+knit_hooks$set(
+  prompt = function(before, options, envir) {
+    options(
+      prompt = if (options$engine %in% c('sh','bash')) '$ ' else 'R> ',
+      continue = if (options$engine %in% c('sh','bash')) '$ ' else '+ '
+      )
+})
+
+library(tidyverse)
+library(hrbrthemes)
+library(fontawesome)
+```
+
+# Table of contents
+
+</br></br>
+
+1. [Data journalism in the Global South](#globalsouth)
+
+2. [Open Source Intelligence (OSINT)](#osint)
+
+3. [Discussion](#discussion)
+
+
+---
+class: inverse, center, middle
+name: globalsouth
+
+# Data journalism in the Global South
+<html><div style='float:left'></div><hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/></html>
+
+
+---
+# Why study data journalism beyond the West?
+
+.pull-left[
+## The problem
+
+- Most data journalism research focuses on Western newsrooms
+- Different contexts create different challenges and opportunities
+- Innovation often happens at the periphery
+
+## Mutsvairo, Bebawi & Borges-Rey (2020)
+
+- How data journalism develops in non-Western contexts
+- The role of infrastructure, politics, and resources
+- Alternative models and innovations
+]
+
+.pull-right[
+<div align="center">
+<img src="pics/mutsvairo-book.jpg" style="width:70%; height: auto;">
+</div>
+]
+
+
+---
+class: exercise
+
+# Group discussion
+
+.pull-left[
+
+<br>
+
+**In groups of 3, give each other a brief summary of one chapter you read focusing on 1-2 key take-aways or interesting facts your learned.**
+
+**Then, discuss the following questions in your group:**
+
+1. What are the main challenges facing data journalism in the Global South? How do they differ from Western contexts?
+
+2. What unique opportunities or innovations have emerged in these contexts?
+
+]
+
+.pull-right[
+<div align="center">
+<img src="pics/mutsvairo-book.jpg" style="width:70%; height: auto;">
+</div>
+]
+
+
+
+
+---
+# Key insights from the Global South
+
+.pull-left[
+## Common challenges
+
+**Infrastructure limitations:**
+- Limited access to open data
+- Weak freedom of information laws
+
+**Resource constraints:**
+- Small newsrooms with limited budgets for investigative work
+- Few journalists trained in data skills
+
+**Political obstacles:**
+- Government restrictions on information
+- Threats to journalists' safety
+- Censorship and self-censorship
+]
+
+.pull-right[
+## Unique opportunities
+
+**Innovation from necessity:**
+- Collaboration with civic tech organizations
+- Mobile-first approaches
+
+**Different priorities:**
+- Focus on accountability in fragile democracies
+- Exposing corruption as core mission
+- Building trust in divided societies
+
+**Global networks:**
+- Cross-border investigations (Panama Papers, Paradise Papers)
+- Skill-sharing across regions
+- Building transnational communities
+]
+
+
+---
+# Case study: La Nación Data (Argentina)
+
+.pull-left-wide2[
+## La Nación Data
+
+**Founded:** 2012 within Argentina's leading newspaper | **Model:** Pioneered data-supported investigative journalism in Latin America
+
+## The Corruption Notebooks (2018)
+
+**What they got:** Handwritten notebooks from the driver of Roberto Baratta, Secretary under the Kirchner administrations (2003-2015). The notebooks documented every bribe delivery route for a decade.
+
+**The investigation:** Team spent 7 months digitizing 8 notebooks before going public; cross-checked all payments against tenders and public contracts; built network visualizations showing web of corruption
+
+**The impact:** 73 people prosecuted, including fmr. President Cristina Kirchner, 40 imprisoned, 40 confessed, $600 million seized
+]
+
+.pull-right-small2[
+<div align="center">
+<img src="pics/la-nacion-notebooks.webp" style="width:80%; height: auto;">
+<img src="pics/notebooks-network.png" style="width:100%; height: auto;">
+
+</div>
+
+[The investigation (Wayback machine)](https://web.archive.org/web/20200505085634/https://blogs.lanacion.com.ar/projects/data/the-drivers-corruption-notebooks-argentine-massive-bribery-scandal/) | [La Nación Data](https://www.lanacion.com.ar/data/) | [Wikipedia article](https://en.wikipedia.org/wiki/Notebook_scandal) | [Online Journalism Award page](https://awards.journalists.org/entries/drivers-notebooks-exposed-argentinas-greatest-corruption-scandal-ever-10-years-and-millions-of-cash-bribes-in-bags/)
+]
+
+
+
+
+---
+# Case study: Caixin (China)
+
+.pull-left-wide2[
+## Caixin Media
+
+**Founded:** 2009 by editor-in-chief Hu Shuli | **VisLab:** Established 2013 by Zhimin Huang ("first person to do data journalism in China") | **Awards:** 2018 GEN Award for Best Large Data Journalism Team (first Chinese outlet)
+
+## Zhou Yongkang case (2014)
+
+**The challenge:** Zhou was former head of China's security services, being investigated for corruption; Caixin wrote 60,000-word investigative story but worried "people might get tired reading"
+
+**The solution:** Created network visualization showing Zhou's web of power; mapped connections between officials and companies;
+
+**Impact:** 4 million hits within one week, 20 million social media views; "considered a turning point in Chinese journalism"; created appetite for visual stories that didn't exist before
+]
+
+.pull-right-small2[
+<div align="center">
+<img src="pics/caixin-yongkang.gif" style="width:100%; height: auto;">
+</div>
+
+[Zhou's Power Base (Chinese)](https://datanews.caixin.com/2014/zhoushicailu/) | [Caixin Data News](http://datanews.caixin.com/) | [GIJN article](https://gijn.org/stories/bringing-data-journalism-to-china/)
+
+**A strategy for authoritarian contexts:** Only use publicly available data; focus on business/finance/environment not direct political criticism; show patterns not individuals
+]
+
+
+---
+# What Western journalism can learn
+
+.pull-left-wide[
+## Beyond the technology hype
+
+Data and open source investigative journalism in the Global South reveals that **data-informed journalism is not necessarily about sophisticated tools**, but about:
+
+- Working with limited resources creatively
+- Capitalizing on communities and networks
+- Adapting to local contexts and constraints
+
+## Alternative models of practice
+
+**Civic tech collaboration:** In many contexts, civic organizations do the data work that traditional media cannot or will not do
+
+
+**Mobile-first:** Innovation driven by how audiences actually access information
+]
+
+.pull-right-small[
+<div align="center">
+<img src="pics/amabhungane-logo.png" style="width:100%; height: auto;">
+<br><br>
+<img src="pics/arij-logo.png" style="width:100%; height: auto;">
+<br><br>
+<img src="pics/lighthouse-reports.jpg" style="width:100%; height: auto;">
+<br><br>
+<img src="pics/correctiv-logo.png" style="width:100%; height: auto;">
+</div>
+]
+
+
+---
+class: exercise
+
+# DJ critique
+
+.pull-left[
+
+## Discuss
+
+1. **Sources & access:** What data did they use and how did they get it?
+
+2. **Transparency:** Could you reproduce their analysis? What's missing?
+
+3. **Visual choices:** Does their best graphic actually work? What would you fix?
+
+4. **"So what":** What's the key take-away? And what role does the data play for establishing it?
+]
+
+.pull-right-center[
+<div align="center">
+<img src="pics/bellingcat-idf.png" style="width:80%; height: auto;">
+</div>
+
+`Source`[Bellingcat 2024](https://www.bellingcat.com/news/2024/04/29/weve-become-addicted-to-explosions-the-idf-unit-responsible-for-demolishing-homes-across-gaza/)
+]
+
+
+---
+class: inverse, center, middle
+name: osint
+
+# Open Source Intelligence (OSINT)
+<html><div style='float:left'></div><hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/></html>
+
+
+---
+# What is Open Source Intelligence?
+
+.pull-left[
+## Definition
+
+> "Open Source Intelligence (OSINT) is the practice of gathering, analyzing, and disseminating information from publicly available sources to address specific intelligence requirements.."
+> 
+> — Esteban Borges, [RecordedFuture.com](https://www.recordedfuture.com/blog/open-source-intelligence-definition)
+
+**For journalism:** Using publicly available information—social media, satellite imagery, public records—to investigate events and hold power accountable.
+
+**Key principle:** Anyone with internet access can verify the claims.
+]
+
+.pull-right[
+## OSINT sources
+
+- Social media posts (Twitter/X, Facebook, VK, Telegram)
+- Satellite/aerial imagery (Google Earth, Planet Labs)
+- Public databases and registries
+- Flight tracking (Flightradar24)
+- Webcams and dashcams
+- Leaked documents
+- Digital archives
+
+## Why OSINT matters
+
+- Traditional sources blocked or unreliable
+- Real-time documentation of events
+- Verification of official narratives
+- Accountability when authorities fail
+]
+
+
+---
+# The OSINT toolkit
+
+.pull-left[
+## Geolocation tools
+
+- **Google Maps / Street View:** Matching landmarks
+- **Google Earth / Satellite imagery:** Terrain, shadows, timestamps
+- **SunCalc:** Determining time from shadows
+- **Yandex Maps:** Often better for Eastern Europe/Russia
+
+## Social media tools
+
+- **Social media search/APIs:** Finding relevant posts
+- **InVID / WeVerify:** Video verification
+- **Reverse image search:** Finding original sources
+]
+
+.pull-right[
+## Verification techniques
+
+- **Geolocation:** Matching photos/videos to real locations
+- **Chronolocation:** Determining when content was created
+- **Image forensics:** Detecting manipulation
+- **Cross-referencing:** Multiple sources confirming facts
+- **Metadata analysis:** Extracting hidden information
+
+## Presentation tools
+
+- **ArcGIS StoryMaps:** Interactive timelines with map
+- **TimelineJS:** Narrative timelines
+- **Google My Maps:** Custom annotated maps
+]
+
+
+
+---
+# Case study: Bellingcat and MH17
+
+.pull-left[
+## The tragedy
+
+**July 17, 2014:** Malaysia Airlines Flight 17 shot down over Eastern Ukraine
+- 298 people killed
+- Boeing 777 from Amsterdam to Kuala Lumpur
+- Crashed near Hrabove in conflict zone
+
+## The information war
+
+**Multiple competing narratives:**
+- Ukraine blamed Russian-backed separatists
+- Russia blamed Ukrainian military
+- Separatists claimed it was Ukrainian fighter jet
+- Massive disinformation campaign
+]
+
+.pull-right[
+<div align="center">
+<img src="pics/ukraine-mh17-social-media.jpg" style="width:70%; height: auto;">
+</div>
+
+<span style="font-size: 0.8em; line-height: 1.3; display: block; margin: 0.2em 0;"><b>Translation:</b> "A witness sent a photo of the moment of the missile launch. On the horizon [there are] power lines between Lutuhyne and Tsof #Torez border #Snizhne"</span>
+]
+
+
+---
+# Bellingcat's investigation approach
+
+.pull-left[
+## What is Bellingcat?
+
+**Founded:** 2014 by Eliot Higgins
+**Mission:** Open-source investigative journalism
+**Key principle:** Radical transparency—show your work
+
+## The MH17 investigation
+
+**Core finding:** [MH17 was shot down by a Russian Buk missile launcher](https://en.wikipedia.org/wiki/Malaysia_Airlines_Flight_17) transported from Russia to Ukraine and back
+
+**Evidence trail:**
+- Social media posts showing the Buk
+- Satellite imagery
+- Videos and photographs
+- Vehicle identification numbers
+- Analysis of blast patterns
+]
+
+.pull-right-center[
+<div align="center">
+<br>
+<img src="pics/bellingcat-logo.png" style="width:60%; height: auto;">
+<br><br>
+<img src="pics/eliot-higgins.jpg" style="width:60%; height: auto;">
+</div>
+
+[Eliot Higgins](https://de.wikipedia.org/wiki/Eliot_Higgins), Bellingcat founder
+]
+
+
+---
+# How they did it: The Buk trail
+
+.pull-left[
+## Step 1: Initial sightings
+
+- Social media posts showed a Buk missile launcher in Eastern Ukraine
+- Videos showed a Buk being transported on a truck
+- Posts were geolocated to specific Ukrainian towns
+
+## Step 2: Identifying the Buk
+
+- Close analysis of photos revealed unique markings
+- Serial numbers and distinctive features matched
+- The same Buk appeared in multiple locations
+
+## Step 3: Tracing its route
+
+- Matched locations from videos to Google Maps
+- Used Street View to verify landmarks
+- Tracked the Buk from Russia to Ukraine and back
+]
+
+.pull-right-center[
+<div align="center">
+<img src="pics/buk-identification.jpg" style="width:72%; height: auto;">
+<br>
+Matching distinctive features across multiple photos
+</div>
+
+`Source` [Bellingcat](https://www.bellingcat.com/app/uploads/2015/10/MH17-The-Open-Source-Evidence-EN.pdf)
+]
+
+
+---
+# How they did it: The Buk trail
+
+.pull-left[
+## Step 1: Initial sightings
+
+- Social media posts showed a Buk missile launcher in Eastern Ukraine
+- Videos showed a Buk being transported on a truck
+- Posts were geolocated to specific Ukrainian towns
+
+## Step 2: Identifying the Buk
+
+- Close analysis of photos revealed unique markings
+- Serial numbers and distinctive features matched
+- The same Buk appeared in multiple locations
+
+## Step 3: Tracing its route
+
+- Matched locations from videos to Google Maps
+- Used Street View to verify landmarks
+- Tracked the Buk from Russia to Ukraine and back
+]
+
+.pull-right-center[
+<div align="center">
+<br>
+<img src="pics/buk-route-map2.jpg" style="width:80%; height: auto;">
+<br>
+Reconstructed route of the Buk missile launcher
+</div>
+
+`Source` [Bellingcat](https://www.bellingcat.com/app/uploads/2015/10/MH17-The-Open-Source-Evidence-EN.pdf)
+]
+
+
+
+---
+# The crowdsourcing model
+
+.pull-left[
+## How Bellingcat operates
+
+- Open call for evidence
+- Community of contributors
+- Public methodology
+- Peer review through transparency
+
+## Why crowdsourcing worked
+
+- One team couldn't analyze all available material
+- Rapid response as evidence appeared
+- Contributors brought specialized knowledge
+- Multiple people checking each other's work
+- Evidence saved before deletion
+]
+
+.pull-right-center[
+<div align="center">
+<br>
+<img src="pics/bellingcat-vehicle-tracking.png" style="width:80%; height: auto;">
+<br>
+</div>
+
+`Source` [Bellingcat](https://www.bellingcat.com/resources/2015/02/03/ukraine-conflict-vehicle-tracking-launch/)
+]
+
+
+---
+# Impact and credibility
+
+.pull-left[
+## Media and official recognition
+
+Bellingcat's findings were cited by international media worldwide, used by the official Joint Investigation Team, and confirmed by intelligence agencies
+
+**2018:** Netherlands and Australia formally blamed Russia for the downing of MH17
+
+**2022:** Dutch court found three men guilty of murder
+
+## Accountability in the information age
+
+- Official investigations took years
+- Bellingcat published findings within weeks
+- Countered Russian disinformation
+- Demonstrated power of open-source methods
+]
+
+.pull-right-center[
+<div align="center">
+<br>
+<img src="pics/bellingcat-guardian.png" style="width:60%; height: auto;">
+<img src="pics/bellingcat-lemonde.png" style="width:60%; height: auto;">
+</div>
+
+]
+
+
+---
+# The ethics and challenges of OSINT
+
+.pull-left[
+## Ethical considerations
+
+**Privacy concerns:**
+- Using personal social media posts
+- Balancing transparency and protection
+
+**Verification burden:**
+- Risk of spreading misinformation
+- What standards of proof are sufficient?
+
+**Trauma and well-being:**
+- Reviewing graphic content
+- Secondary trauma for investigators
+- Respecting victims and families
+]
+
+.pull-right[
+## Technical challenges
+
+**The deepfake era:**
+- AI-generated content
+- Increasingly sophisticated manipulation
+
+**Information overload:**
+- Too much data to analyze
+- Automated disinformation campaigns
+
+**Platform dependence:**
+- Social media can delete evidence
+- Platforms change access policies
+
+]
+
+
+---
+# Practice your OSINT skills!
+
+.pull-left-wide2[
+## What are OSINT challenges?
+
+Online games and puzzles that train geolocation, verification, and open-source research skills. Ranging from "where was this photo taken?" to full investigations using satellite imagery, social media, and public records. Many are free and surprisingly addictive.
+
+## My picks
+
+**[WhenTaken](https://whentaken.com)** — Guess where *and when* a photo was taken. You're reading landscape, architecture, clothing, and signage all at once. Free, no account needed, immediately playable.
+
+**[GeoGuessr](https://www.geoguessr.com)** — Drops you into Google Street View somewhere in the world. Builds visual intuition for landscape, architecture, and road markings. Free tier is limited but enough to get the idea.
+
+**[Bellingcat Open Source Challenge](https://challenge.bellingcat.com)** — Monthly challenges designed by Bellingcat investigators. Goes well beyond geolocation: ship tracking, satellite imagery, flight data, image verification.
+]
+
+.pull-right-small2[
+<div align="center">
+<br>
+<img src="pics/whentaken.png" style="width:100%; height: auto; margin-bottom: 10px;">
+<img src="pics/bellingcat-challenge.png" style="width:100%; height: auto;">
+</div>
+]
+
+
+---
+class: inverse, center, middle
+name: discussion
+
+# Discussion
+<html><div style='float:left'></div><hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/></html>
+
+
+---
+class: exercise
+
+# Class discussion
+
+.pull-left[
+
+## Discussion questions
+
+1. **OSINT and verification:** After reading about Bellingcat's MH17 investigation, what do you see as the biggest strengths and weaknesses of crowdsourced, open-source investigations?
+
+2. **Trust and transparency:** Does showing your methods (like Bellingcat does) actually increase trust? 
+
+3. **Ethics and access:** What are the ethical boundaries of using people's social media posts for investigations?
+
+4. **The future:** How might AI change OSINT journalism?
+
+]
+
+.pull-right[
+
+]
+
+
+---
+# Coming up next week
+
+<br>
+
+## How people understand numbers and visuals
+
+<br> 
+**Preparation:**
+
+1. Read the assigned papers on data visualization and numeracy
+2. Think about examples of visualizations that confused or enlightened you
+3. Consider how you personally process quantitative information

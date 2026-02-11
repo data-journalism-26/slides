@@ -10,8 +10,9 @@ body { font-family: 'Droid Serif', 'Palatino Linotype', 'Book Antiqua', Palatino
                      }
 
 .exercise {
- background-color: #BF2231;
- text-shadow: none;
+  background-color: #FFFFFF;
+  border-top: 80px solid #BF2231;
+  text-shadow: none;
 }
 							
 							
