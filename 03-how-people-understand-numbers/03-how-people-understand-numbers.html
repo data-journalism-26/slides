@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Data Journalism</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Simon Munzert" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+    <script src="https://tikzjax.com/v1/tikzjax.js"></script>
+    <link rel="stylesheet" href="../simons-touch.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Data Journalism
+]
+.subtitle[
+## Session 3: How people understand numbers and visuals
+]
+.author[
+### Simon Munzert
+]
+.institute[
+### Hertie School | <a href="https://github.com/data-journalism-26">GRAD-E1493</a>
+]
+
+---
+
+class: exercise
+
+&lt;style type="text/css"&gt;
+@media print {
+  .has-continuation {
+    display: block !important;
+  }
+}
+&lt;/style&gt;
+
+
+
+
+
+
+
+
+# DJ critique
+
+.pull-left[
+
+## Discuss
+&lt;br&gt;
+
+1. **"So what":** What are the key take-away? And what role does the data play for establishing it?
+
+2. **Sources &amp; access:** What data did they use and how did they get it? Could you reproduce their analysis? What's missing?
+
+3. **Design and storytelling:** Does their scrollytelling approach work for you? Are there flaws in visual and narrative design that you would want to be fixed? How?
+]
+
+.pull-right-center[
+&lt;div align="center"&gt;
+&lt;img src="pics/wired-suspicion-machine.png" style="width:80%; height: auto;"&gt;
+&lt;/div&gt;
+
+`Source` [Wired 2023](https://www.wired.com/story/welfare-state-algorithms/)
+]
+
+
+---
+# Today
+
+&lt;/br&gt;&lt;/br&gt;
+
+1. [Data and visual literacy in the public](#dataliteracy)
+
+2. [Communicating data: evidence on what works](#evidence)
+
+3. [Communicating uncertainty](#uncertainty)
+
+4. [Discussion](#discussion)
+
+
+---
+# Your readers are not statisticians
+
+.pull-left-wide2[
+
+## The core tension
+
+You work hard to get the numbers right — but does your audience get them?
+
+Data journalism often assumes a **numerically literate reader**. That assumption is likely wrong.
+
+
+## What's at stake
+
+- Misread statistics → misformed opinions on policy, health, elections
+- Misleading visuals → distorted perception of risk or scale
+- Overconfident forecasts → eroded trust in media and science
+
+
+This session is about the **empirical evidence** on how people actually process data and visuals — and what happens if things go wrong.
+
+]
+
+.pull-right-small2[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="pics/mathematician-newspaper-paulos.jpg" style="width:80%; height:auto;"&gt;
+&lt;/div&gt;
+]
+
+
+---
+# Also, journalists are not statisticians (but people with incentives)
+
+&lt;div align="center"&gt;
+&lt;img src="pics/media-mentions-causes-of-death.png" style="width:70%; height:auto;"&gt;
+&lt;/div&gt;
+
+
+---
+# Also, journalists are not statisticians (but people with incentives)
+
+&lt;div align="center"&gt;
+&lt;img src="pics/overrepresentation-deaths-media-coverage.png" style="width:70%; height:auto;"&gt;
+&lt;/div&gt;
+
+
+
+---
+class: inverse, center, middle
+name: dataliteracy
+
+# Data and visual literacy in the public
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+# How numerate is the public?
+
+.pull-left-small[
+&lt;div align="center"&gt;
+&lt;img src="pics/oecd-numeracy-economist.jpg" style="width:60%; height:auto;"&gt;
+&lt;/div&gt;
+`Source` [The Economist, Dec 2024](https://www.economist.com/finance-and-economics/2024/12/10/are-adults-forgetting-how-to-read)
+]
+
+.pull-right-wide[
+
+## OECD Programme for the International Assessment of Adult Competencies (PIAAC)
+
+- ~160,000 adults across 33 countries tested on literacy, numeracy, problem-solving
+- **~50% of adults in OECD countries score at or below Level 2** (out of 5) on numeracy
+- Level 2 = can handle simple arithmetic with whole numbers; struggles with percentages, fractions, probability
+
+## What this means for our audience
+
+- Percentages and ratios already challenge many readers
+- "1 in 100,000" vs "0.001%" — same, but not perceived as same
+- Denominator neglect: absolute numbers feel bigger than rates
+]
+
+
+---
+# The Berlin Numeracy Test
+
+.pull-left-wide[
+&lt;div align="center"&gt;
+&lt;img src="pics/berlin-numeracy-test-cokely.png" style="width:70%; height:auto;"&gt;
+&lt;/div&gt;
+
+## Related results
+
+- [Original paper](https://www.cambridge.org/core/journals/judgment-and-decision-making/article/measuring-risk-literacy-the-berlin-numeracy-test/A9B26516D12D48EFA4BD3560E2001E8E): mean score ~1.6/4 across university samples; score predicts investment decisions, medical risk understanding
+- Framing effects are larger for low-numeracy readers ([Peters et. al 2006](https://pubmed.ncbi.nlm.nih.gov/16683928/); [Zhu and Feldman 2023](https://online.ucpress.edu/collabra/article/9/1/77608/196651/Revisiting-the-Links-Between-Numeracy-and-Decision))
+]
+
+.pull-right-small[
+&lt;div align="center"&gt;
+&lt;img src="pics/berlin-numeracy-test-cokely2.png" style="width:90%; height:auto;"&gt;
+&lt;/div&gt;
+
+Test yourself: [riskliteracy.org](https://www.riskliteracy.org)
+]
+
+
+---
+# The INSPIRE inventory (work in progress)
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="pics/ramirez-ruiz-munzert-inspire-1.png" style="width:90%; height:auto;"&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="pics/ramirez-ruiz-munzert-inspire-2.png" style="width:90%; height:auto;"&gt;
+&lt;/div&gt;
+]
+
+
+---
+# The INSPIRE inventory (work in progress)
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="pics/inspire-dvl4.png" style="width:90%; height:auto;"&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="pics/inspire-dvl5.png" style="width:90%; height:auto;"&gt;
+&lt;/div&gt;
+]
+
+
+
+---
+class: exercise
+
+# Brainstorming exercise (10 min)
+
+.pull-left[
+
+## The brief
+
+You're pitching to an editor at a major outlet. Turn the evidence from this block into a story.
+
+## Discuss in pairs and pick one angle
+
+- 📰 Investigation
+- 🎯 Interactive explainer
+- 📊 Visualization critique
+- Something else!
+
+## Report back (5 min)
+
+- What's your pitch in one sentence?
+- What would make it *not* just a meta-story about journalism?
+]
+
+.pull-right[
+
+&lt;div align="center"&gt;
+&lt;img src="pics/pudding-birthday-paradox.png" style="width:60%; height:auto;"&gt;
+&lt;/div&gt;
+
+## Inspiration
+
+- [The Pudding: Birthday Paradox](https://pudding.cool/2018/04/birthday-paradox/)
+- [NYT: What's Going On in This Graph?](https://www.nytimes.com/column/whats-going-on-in-this-graph)
+- [NYT: You Draw it: How Family Income Predicts Children's College Chances](https://www.nytimes.com/interactive/2015/05/28/upshot/you-draw-it-how-family-income-affects-childrens-college-chances.html)
+- [Graphs.World](https://www.graphs.world/)
+]
+
+---
+class: inverse, center, middle
+name: evidence
+
+# Communicating data: evidence on what works
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+# Readings
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="pics/link-2021-credibility-data.png" style="width:100%; height:auto;"&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="pics/yang-2023-swaying-the-public.png" style="width:100%; height:auto;"&gt;
+&lt;/div&gt;
+]
+
+---
+class: exercise
+
+# Group discussion (15 min)
+
+.pull-left[
+
+&lt;br&gt;
+
+**In groups of 2, discuss the following questions for one of the papers.**
+
+1. What are the key treatments studied in the paper, what are the key outcomes?
+
+2. How is their research design set up to identify causal effects? Do you see strengths and weaknesses?
+
+3. What are the main findings? Do they surprise you? Do they align with your intuition or experience?
+
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="pics/link-design.png" style="width:90%; height:auto;"&gt;
+&lt;img src="pics/yang-design.png" style="width:90%; height:auto;"&gt;
+&lt;/div&gt;
+]
+
+
+
+---
+# More experimental evidence on format effects
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="pics/koch-visualization-vignettes-1.png" style="width:80%; height:auto;"&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="pics/koch-visualization-vignettes-2.png" style="width:100%; height:auto;"&gt;
+&lt;/div&gt;
+]
+
+---
+# More experimental evidence on format effects
+
+&lt;div align="center"&gt;
+&lt;img src="pics/koch-visualization-vignettes-3.png" style="width:45%; height:auto;"&gt;
+&lt;/div&gt;
+
+
+
+
+---
+class: inverse, center, middle
+name: uncertainty
+
+# Communicating uncertainty
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+# Communicating uncertainty
+
+.pull-left[
+## The difficulty of communicating uncertainty
+
+- The concept is complex. Not all people think in probabilistic terms.
+- Many humans are bad at understanding (conditional and unconditional) probabilities.
+- Adding information about uncertainty might distract, confuse, and undermine trust.
+]
+
+.pull-right-center[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="pics/mcelreath-gates.png" width=350&gt;
+&lt;/div&gt;
+`Credit` [Richard McElreath](https://twitter.com/rlmcelreath/status/1462719976259919879)
+]
+
+
+---
+# Communicating uncertainty (cont.)
+
+.pull-left-center[
+## Visualizing uncertainty
+
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="pics/errorbars-1.png" width=500&gt;
+&lt;/div&gt;
+
+&lt;div align="center"&gt;
+&lt;img src="pics/confidence-dists-1.png" width=500&gt;
+&lt;/div&gt;
+
+&lt;div align="center"&gt;
+&lt;img src="pics/confidence-bands-1.png" width=500&gt;
+&lt;/div&gt;
+
+`Source` [Claus Wilke](https://clauswilke.com/dataviz/visualizing-uncertainty.html)
+]
+
+
+.pull-right-center[
+## Uncertainty by numbers
+
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="pics/model-out-broom.png" width=500&gt;
+&lt;/div&gt;
+
+
+## Strategies by precision
+
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="pics/communicating-uncertainty.gif" width=470&gt;
+&lt;/div&gt;
+`Credit` [van der Bles et al. 2019](http://doi.org/10.1098/rsos.181870)
+]
+
+---
+# Probabilities: confusing vote share with p(win)
+
+.pull-left-center[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="pics/westwood-abstract.png" width=550&gt;
+&lt;/div&gt;
+`Source` [Westwood et al. 2020](https://doi.org/10.1086/708682)
+
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="pics/westwood-results.png" width=450&gt;
+&lt;/div&gt;
+]
+
+---
+# Reported uncertainty and public trust
+
+.pull-left-center[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="pics/van-der-bles-pnas-1.png" width="450"/&gt;
+&lt;img src="pics/van-der-bles-pnas-2.png" width="280"/&gt;
+&lt;/div&gt;
+]
+
+.pull-right-center[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="pics/van-der-bles-pnas-3.png" width="330"/&gt;
+&lt;/div&gt;
+`Source` [Van der Bles et al. 2020, *PNAS*](https://doi.org/10.1073/pnas.1913678117)
+]
+
+---
+# But also...
+
+.pull-left-center[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="pics/fivethirtyeight-clinton-2016-final-forecast.webp" width=450&gt;
+&lt;/div&gt;
+`Source` [FiveThirtyEight.com, 2016](https://fivethirtyeight.com/features/final-election-update-theres-a-wide-range-of-outcomes-and-most-of-them-come-up-clinton/)
+]
+
+.pull-right-center[
+&lt;div align="center"&gt;
+&lt;img src="pics/nyt-needle.jpeg" width=290&gt;
+&lt;img src="pics/needle.gif" width=290&gt;
+&lt;/div&gt;
+`Source` [NYTimes.com at 9:20 p.m. Nov. 8, 2016](https://www.axios.com/spinning-needle-election-night-victory-d285c0da-db86-46b4-86bf-2253c5d661c2.html)
+]
+
+
+---
+class: inverse, center, middle
+name: discussion
+
+# Discussion
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+class: exercise
+
+# Class discussion
+
+.pull-left[
+
+## Questions for discussion
+
+**1. Skills for news consumption**
+
+Which skills matter most going forward — for audiences, journalists, or both?
+
+**2. Evidence for data journalism practice**
+
+Which scientific evidence is needed? Ideas for measures, designs, and outcomes that matter?
+
+**3. Closing the research–practice gap**
+
+How to bridge slow research and fast-paced newsrooms — and what role can journalists play in shaping the research agenda?
+
+]
+
+.pull-right[
+
+]
+
+
+
+---
+# Takeaways: implications for data journalism practice
+
+.pull-left[
+## Communicating numbers and visuals
+
+**Most readers struggle with percentages and ratios** — don't take anything stats-related for granted ([Cokely et al. 2012](https://www.cambridge.org/core/journals/judgment-and-decision-making/article/measuring-risk-literacy-the-berlin-numeracy-test/A9B26516D12D48EFA4BD3560E2001E8E))
+
+**Win probability ≠ vote share** — readers systematically confuse the two, inflating perceived certainty and distorting the meaning of probabilistic forecasts ([Westwood et al. 2020](https://doi.org/10.1086/708682))
+
+**Charts can boost credibility — but modestly** — adding data visualizations increases perceived persuasiveness and source credibility, yet effects are small and depend on prior beliefs ([Link et al. 2021](https://doi.org/10.1177/20531680211022616); [Yang et al. 2023](https://doi.org/10.1093/pnasnexus/pgad287))
+]
+
+.pull-right[
+## Communicating uncertainty
+
+**Reporting uncertainty does not erode trust** — contrary to common editorial instinct, acknowledging data uncertainty leaves public trust in statements largely intact ([van der Bles et al. 2020](https://doi.org/10.1073/pnas.1913678117))
+
+**Uncertainty has multiple levels** — source, measurement, model, and scientific consensus; conflating them misleads audiences ([van der Bles et al. 2019](http://doi.org/10.1098/rsos.181870))
+
+**Suppressing uncertainty is itself a form of misinformation** — and one with a credibility cost when forecasts fail, as 2016 illustrated
+]
+
+
+---
+# Further reading
+
+&lt;div align="center"&gt;
+&lt;img src="pics/innumeracy-paulos.jpg" height=250&gt;
+&lt;img src="pics/mathematician-newspaper-paulos.jpg" height=250&gt;
+&lt;img src="pics/numbersense.jpg" height=250&gt;
+&lt;img src="pics/calling-bullshit.jpeg" height=250&gt;&lt;br&gt;
+&lt;img src="pics/risk-savvy-gigerenzer.jpg" height=250&gt;
+&lt;img src="pics/gruene-fahren-suv-und-joggen-macht-unsterblich-taschenbuch-thomas-bauer.jpeg" height=250&gt;
+&lt;img src="pics/warum-dick-nicht-doof-macht.jpg" height=250&gt;
+&lt;/div&gt;
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+  "highlightStyle": "github",
+  "highlightLines": true,
+  "countIncrementalSlides": false,
+  "ratio": "16:9",
+  "hash": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+<style>
+  .logo {
+    background-image: url("../hertieschool-neg.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 1.5em;
+    right: 1em;
+    width: 150px;
+    height: 128px;
+    z-index: 0;
+  }
+</style>
+  
+  <script>
+  document
+.querySelectorAll(
+  '.remark-slide-content' +
+    ':not(.title-slide)' +
+    ':not(.inverse)' +
+	
+    // add additional classes to exclude here, e.g.
+  // ':not(.inverse)' +
+    ':not(.hide-logo)'
+)
+.forEach(el => {
+  el.innerHTML += '<div class="logo"></div>';
+});
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

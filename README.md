@@ -3,9 +3,11 @@
 
 ## Lectures
 
-1. What is data journalism? \[[**.html**](https://raw.githack.com/data-journalism-26/slides/main/01-what-is-data-journalism/01-what-is-data-journalism.html) | [**.pdf**](https://raw.githack.com/data-journalism-26/slides/main/01-what-is-data-journalism/01-what-is-data-journalism.pdf) | [**.Rmd**](https://raw.githack.com/data-journalism-26/slides/main/01-what-is-data-journalism/01-what-is-data-journalism.Rmd)\]
+1. What is data journalism? [<a href="https://raw.githack.com/data-journalism-26/slides/main/01-what-is-data-journalism/01-what-is-data-journalism.html" target="_blank">**.html**</a> | <a href="https://raw.githack.com/data-journalism-26/slides/main/01-what-is-data-journalism/01-what-is-data-journalism.pdf" target="_blank">**.pdf**</a> | <a href="https://raw.githack.com/data-journalism-26/slides/main/01-what-is-data-journalism/01-what-is-data-journalism.Rmd" target="_blank">**.Rmd**</a>]
 
-2. Global models of data journalism \[[**.html**](https://raw.githack.com/data-journalism-26/slides/main/02-global-models/02-global-models.html) | [**.pdf**](https://raw.githack.com/data-journalism-26/slides/main/02-global-models/02-global-models.pdf) | [**.Rmd**](https://raw.githack.com/data-journalism-26/slides/main/02-global-models/02-global-models.Rmd)\]
+2. Global models of data journalism [<a href="https://raw.githack.com/data-journalism-26/slides/main/02-global-models/02-global-models.html" target="_blank">**.html**</a> | <a href="https://raw.githack.com/data-journalism-26/slides/main/02-global-models/02-global-models.pdf" target="_blank">**.pdf**</a> | <a href="https://raw.githack.com/data-journalism-26/slides/main/02-global-models/02-global-models.Rmd" target="_blank">**.Rmd**</a>]
+
+3. How people understand numbers and visuals [<a href="https://raw.githack.com/data-journalism-26/slides/main/03-how-people-understand-numbers/03-how-people-understand-numbers.html" target="_blank">**.html**</a> | <a href="https://raw.githack.com/data-journalism-26/slides/main/03-how-people-understand-numbers/03-how-people-understand-numbers.pdf" target="_blank">**.pdf**</a> | <a href="https://raw.githack.com/data-journalism-26/slides/main/03-how-people-understand-numbers/03-how-people-understand-numbers.Rmd" target="_blank">**.Rmd**</a>]
 
 ## Summary
 
