@@ -58,11 +58,11 @@ library(fontawesome)
 ## Discuss
 <br>
 
-1. **"So what":** What are the key take-away? And what role does the data play for establishing it?
+1. **Sources & access:** What data did they use and how did they get it? Could you reproduce their analysis?
 
-2. **Sources & access:** What data did they use and how did they get it? Could you reproduce their analysis? What's missing?
+2. **"So what":** What are the key take-aways? Do you agree (substantively and methodologically)?
 
-3. **Design and storytelling:** Does their scrollytelling approach work for you? Are there flaws in visual and narrative design that you would want to be fixed? How?
+3. **Design and storytelling:** Does their scrollytelling approach work for you? Are there elements in the visual and narrative design that you would do differently? How?
 ]
 
 .pull-right-center[
@@ -107,7 +107,7 @@ Data journalism often assumes a **numerically literate reader**. That assumption
 - Overconfident forecasts → eroded trust in media and science
 
 
-This session is about the **empirical evidence** on how people actually process data and visuals — and what happens if things go wrong.
+This session is about the **empirical evidence** on what people actually understand in terms of data and visuals - and what that can mean for how we communicate data in journalism.
 
 ]
 
