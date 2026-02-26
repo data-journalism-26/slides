@@ -303,7 +303,7 @@ Algorithmic systems are often opaque. But if they expose an API, you can probe t
 .pull-right-small2[
 <div align="center">
 <br>
-<img src="pics/the-markup-internet-deals.png" style="width:90%; height:auto;">
+<img src="pics/the-markup-internet-deals.png" style="width:100%; height:auto;">
 </div>
 
 `Source` [The Markup](https://themarkup.org/show-your-work/2022/10/19/how-we-uncovered-disparities-in-internet-deals)
