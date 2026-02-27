@@ -6,7 +6,7 @@ body { font-family: 'Droid Serif', 'Palatino Linotype', 'Book Antiqua', Palatino
 
 /* Default background colour, and font size */
 .remark-slide-content{ font-family: 'Fira Sans', 'Yanone Kaffeesatz';
-                       font-size: 130%;    /* Regular text */
+                       font-size: 120%;    /* Regular text */
                      }
 
 .exercise {
@@ -339,9 +339,20 @@ hr, .title-slide h2::after, .mline h1::after {
 
 blockquote {
     padding: 5px 20px;
-    margin: 20px 10px 10px;
+    margin: 0px 0px 0px;
     font-size: 18px;
-    border-left: 5px solid #ddd;
+    border-left: none;
+    position: relative;
+}
+
+blockquote::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10%;
+    height: 80%;       /* ← adjust this */
+    width: 5px;
+    background-color: #ddd;
 }
 
 
