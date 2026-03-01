@@ -425,16 +425,11 @@ name: sampling
 
 ---
 class: exercise
+background-image: url(pics/reprasentative-umfragen.png)
+background-size: contain
+background-position: center
 
-# Representativity everywhere
-
-Question: How would you define "representative" in the context of surveys? What does it mean for a sample to be representative of a population?
-
-<div align="center">
-<img src="pics/samples.png" height=230>
-</div>
-
-
+# Question: How would you define "representative survey"?
 
 
 
@@ -921,23 +916,6 @@ name: takeaways
 <img src="pics/larsen-fazekas-opinion-polls.png" style="width:55%; height:auto;">
 </div>
 `Source` [Larsen and Fazekas](https://journals.sagepub.com/doi/10.1177/1940161219864295)
-
-
----
-# Now, what have you learned?
-
-.pull-left[
-
-]
-
-.pull-right[
-<div align="center">
-<img src="pics/dashboard-experiment-1.png" style="width:85%; height:auto;">
-</div>
-]
-
-
-
 
 
 ---
