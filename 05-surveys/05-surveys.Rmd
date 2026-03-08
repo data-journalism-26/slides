@@ -117,6 +117,8 @@ The survey was conducted online; n = 1,200
 - What information is missing?
 ]
 
+--
+
 .pull-right[
 
 ## Scenario B
@@ -134,9 +136,7 @@ A new study in *The Lancet* reports:
 ]
 
 
-
----
-# Survey reporting going wild?
+<!--
 
 <div align="center">
 <img src="pics/spiegel-poll-violence.png" style="width:60%; height:auto;">
@@ -147,7 +147,7 @@ A new study in *The Lancet* reports:
 `Source` [Anika Freier, SPIEGEL](https://www.spiegel.de/partnerschaft/gewalt-gegen-frauen-jeder-dritte-junge-mann-wird-gegenueber-frauen-handgreiflich-um-ihnen-respekt-einzufloessen-a-67e93469-0d0c-4d3c-994d-422e85679a99)
 
 `Link to original study` [Plan International](https://www.plan.de/fileadmin/website/04._Aktuelles/Umfragen_und_Berichte/Spannungsfeld_Maennlichkeit/Plan-Umfrage_Maennlichkeit-A4-2023-NEU-online_2.pdf)
-
+-->
 
 ---
 # International guidelines for reporting on polls
@@ -230,11 +230,17 @@ background-color: #000000
 <br>
 
 1. **Define the research question** — what do you want to learn?
+
 2. **Design the questionnaire** — question wording, order, response scales
+
 3. **Select the survey mode** — phone, online, face-to-face, mail
+
 4. **Draw the sample** — from a sampling frame (register, panel, phone book)
+
 5. **Fieldwork** — actually collect responses
+
 6. **Data processing** — cleaning, coding, weighting
+
 7. **Analysis and reporting** — estimates, margins of error, tables
 ]
 
@@ -266,13 +272,15 @@ background-color: #000000
 ]
 
 .pull-right[
-## Classic question order experiment ([Schuman, Kalton and Ludwig 1983](https://www.jstor.org/stable/2748710))
+## Classic question order experiment
 
 "Do you think [the United States | a Communist country like Russia] should let [Communist | American] newspaper reporters from other countries come in here and send back to their papers the news as they see it?
 
 <div align="center">
 <img src="pics/schuman-kalton-ludwig-communist-reporter-question.png" style="width:100%; height:auto;">
 </div>
+
+`Source` [Schuman, Kalton and Ludwig 1983](https://www.jstor.org/stable/2748710)
 ]
 
 
@@ -321,7 +329,7 @@ background-color: #000000
 
 <div align="center">
 <br>
-<img src="pics/pew-survey-methods.png" style="width:85%; height:auto;">
+<img src="pics/pew-survey-methods.png" style="width:100%; height:auto;">
 </div>
 ]
 
@@ -334,7 +342,7 @@ background-color: #000000
 .pull-left[
 ## Traditional modes
 
-**CATI** (Computer-Assisted Telephone Interview): random-digit dialing or registry-based. Still used by major pollsters (Infratest dimap, Forsa). Declining response rates are a serious problem — down to ~5–10% in many countries.
+**CATI** (Computer-Assisted Telephone Interview): random-digit dialing or registry-based. Still used by major pollsters (Infratest dimap, Forsa). Declining response rates are a serious problem — down to ~1–10% in many countries.
 
 **CAPI** (Computer-Assisted Personal Interview): face-to-face, household-based. Gold standard for large social surveys (ESS, SOEP, ALLBUS). Expensive; used for long, complex questionnaires.
 
@@ -359,7 +367,7 @@ background-color: #000000
 ## How access panels work
 
 1. A panel company (e.g., YouGov, Bilendi) **recruits** hundreds of thousands of people who agree to take surveys regularly.
-2. For each new survey, a **sample is drawn from the panel** — either randomly or quota-based (e.g., targets for age × gender × region).
+2. For each new survey, a **sample is drawn from the panel** — either randomly or quota-based (e.g., targets for age × gender × region). 🚨 Even if drawn randomly from the panel, this is *not* a random sample of the population!
 3. Panelists receive an **invitation** (email, app notification) and an **incentive** (points, vouchers, small payments).
 4. The raw data is **weighted** to match known population benchmarks (from census or microcensus data).
 ]
@@ -375,11 +383,11 @@ background-color: #000000
 
 <div style="margin-bottom:40px;"></div>
 
-| Mode | Cost per interview |
+| Mode | CPI|
 |---|---|
 | Face-to-face (CAPI) | €50–150 |
 | Phone (CATI) | €15–40 |
-| Online panel | €3–10 |
+| Online panel | €1–10 |
 | Opt-in / self-selected | ~€0 |
 ]
 
@@ -457,6 +465,7 @@ A sample (or data in general) is "representative" if **conclusions drawn from th
 
 - Don't take reported "representativity" at face value.
 - Sample size alone does not guarantee representativity.
+- State specifically what the sample is supposed to be representative of (e.g., "representative of German adults aged 18+") and provide additional details on methods.
 - Bad sampling is not restricted to surveys — think social media data, case selection for medical trials, or country selection for policy studies.
 ]
 
@@ -902,10 +911,6 @@ name: takeaways
 - Be skeptical of **opt-in surveys** presented as representative polls.
 - Use **multiple sources** — if three independent polls agree, the signal is stronger.
 - Understand the basics of **weighting and MRP** so you can evaluate modern polling methods.
-
-## Hands-on practice
-
-👉 The R workshop script `code/surveys/working-with-surveys.qmd` walks through sampling simulation, weighting, and uncertainty visualization.
 ]
 
 

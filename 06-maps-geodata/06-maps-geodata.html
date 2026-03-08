@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Data Journalism</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Simon Munzert" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+    <script src="https://tikzjax.com/v1/tikzjax.js"></script>
+    <link rel="stylesheet" href="../simons-touch.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Data Journalism
+]
+.subtitle[
+## Session 6: Mapping and geodata
+]
+.author[
+### Simon Munzert
+]
+.institute[
+### Hertie School | <a href="https://github.com/data-journalism-26">GRAD-E1493</a>
+]
+
+---
+
+background-image: url(pics/star-trek-space.jpg)
+background-size: contain
+background-position: center
+background-color: #000000
+
+&lt;style type="text/css"&gt;
+@media print {
+  .has-continuation {
+    display: block !important;
+  }
+}
+&lt;/style&gt;
+
+
+
+
+
+
+# Space. The final frontier...
+
+
+
+---
+# Today
+
+&lt;/br&gt;&lt;/br&gt;
+
+1. [Why space matters for journalism](#classics)
+
+2. [Spatial data fundamentals](#spatial)
+
+3. [Maps: Dos and Don'ts](#dosndonts)
+
+
+
+---
+class: inverse, center, middle
+name: spatial
+
+# Why space matters for journalism
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+# Why space matters
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+&lt;div align="center" style="font-size:2em;"&gt;
+&lt;b&gt;The "where" of a story is central to journalism.&lt;/b&gt;
+&lt;/div&gt;
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+Gomes, A., Brito, E., Morais, L. A., &amp; Ferreira, N. (2025). How Do Data Journalists Design Maps to Tell Stories? *IEEE Transactions on Visualization and Computer Graphics.*
+
+N. Usher. News cartography and epistemic authority in the era of big data: Journalists as map-makers, map-users, and map-subjects. *New Media &amp; Society*, 22(2):247–263, 2020.
+
+---
+# 1854 Broad Street cholera outbreak
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="pics/snow-cholera-map.jpeg" width=500&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+- One of the most famous data viusalizations of all times: [John Snow](https://en.wikipedia.org/wiki/John_Snow)'s cholera case map.
+- The [Broad Street cholera outbreak](https://en.wikipedia.org/wiki/1854_Broad_Street_cholera_outbreak) in in Soho, London in 1854 was studied by physician John Snow to study its causes (rival hypotheses: germ-contaminated water vs. airborne transmission).
+- The germ theory was not established at this point but the map helped highlight how cases clustered around a contaminated pump (which was by far not the only source of contaminated water though).
+- Fun fact: this is what doing good data viz gives you:
+
+&lt;div align="center"&gt;
+&lt;img src="pics/john-snow-pub.jpeg" width=225&gt;
+&lt;/div&gt;
+]
+
+
+---
+# Why spatial data?
+
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="pics/fivethirtyeight-maps.png" style="width:85%; height:auto;"&gt;
+&lt;/div&gt;
+
+
+---
+# Why spatial data?
+
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="pics/satellite-light-nk.jpg" style="height:280px;"&gt; &amp;nbsp;
+&lt;img src="pics/breweries-germany.png" style="height:280px;"&gt; &amp;nbsp;
+&lt;img src="pics/google-maps-phone.jpg" style="height:280px;"&gt;
+&lt;/div&gt;
+
+.center[
+Light emissions in NK &amp;emsp; Breweries in Germany &amp;emsp; You're being tracked
+]
+
+
+
+
+
+---
+class: inverse, center, middle
+name: spatial
+
+# Spatial data fundamentals
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+
+
+
+---
+# Spatial data types
+
+.pull-left[
+Spatial data comes in two flavors:
+
+- **Shape** data a.k.a. 'points' and 'polygons'
+- **Raster** data a.k.a. 'pixels'
+
+Today we'll only deal with polygon data.
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="pics/berlin-shape.jpg" style="height:180px;"&gt; &amp;nbsp;
+&lt;img src="pics/berlin-1.png" style="height:180px;"&gt; &amp;nbsp;
+&lt;img src="pics/berlin-2.png" style="height:180px;"&gt;
+&lt;/div&gt;
+
+.center[
+Polygon &amp;emsp; Raster (with vector "feel") &amp;emsp; Raster (satellite)
+]
+]
+
+
+
+---
+# Spatial dependence
+
+.pull-left-wide2[
+## Tobler's First Law of Geography
+
+**"Everything is related to everything else, but near things are more related than distant things."**
+
+## 
+- Analogy between time-series and spatial data (but: time is uni-dimensional and -directional)
+- Spatial econometrics is about how to address spatial dependence in statistical inference
+- Think about: spatial lags; spatial interactions; spatial spillovers
+
+]
+
+.pull-right-small2[
+&lt;div align="center"&gt;
+&lt;img src="pics/ger-eu-parliament-2019-map.png" style="width:90%; height:auto;"&gt;
+&lt;br&gt;
+&lt;small&gt;&lt;em&gt;Source:&lt;/em&gt; Erinthecute; &lt;a href="https://w.wiki/e8n"&gt;w.wiki/e8n&lt;/a&gt;&lt;/small&gt;
+&lt;/div&gt;
+]
+
+
+
+---
+# Conceptualizations of space
+
+.pull-left-wide2[
+Data models in (sort-of) two-dimensional space
+
+- **Point**: single point location, such as a GPS reading or geocoded address
+- **Line**: set of ordered points, connected by straight line segments
+- **Polygon**: area, marked by one or more enclosing lines, possibly containing holes
+- **Grid**: collection of points or rectangular cells, organized in a regular lattice
+
+Things get more complicated when we assume a more realistic representation of the space that interests us most, i.e. more or less round planet Earth.
+]
+
+.pull-right-small2[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="pics/spatial-types.png" style="width:85%; height:auto;"&gt;
+&lt;/div&gt;
+]
+
+
+---
+# Conceptualizations of space (cont.)
+
+**Continuous**
+- Areal distribution of characteristics
+- Measuring points (areas, spaces); resolution largely arbitrary (e.g. determined by the location and density of measuring stations)
+- Display and analysis often as contour or raster data
+- More prevalent in the natural and geosciences
+
+**Discrete**
+- (Aggregated) characteristics of fixed spatial objects (e.g. political-administrative units)
+- Display and analysis often as point, line and polygon data
+- Particularly popular in the social sciences
+
+
+---
+# Conceptualizations of distance
+
+**Continuous**
+- (Euclidean) distance between points, polygons (centroids!)
+- Transformations if theoretically appropriate
+
+&lt;br&gt;
+
+**Discrete**
+- Based on concepts of contiguity
+- "Does Polygon A share a border with Polygon B?"; "Does Polygon A touch Polygon B?"
+
+
+---
+# Continuous distances
+
+&lt;div align="center"&gt;
+&lt;img src="pics/neighbors-distance.png" style="width:62%; height:auto;"&gt;
+&lt;br&gt;
+&lt;img src="pics/neighbors-knn.png" style="width:58%; height:auto;"&gt;
+&lt;/div&gt;
+
+
+---
+# Discrete distances
+
+&lt;div align="center"&gt;
+&lt;img src="pics/distance-chess.png" style="width:55%; height:auto;"&gt;
+&lt;br&gt;
+&lt;img src="pics/distance-polygons.png" style="width:55%; height:auto;"&gt;
+&lt;/div&gt;
+
+
+---
+# Discrete distances (cont.)
+
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="pics/neighbors-discrete.png" style="width:70%; height:auto;"&gt;
+&lt;/div&gt;
+
+
+
+---
+class: inverse, center, middle
+name: dosndonts
+
+# Maps: Dos and don'ts
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+
+---
+# Remember: maps are beautiful ...
+
+&lt;div align="center"&gt;
+&lt;img src="pics/midtermmap-1.png" style="width:45%; height:auto;"&gt;
+&lt;/div&gt;
+
+.center[
+&lt;small&gt;2019 US Midterm Election results; source: nytimes.com&lt;/small&gt;
+]
+
+
+---
+# ... but sometimes misleading
+
+&lt;div align="center"&gt;
+&lt;img src="pics/midtermmap-1.png" style="width:42%; height:auto;"&gt; &amp;emsp;
+&lt;img src="pics/midtermmap-2.png" style="width:42%; height:auto;"&gt;
+&lt;/div&gt;
+
+.center[
+&lt;small&gt;2019 US Midterm Election results; source: nytimes.com&lt;/small&gt;
+]
+
+
+---
+# Visualizing geospatial data
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="pics/geospatial-1.png" width=500&gt;
+&lt;/div&gt;
+
+
+---
+# Colors
+
+.pull-left[
+- There are three fundamental use cases for color in data visualizations:
+  1. We can use color to distinguish groups of data from each other;
+  2. We can use color to **represent data values**; and 
+  3. We can use color to highlight.
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="pics/sequential-scales-1.png" width=350&gt;
+&lt;img src="pics/map-Texas-income-1.png" width=250&gt;
+&lt;img src="pics/map-Texas-race-1.png" width=250&gt;
+&lt;/div&gt;
+]
+
+
+
+---
+# Small multiples (cont.)
+
+.pull-left[
+- Check out the example on the right, which was also discussed [here](https://statmodeling.stat.columbia.edu/2014/04/10/small-multiples-lineplots-maps-ok-always-yes-case/) and [there](https://junkcharts.typepad.com/junk_charts/2014/02/small-multiples-with-simple-axes.html).
+- What they did right (by Kaiser Fung):
+  - Did not put the data on a map
+  - Ordered the countries by the most recent data point rather than alphabetically
+  - Scale labels are found only on outer edge of the chart area, rather than one set per panel
+  - Only used three labels for the 11 years
+  - Did not overdo the vertical scale either
+  - The nicest feature was the XL scale applied only to South Korea. This destroys the small-multiples principle but draws attention to the top left corner, where the designer wants our eyes to go.
+- Sometimes maps are not a good alternative.
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="pics/liquor-map.gif" width=400&gt;
+&lt;img src="pics/liquor-skewed-map.png" width=400&gt;
+&lt;/div&gt;
+]
+
+
+---
+# Small multiples (cont.)
+
+.pull-left[
+- Check out the example on the right, which was also discussed [here](https://statmodeling.stat.columbia.edu/2014/04/10/small-multiples-lineplots-maps-ok-always-yes-case/) and [there](https://junkcharts.typepad.com/junk_charts/2014/02/small-multiples-with-simple-axes.html).
+- What they did right (by Kaiser Fung):
+  - Did not put the data on a map
+  - Ordered the countries by the most recent data point rather than alphabetically
+  - Scale labels are found only on outer edge of the chart area, rather than one set per panel
+  - Only used three labels for the 11 years
+  - Did not overdo the vertical scale either
+  - The nicest feature was the XL scale applied only to South Korea. This destroys the small-multiples principle but draws attention to the top left corner, where the designer wants our eyes to go.
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="pics/liquor-small-multiples.png" width=500&gt;
+&lt;/div&gt;
+]
+
+---
+# Small multiples (cont.)
+
+.pull-left[
+- Check out the example on the right, which was also discussed [here](https://statmodeling.stat.columbia.edu/2014/04/10/small-multiples-lineplots-maps-ok-always-yes-case/) and [there](https://junkcharts.typepad.com/junk_charts/2014/02/small-multiples-with-simple-axes.html).
+- What they did right (by Kaiser Fung):
+  - Did not put the data on a map
+  - Ordered the countries by the most recent data point rather than alphabetically
+  - Scale labels are found only on outer edge of the chart area, rather than one set per panel
+  - Only used three labels for the 11 years
+  - Did not overdo the vertical scale either
+  - The nicest feature was the XL scale applied only to South Korea. This destroys the small-multiples principle but draws attention to the top left corner, where the designer wants our eyes to go.
+- Sometimes maps are not a good alternative.
+- But you can do small multiples of maps!
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="pics/vouchermapsBAYES2000.png" width=450&gt;
+&lt;/div&gt;
+]
+
+
+---
+# Minard's map of Napoleon's March
+
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="pics/minards-map-translated.png" width=1000&gt;
+&lt;/div&gt;
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+  "highlightStyle": "github",
+  "highlightLines": true,
+  "countIncrementalSlides": false,
+  "ratio": "16:9",
+  "hash": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+<style>
+  .logo {
+    background-image: url("../hertieschool-neg.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 1.5em;
+    right: 1em;
+    width: 150px;
+    height: 128px;
+    z-index: 0;
+  }
+</style>
+  
+  <script>
+  document
+.querySelectorAll(
+  '.remark-slide-content' +
+    ':not(.title-slide)' +
+    ':not(.inverse)' +
+	
+    // add additional classes to exclude here, e.g.
+  // ':not(.inverse)' +
+    ':not(.hide-logo)'
+)
+.forEach(el => {
+  el.innerHTML += '<div class="logo"></div>';
+});
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
