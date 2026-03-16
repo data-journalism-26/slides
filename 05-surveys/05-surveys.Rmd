@@ -56,7 +56,7 @@ library(fontawesome)
 
 3. [Survey sampling 101](#sampling)
 
-4. [Take-aways](#resources)
+4. [Take-aways](#takeaways)
 
 
 ---
@@ -712,6 +712,62 @@ svymean(~outcome, des)  # correct SE
 
 
 ---
+# Quota sampling
+
+.pull-left[
+
+## How it works
+
+- **Previously:** Interviewer gets a "quota sheet" (see right) and fills each cell by finding willing participants. No random selection; interviewer chooses.
+- **Currently (e.g., using access panels):** The platform algorithm recruits respondents until each cells are filled according to known pop margins (e.g., from census data). Again, no random selection within cells.
+
+## The problem
+
+- Quota sampling fixes the *observable* composition but not the *unobservable* one. A quota sample can have perfectly balanced age × gender × region margins and still be systematically wrong, because the *kind of person* who joins an online panel differs from the kind who doesn't.
+- This *looks* like stratified random sampling because it matches population margins. The crucial difference is the absence of randomization within strata.
+]
+
+.pull-right[
+## Example quota sheet (n = 1,000; targets from census):
+
+<br>
+<table style="font-size: 0.75em; border-collapse: collapse; width: 85%;">
+  <thead>
+    <tr>
+      <th style="text-align:left; padding: 4px 8px;"></th>
+      <th style="text-align:center; padding: 4px 8px;">18–29</th>
+      <th style="text-align:center; padding: 4px 8px;">30–49</th>
+      <th style="text-align:center; padding: 4px 8px;">50–64</th>
+      <th style="text-align:center; padding: 4px 8px;">65+</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left; padding: 4px 8px;"><b>Women</b></td>
+      <td style="text-align:center; padding: 4px 8px;">75</td>
+      <td style="text-align:center; padding: 4px 8px;">155</td>
+      <td style="text-align:center; padding: 4px 8px;">140</td>
+      <td style="text-align:center; padding: 4px 8px;">145</td>
+    </tr>
+    <tr>
+      <td style="text-align:left; padding: 4px 8px;"><b>Men</b></td>
+      <td style="text-align:center; padding: 4px 8px;">75</td>
+      <td style="text-align:center; padding: 4px 8px;">145</td>
+      <td style="text-align:center; padding: 4px 8px;">140</td>
+      <td style="text-align:center; padding: 4px 8px;">125</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+
+## Implications
+
+- Institutes, researchers, journalists love to call this "representative". It only is with regards to the quota variables (and even then, often not really, because only marginals but not cells are matched).
+- Don't make the same mistake! Always ask: **representative of what?** And be clear about the limitations of quota sampling.
+]
+
+
+---
 # Weighting: fixing what sampling broke
 
 .pull-left[
@@ -869,6 +925,63 @@ class: exercise
 <div align="center">
 <img src="pics/selb-munzert-overreporting.png" height=550>
 </div>
+
+
+
+---
+class: exercise
+
+# Teaching polling literacy with an educational dashboard intervention
+
+.pull-left[
+<div align="center">
+<img src="pics/dashboard-abstract.png" style="width:90%; height:auto;">
+</div>
+
+<br>
+
+##Take the (simplified and translated) survey at
+
+https://survey.hertie-school.org/jfe/form/SV_babJ1uyadxtwe1M
+]
+
+.pull-right[
+<div align="center">
+<img src="pics/dashboard_screenshot_orig.png" style="width:90%; height:auto;">
+</div>
+]
+
+
+---
+class: exercise
+
+# Dashboard intervention effects on knowledge
+
+<div align="center">
+<img src="pics/dashboard-findings-1.png" style="width:75%; height:auto;">
+</div>
+
+
+---
+class: exercise
+
+# Dashboard intervention effects on poll-related attitudes
+
+<div align="center">
+<img src="pics/dashboard-findings-2.png" style="width:58%; height:auto;">
+</div>
+
+
+---
+class: exercise
+
+# Dashboard intervention effects on poll preferences
+
+<div align="center">
+<img src="pics/dashboard-findings-3.png" style="width:75%; height:auto;">
+</div>
+
+
 
 
 ---

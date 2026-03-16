@@ -65,13 +65,11 @@ library(fontawesome)
 
 2. [Spatial data fundamentals](#spatial)
 
-3. [Maps: Dos and Don'ts](#dosndonts)
+3. [When geojournalism goes wrong](#wrong)
 
-4. [When geojournalism goes wrong](#wrong)
+4. [Maps: Dos and Don'ts](#dosndonts)
 
-5. [Maps for storytelling](#storytelling)
-
-6. [Mapping: Practical do's and don'ts](#practical)
+5. [Discussion](#discussion)
 
 
 
@@ -121,27 +119,53 @@ N. Usher. News cartography and epistemic authority in the era of big data: Journ
 
 
 ---
-# Why spatial data?
+# Electoral geography
 
 <div align="center">
-<br>
-<img src="pics/fivethirtyeight-maps.png" style="width:85%; height:auto;">
+<img src="pics/fivethirtyeight-maps.png" style="width:95%; height:auto;">
 </div>
 
 
 ---
-# Why spatial data?
+# Electoral geography
+
+<div align="center">
+<img src="pics/zeit-wahlkarte-eu.png" style="width:60%; height:auto;">
+</div>
+
+`Source` [ZEIT Online](https://www.zeit.de/politik/ausland/2024-07/europawahl-2024-ergebnisse-gemeinden-laender-karte?freebie=220fa61c)
+
+
+---
+# Conflict zones
+
+<div align="center">
+<img src="pics/economist-iran-war.png" style="width:60%; height:auto;">
+</div>
+
+`Source` [The Economist](https://www.economist.com/interactive/middle-east-and-africa/2026/03/06/the-iran-war-has-entered-a-new-phase)
+
+---
+# Conflict zones
+
+<div align="center">
+<video width="900" autoplay muted loop>
+  <source src="pics/zeit-strait-hormus.mp4" type="video/mp4">
+</video>
+</div>
+
+`Source` [Die Zeit](https://www.zeit.de/wirtschaft/2026-03/strasse-von-hormus-schifffahrt-oeltanker-frachter-iran?freebie=640aed06)
+
+
+---
+# The design space of journalistic maps
 
 <div align="center">
 <br>
-<img src="pics/satellite-light-nk.jpg" style="height:280px;"> &nbsp;
-<img src="pics/breweries-germany.png" style="height:280px;"> &nbsp;
-<img src="pics/google-maps-phone.jpg" style="height:280px;">
+<img src="pics/gomes-maps-journalists.png" style="width:85%; height:auto;">
 </div>
 
-.center[
-Light emissions in NK &emsp; Breweries in Germany &emsp; You're being tracked
-]
+`Source` [Gomes et al. (2025); "How do Data Journalists Design Maps to Tell Stories?"](https://arxiv.org/abs/2508.10903)
 
 
 
@@ -156,13 +180,51 @@ name: spatial
 
 
 
+---
+# Conceptualizations of space
+
+.pull-left-wide2[
+## Data models in (sort-of) two-dimensional space
+
+- **Point**: single point location, such as a GPS reading or geocoded address
+- **Line**: set of ordered points, connected by straight line segments
+- **Polygon**: area, marked by one or more enclosing lines, possibly containing holes
+- **Grid**: collection of points or rectangular cells, organized in a regular lattice
+
+Things get more complicated when we assume a more realistic representation of the space that interests us most, i.e. more or less round planet Earth.
+]
+
+.pull-right-small2[
+<div align="center">
+<br>
+<img src="pics/spatial-types.png" style="width:85%; height:auto;">
+</div>
+]
+
+
+---
+# Conceptualizations of space (cont.)
+
+## Continuous
+
+- Areal distribution of characteristics
+- Measuring points (areas, spaces); resolution largely arbitrary (e.g. determined by the location and density of measuring stations)
+- Display and analysis often as contour or raster data
+- More prevalent in the natural and geosciences
+
+## Discrete
+
+- (Aggregated) characteristics of fixed spatial objects (e.g. political-administrative units)
+- Display and analysis often as point, line and polygon data
+- Particularly popular in the social sciences
+
 
 
 ---
 # Spatial data types
 
-.pull-left[
-Spatial data comes in two flavors:
+.pull-left-wide[
+## Flavors of spatial data
 
 - **Shape** data a.k.a. 'points' and 'polygons'
 - **Raster** data a.k.a. 'pixels'
@@ -170,16 +232,12 @@ Spatial data comes in two flavors:
 Today we'll only deal with polygon data.
 ]
 
-.pull-right[
+.pull-right-small[
 <div align="center">
-<img src="pics/berlin-shape.jpg" style="height:180px;"> &nbsp;
-<img src="pics/berlin-1.png" style="height:180px;"> &nbsp;
+<img src="pics/berlin-shape.jpg" style="height:180px;"> <br>
+<img src="pics/berlin-1.png" style="height:180px;"> <br>
 <img src="pics/berlin-2.png" style="height:180px;">
 </div>
-
-.center[
-Polygon &emsp; Raster (with vector "feel") &emsp; Raster (satellite)
-]
 ]
 
 
@@ -208,42 +266,6 @@ Polygon &emsp; Raster (with vector "feel") &emsp; Raster (satellite)
 ]
 
 
-
----
-# Conceptualizations of space
-
-.pull-left-wide2[
-Data models in (sort-of) two-dimensional space
-
-- **Point**: single point location, such as a GPS reading or geocoded address
-- **Line**: set of ordered points, connected by straight line segments
-- **Polygon**: area, marked by one or more enclosing lines, possibly containing holes
-- **Grid**: collection of points or rectangular cells, organized in a regular lattice
-
-Things get more complicated when we assume a more realistic representation of the space that interests us most, i.e. more or less round planet Earth.
-]
-
-.pull-right-small2[
-<div align="center">
-<br>
-<img src="pics/spatial-types.png" style="width:85%; height:auto;">
-</div>
-]
-
-
----
-# Conceptualizations of space (cont.)
-
-**Continuous**
-- Areal distribution of characteristics
-- Measuring points (areas, spaces); resolution largely arbitrary (e.g. determined by the location and density of measuring stations)
-- Display and analysis often as contour or raster data
-- More prevalent in the natural and geosciences
-
-**Discrete**
-- (Aggregated) characteristics of fixed spatial objects (e.g. political-administrative units)
-- Display and analysis often as point, line and polygon data
-- Particularly popular in the social sciences
 
 
 ---
@@ -292,147 +314,6 @@ Things get more complicated when we assume a more realistic representation of th
 
 ---
 class: inverse, center, middle
-name: dosndonts
-
-# Maps: Dos and don'ts
-<html><div style='float:left'></div><hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/></html>
-
-
-
----
-# Remember: maps are beautiful ...
-
-<div align="center">
-<img src="pics/midtermmap-1.png" style="width:45%; height:auto;">
-</div>
-
-.center[
-<small>2019 US Midterm Election results; source: nytimes.com</small>
-]
-
-
----
-# ... but sometimes misleading
-
-<div align="center">
-<img src="pics/midtermmap-1.png" style="width:42%; height:auto;"> &emsp;
-<img src="pics/midtermmap-2.png" style="width:42%; height:auto;">
-</div>
-
-.center[
-<small>2019 US Midterm Election results; source: nytimes.com</small>
-]
-
-
----
-# Visualizing geospatial data
-<div align="center">
-<br>
-<img src="pics/geospatial-1.png" width=500>
-</div>
-
-
----
-# Colors
-
-.pull-left[
-- There are three fundamental use cases for color in data visualizations:
-  1. We can use color to distinguish groups of data from each other;
-  2. We can use color to **represent data values**; and 
-  3. We can use color to highlight.
-]
-
-.pull-right[
-<div align="center">
-<img src="pics/sequential-scales-1.png" width=350>
-<img src="pics/map-Texas-income-1.png" width=250>
-<img src="pics/map-Texas-race-1.png" width=250>
-</div>
-]
-
-
-
----
-# Small multiples (cont.)
-
-.pull-left[
-- Check out the example on the right, which was also discussed [here](https://statmodeling.stat.columbia.edu/2014/04/10/small-multiples-lineplots-maps-ok-always-yes-case/) and [there](https://junkcharts.typepad.com/junk_charts/2014/02/small-multiples-with-simple-axes.html).
-- What they did right (by Kaiser Fung):
-  - Did not put the data on a map
-  - Ordered the countries by the most recent data point rather than alphabetically
-  - Scale labels are found only on outer edge of the chart area, rather than one set per panel
-  - Only used three labels for the 11 years
-  - Did not overdo the vertical scale either
-  - The nicest feature was the XL scale applied only to South Korea. This destroys the small-multiples principle but draws attention to the top left corner, where the designer wants our eyes to go.
-- Sometimes maps are not a good alternative.
-]
-
-.pull-right[
-<div align="center">
-<br>
-<img src="pics/liquor-map.gif" width=400>
-<img src="pics/liquor-skewed-map.png" width=400>
-</div>
-]
-
-
----
-# Small multiples (cont.)
-
-.pull-left[
-- Check out the example on the right, which was also discussed [here](https://statmodeling.stat.columbia.edu/2014/04/10/small-multiples-lineplots-maps-ok-always-yes-case/) and [there](https://junkcharts.typepad.com/junk_charts/2014/02/small-multiples-with-simple-axes.html).
-- What they did right (by Kaiser Fung):
-  - Did not put the data on a map
-  - Ordered the countries by the most recent data point rather than alphabetically
-  - Scale labels are found only on outer edge of the chart area, rather than one set per panel
-  - Only used three labels for the 11 years
-  - Did not overdo the vertical scale either
-  - The nicest feature was the XL scale applied only to South Korea. This destroys the small-multiples principle but draws attention to the top left corner, where the designer wants our eyes to go.
-]
-
-.pull-right[
-<div align="center">
-<br>
-<img src="pics/liquor-small-multiples.png" width=500>
-</div>
-]
-
----
-# Small multiples (cont.)
-
-.pull-left[
-- Check out the example on the right, which was also discussed [here](https://statmodeling.stat.columbia.edu/2014/04/10/small-multiples-lineplots-maps-ok-always-yes-case/) and [there](https://junkcharts.typepad.com/junk_charts/2014/02/small-multiples-with-simple-axes.html).
-- What they did right (by Kaiser Fung):
-  - Did not put the data on a map
-  - Ordered the countries by the most recent data point rather than alphabetically
-  - Scale labels are found only on outer edge of the chart area, rather than one set per panel
-  - Only used three labels for the 11 years
-  - Did not overdo the vertical scale either
-  - The nicest feature was the XL scale applied only to South Korea. This destroys the small-multiples principle but draws attention to the top left corner, where the designer wants our eyes to go.
-- Sometimes maps are not a good alternative.
-- But you can do small multiples of maps!
-]
-
-.pull-right[
-<div align="center">
-<br>
-<img src="pics/vouchermapsBAYES2000.png" width=450>
-</div>
-]
-
-
----
-# Minard's map of Napoleon's March
-
-<div align="center">
-<br>
-<img src="pics/minards-map-translated.png" width=1000>
-</div>
-
-
-
----
-class: inverse, center, middle
 name: wrong
 
 # When geojournalism goes wrong
@@ -440,37 +321,21 @@ name: wrong
 
 
 ---
-# Wrong labels: Fox News places Iraq in Egypt
+# Fox News 2009
 
 <div align="center">
-<br>
-<img src="pics/fail-fox-iraq-egypt.png" style="width:70%; height:auto;">
+<img src="pics/fail-fox-iraq-egypt.jpg" style="width:65%; height:auto;">
+<a href="https://www.huffpost.com/entry/fox-news-cant-find-egypt-map_n_816540" style="font-size:0.8em;">Source</a>
 </div>
 
-.center[
-<small>Fox News, 2011. Iraq labeled as Egypt on a map of the Middle East.</small>
-]
 
 
 ---
-# Wrong labels: CNN places Tripoli in Lebanon
+# WSJ 2012
 
 <div align="center">
-<br>
-<img src="pics/fail-cnn-tripoli.png" style="width:65%; height:auto;">
-</div>
-
-.center[
-<small>CNN, 2011. During coverage of the Libyan conflict, Tripoli was placed in Lebanon — 2,000 km off.</small>
-]
-
-
----
-# Wrong labels: Fox News swaps U.S. states
-
-<div align="center">
-<br>
-<img src="pics/fail-fox-states-swap.png" style="width:65%; height:auto;">
+<img src="pics/wsj-election-map.webp" style="width:65%; height:auto;">
+<a href="https://www.vox.com/2015/2/18/8056325/bad-maps" style="font-size:0.8em;">Source</a>
 </div>
 
 .center[
@@ -478,30 +343,6 @@ name: wrong
 ]
 
 
----
-# Wrong borders: Google Maps and the Nicaragua–Costa Rica dispute
-
-<div align="center">
-<br>
-<img src="pics/fail-google-nicaragua.png" style="width:65%; height:auto;">
-</div>
-
-.center[
-<small>In 2010, a faulty Google Maps border led Nicaragua to invade Costa Rican territory. The ICJ settled the dispute in 2015.</small>
-]
-
-
----
-# Wrong borders: Kashmir on Google Maps
-
-<div align="center">
-<br>
-<img src="pics/fail-kashmir-google.png" style="width:75%; height:auto;">
-</div>
-
-.center[
-<small>Google Maps shows different borders for Kashmir depending on whether you search from India or the US.</small>
-]
 
 
 ---
@@ -509,7 +350,9 @@ name: wrong
 
 <div align="center">
 <br>
-<img src="pics/fail-mercator-africa-greenland.png" style="width:65%; height:auto;">
+<img src="pics/fail-mercator-africa-greenland.png" style="width:25%; height:auto;">
+<img src="pics/world-projection.png" style="width:65%; height:auto;">
+
 </div>
 
 .center[
@@ -533,242 +376,132 @@ name: wrong
 
 ---
 class: inverse, center, middle
-name: storytelling
+name: dosndonts
 
-# Maps for storytelling
+# Maps: Dos and don'ts
 <html><div style='float:left'></div><hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/></html>
 
 
+
 ---
-# The design space of journalistic maps
+# Maps are beautiful ...
 
 <div align="center">
-<br>
-<img src="pics/gomes-design-space-fig3.png" style="width:85%; height:auto;">
+<img src="pics/midtermmap-1.png" style="width:65%; height:auto;">
 </div>
 
 .center[
-<small>Fig. 3 from Gomes et al. (2025), "How do Data Journalists Design Maps to Tell Stories?", IEEE TVCG. Eight dimensions: story type, map type, visual encoding, interactivity, basemap, geographic scale, annotation, and data source.</small>
+<small>2019 US Midterm Election results; source: nytimes.com</small>
 ]
 
 
 ---
-# Polygon data: election results by county
+# ... but sometimes misleading
 
 <div align="center">
 <br>
-<img src="pics/example-polygon-election.png" style="width:75%; height:auto;">
+<img src="pics/midtermmap-1.png" style="width:46%; height:auto;"> &emsp;
+<img src="pics/midtermmap-2.png" style="width:46%; height:auto;">
 </div>
 
-.center[
-<small>NYT, 2020 U.S. election results by county. Vector polygons with color encoding vote margin.</small>
+##  Don't confuse area size with actual data of interest
+
+Large geographic areas attract attention regardless of their data values. Consider cartograms, hex tile maps, or dot density maps to counteract this.</small>
+
+
+
+---
+# Consider if a map is the right choice
+
+<div align="center">
+<img src="pics/liquor-map.gif" style="height:30%; width:auto;"> &emsp;
+<img src="pics/liquor-small-multiples.png" style="height:30%; width:auto;">
+</div>
+
+## Maps help highlight geographical patterns, but is that your story?
+Also discussed [here](https://statmodeling.stat.columbia.edu/2014/04/10/small-multiples-lineplots-maps-ok-always-yes-case/). The small multiple plot on the right does a much better job at showing the trends over time and comparing across countries, while the map on the left is more visually striking but less informative. The map also exaggerates the differences between countries due to the varying sizes of the areas.
+
+---
+# Consider if a map is the right choice
+
+<div align="center">
+<img src="pics/liquor-skewed-map.png" style="height:35%; width:auto;"> &emsp;
+<img src="pics/liquor-small-multiples.png" style="height:30%; width:auto;">
+</div>
+
+## Maps help highlight geographical patterns, but is that your story?
+Also discussed [here](https://statmodeling.stat.columbia.edu/2014/04/10/small-multiples-lineplots-maps-ok-always-yes-case/). The small multiple plot on the right does a much better job at showing the trends over time and comparing across countries, while the map on the left is more visually striking but less informative. The map also exaggerates the differences between countries due to the varying sizes of the areas. A *cartogram* is almost never the right choice.
+
+
+---
+# Why not try small map multiples?
+
+.pull-left[
+<div align="center">
+<br>
+<img src="pics/vouchermapsBAYES2000.png" width=450>
+</div>
+]
+
+
+.pull-right[
+<div align="center">
+<br>
+<img src="pics/temp-anomalies-ger.webp" width=400>
+</div>
 ]
 
 
 ---
-# Raster / satellite data: light emissions
+# Use color scales wisely
 
-<div align="center">
-<br>
-<img src="pics/example-raster-nightlights.png" style="width:75%; height:auto;">
-</div>
-
-.center[
-<small>NASA Earth Observatory: composite nighttime lights. Raster data from satellite imagery reveals economic activity, urbanization, and conflict zones.</small>
+.pull-left[
+## Three fundamental use cases for color in data visualizations:
+  1. We can use color to distinguish groups of data from each other;
+  2. We can use color to **represent data values**; and 
+  3. We can use color to highlight.
+  
+Use [ColorBrewer](https://colorbrewer2.org/) to choose palettes.
 ]
 
-
----
-# Satellite imagery: before and after
-
+.pull-right[
 <div align="center">
-<br>
-<img src="pics/example-satellite-before-after.png" style="width:80%; height:auto;">
-</div>
-
-.center[
-<small>Satellite imagery comparison (e.g., NYT/Reuters). Before-and-after views reveal destruction, deforestation, or urban growth.</small>
-]
-
-
----
-# Dot density map
-
-<div align="center">
-<br>
-<img src="pics/example-dot-density.png" style="width:65%; height:auto;">
-</div>
-
-.center[
-<small>NYT "The Racial Dot Map" (University of Virginia): one dot per person, colored by race/ethnicity. Reveals segregation patterns invisible in choropleth maps.</small>
-]
-
-
----
-# Heatmap
-
-<div align="center">
-<br>
-<img src="pics/example-heatmap.png" style="width:70%; height:auto;">
-</div>
-
-.center[
-<small>Strava Global Heatmap: aggregated GPS traces from millions of athletes. Accidentally revealed secret military base locations in 2018.</small>
-]
-
-
----
-# Choropleth map
-
-<div align="center">
-<br>
-<img src="pics/example-choropleth.png" style="width:70%; height:auto;">
-</div>
-
-.center[
-<small>The Guardian: COVID-19 case rates per 100k population across the UK. Sequential color scale, normalized data — the choropleth done right.</small>
-]
-
-
----
-# Temporal map
-
-<div align="center">
-<br>
-<img src="pics/example-temporal-map.png" style="width:75%; height:auto;">
-</div>
-
-.center[
-<small>Reuters: animated spread of conflict/disease/wildfire over time. Temporal maps use animation or small multiples to show spatial change.</small>
-]
-
-
----
-# Flow map
-
-<div align="center">
-<br>
-<img src="pics/example-flow-map.png" style="width:70%; height:auto;">
-</div>
-
-.center[
-<small>Global trade, migration, or flight route flows. Line thickness encodes volume; direction encodes origin → destination.</small>
-]
-
-
----
-# Locator map
-
-<div align="center">
-<br>
-<img src="pics/example-locator-map.png" style="width:70%; height:auto;">
-</div>
-
-.center[
-<small>Reuters Graphics locator map. The workhorse of news cartography: "Where did this happen?" Contextualizes the story geographically.</small>
-]
-
-
----
-# Small multiples with time-series
-
-<div align="center">
-<br>
-<img src="pics/example-small-multiples-timeseries.png" style="width:75%; height:auto;">
-</div>
-
-.center[
-<small>FT or SPIEGEL: same map repeated across time intervals. Reveals spatial diffusion patterns that a single snapshot would miss.</small>
-]
-
-
----
-# 3D map
-
-<div align="center">
-<br>
-<img src="pics/example-3d-map.png" style="width:70%; height:auto;">
-</div>
-
-.center[
-<small>NYT or Mapbox: extruded 3D map (e.g., building heights, population density as spikes). Striking visual, but can obscure data behind tall features.</small>
-]
-
-
----
-# Relief / terrain map
-
-<div align="center">
-<br>
-<img src="pics/example-relief-map.png" style="width:70%; height:auto;">
-</div>
-
-.center[
-<small>Shaded relief / hillshade map. Elevation data rendered with simulated light to give a 3D feel on a 2D surface. Essential for stories about natural disasters, infrastructure, or conflict terrain.</small>
-]
-
-
-
----
-class: inverse, center, middle
-name: practical
-
-# Mapping: Practical do's and don'ts
-<html><div style='float:left'></div><hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/></html>
-
-
----
-# Do: Normalize your data
-
-<div align="center">
-<br>
-<img src="pics/do-normalize.png" style="width:80%; height:auto;">
-</div>
-
-.center[
-<small>Left: absolute counts (misleading — large states dominate). Right: per capita rate (honest comparison). Never map raw counts on a choropleth.</small>
-]
-
-
----
-# Don't: Use rainbow color scales
-
-<div align="center">
-<br>
+<img src="pics/sequential-scales-1.png" width=350>
 <img src="pics/map-Texas-rainbow-1.png" style="width:35%; height:auto;"> &emsp;
 <img src="pics/map-Texas-income-1.png" style="width:35%; height:auto;">
+<img src="pics/map-Texas-race-1.png" width=250>
 </div>
-
-.center[
-<small>Left: rainbow scale — no perceptual ordering, colorblind-unfriendly. Right: sequential scale — clear "more vs. less" encoding. Use [ColorBrewer](https://colorbrewer2.org/) to choose palettes.</small>
 ]
+
+
+
 
 
 ---
-# Do: Consider if a map is the right choice
+# Minard's map of Napoleon's March
 
 <div align="center">
 <br>
-<img src="pics/liquor-map.gif" style="width:38%; height:auto;"> &emsp;
-<img src="pics/liquor-small-multiples.png" style="width:45%; height:auto;">
+<img src="pics/minards-map-translated.png" width=1000>
 </div>
 
-.center[
-<small>Left: a skewed map where large regions dominate. Right: small multiples (no map!) ordered by data, not geography. Sometimes a table or chart communicates better than a map.</small>
-]
+## Keep things simple
+
+
+
 
 
 ---
-# Don't: Let area mislead
+# Normalize your data
 
 <div align="center">
 <br>
-<img src="pics/dont-area-mislead.png" style="width:80%; height:auto;">
+<img src="pics/normalize-choropleth-covid.png" style="width:80%; height:auto;">
 </div>
 
-.center[
-<small>Large geographic areas attract attention regardless of their data values. Consider cartograms, hex tile maps, or dot density maps to counteract this.</small>
-]
+## Mapping raw counts in choropleths can be misleading
+
+Absolute counts can be misleading - large units/states dominate (left plot). Right: per capita rate. [Source](https://handsondataviz.org/normalize-choropleth.html)
 
 
 ---
@@ -808,6 +541,26 @@ name: practical
 .center[
 <small>Tooltips, zoom, and filter let readers explore. But don't make interactivity a crutch for poor design — the default view should already tell the story.</small>
 ]
+
+
+---
+class: inverse, center, middle
+name: discussion
+
+# Discussion
+<html><div style='float:left'></div><hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/></html>
+
+
+---
+# Discuss
+
+<div align="center">
+<br>
+<img src="pics/wilke-map-2.png" style="width:45%; height:auto;">
+<img src="pics/wilke-map-3.png" style="width:45%; height:auto;">
+</div>
+
+
 
 
 ---

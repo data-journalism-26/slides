@@ -62,7 +62,11 @@ background-color: #000000
 
 2. [Spatial data fundamentals](#spatial)
 
-3. [Maps: Dos and Don'ts](#dosndonts)
+3. [When geojournalism goes wrong](#wrong)
+
+4. [Maps: Dos and Don'ts](#dosndonts)
+
+5. [Discussion](#discussion)
 
 
 
@@ -112,27 +116,53 @@ N. Usher. News cartography and epistemic authority in the era of big data: Journ
 
 
 ---
-# Why spatial data?
+# Electoral geography
 
 &lt;div align="center"&gt;
-&lt;br&gt;
-&lt;img src="pics/fivethirtyeight-maps.png" style="width:85%; height:auto;"&gt;
+&lt;img src="pics/fivethirtyeight-maps.png" style="width:95%; height:auto;"&gt;
 &lt;/div&gt;
 
 
 ---
-# Why spatial data?
+# Electoral geography
+
+&lt;div align="center"&gt;
+&lt;img src="pics/zeit-wahlkarte-eu.png" style="width:60%; height:auto;"&gt;
+&lt;/div&gt;
+
+`Source` [ZEIT Online](https://www.zeit.de/politik/ausland/2024-07/europawahl-2024-ergebnisse-gemeinden-laender-karte?freebie=220fa61c)
+
+
+---
+# Conflict zones
+
+&lt;div align="center"&gt;
+&lt;img src="pics/economist-iran-war.png" style="width:60%; height:auto;"&gt;
+&lt;/div&gt;
+
+`Source` [The Economist](https://www.economist.com/interactive/middle-east-and-africa/2026/03/06/the-iran-war-has-entered-a-new-phase)
+
+---
+# Conflict zones
+
+&lt;div align="center"&gt;
+&lt;video width="900" autoplay muted loop&gt;
+  &lt;source src="pics/zeit-strait-hormus.mp4" type="video/mp4"&gt;
+&lt;/video&gt;
+&lt;/div&gt;
+
+`Source` [Die Zeit](https://www.zeit.de/wirtschaft/2026-03/strasse-von-hormus-schifffahrt-oeltanker-frachter-iran?freebie=640aed06)
+
+
+---
+# The design space of journalistic maps
 
 &lt;div align="center"&gt;
 &lt;br&gt;
-&lt;img src="pics/satellite-light-nk.jpg" style="height:280px;"&gt; &amp;nbsp;
-&lt;img src="pics/breweries-germany.png" style="height:280px;"&gt; &amp;nbsp;
-&lt;img src="pics/google-maps-phone.jpg" style="height:280px;"&gt;
+&lt;img src="pics/gomes-maps-journalists.png" style="width:85%; height:auto;"&gt;
 &lt;/div&gt;
 
-.center[
-Light emissions in NK &amp;emsp; Breweries in Germany &amp;emsp; You're being tracked
-]
+`Source` [Gomes et al. (2025); "How do Data Journalists Design Maps to Tell Stories?"](https://arxiv.org/abs/2508.10903)
 
 
 
@@ -147,13 +177,51 @@ name: spatial
 
 
 
+---
+# Conceptualizations of space
+
+.pull-left-wide2[
+## Data models in (sort-of) two-dimensional space
+
+- **Point**: single point location, such as a GPS reading or geocoded address
+- **Line**: set of ordered points, connected by straight line segments
+- **Polygon**: area, marked by one or more enclosing lines, possibly containing holes
+- **Grid**: collection of points or rectangular cells, organized in a regular lattice
+
+Things get more complicated when we assume a more realistic representation of the space that interests us most, i.e. more or less round planet Earth.
+]
+
+.pull-right-small2[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="pics/spatial-types.png" style="width:85%; height:auto;"&gt;
+&lt;/div&gt;
+]
+
+
+---
+# Conceptualizations of space (cont.)
+
+## Continuous
+
+- Areal distribution of characteristics
+- Measuring points (areas, spaces); resolution largely arbitrary (e.g. determined by the location and density of measuring stations)
+- Display and analysis often as contour or raster data
+- More prevalent in the natural and geosciences
+
+## Discrete
+
+- (Aggregated) characteristics of fixed spatial objects (e.g. political-administrative units)
+- Display and analysis often as point, line and polygon data
+- Particularly popular in the social sciences
+
 
 
 ---
 # Spatial data types
 
-.pull-left[
-Spatial data comes in two flavors:
+.pull-left-wide[
+## Flavors of spatial data
 
 - **Shape** data a.k.a. 'points' and 'polygons'
 - **Raster** data a.k.a. 'pixels'
@@ -161,16 +229,12 @@ Spatial data comes in two flavors:
 Today we'll only deal with polygon data.
 ]
 
-.pull-right[
+.pull-right-small[
 &lt;div align="center"&gt;
-&lt;img src="pics/berlin-shape.jpg" style="height:180px;"&gt; &amp;nbsp;
-&lt;img src="pics/berlin-1.png" style="height:180px;"&gt; &amp;nbsp;
+&lt;img src="pics/berlin-shape.jpg" style="height:180px;"&gt; &lt;br&gt;
+&lt;img src="pics/berlin-1.png" style="height:180px;"&gt; &lt;br&gt;
 &lt;img src="pics/berlin-2.png" style="height:180px;"&gt;
 &lt;/div&gt;
-
-.center[
-Polygon &amp;emsp; Raster (with vector "feel") &amp;emsp; Raster (satellite)
-]
 ]
 
 
@@ -199,42 +263,6 @@ Polygon &amp;emsp; Raster (with vector "feel") &amp;emsp; Raster (satellite)
 ]
 
 
-
----
-# Conceptualizations of space
-
-.pull-left-wide2[
-Data models in (sort-of) two-dimensional space
-
-- **Point**: single point location, such as a GPS reading or geocoded address
-- **Line**: set of ordered points, connected by straight line segments
-- **Polygon**: area, marked by one or more enclosing lines, possibly containing holes
-- **Grid**: collection of points or rectangular cells, organized in a regular lattice
-
-Things get more complicated when we assume a more realistic representation of the space that interests us most, i.e. more or less round planet Earth.
-]
-
-.pull-right-small2[
-&lt;div align="center"&gt;
-&lt;br&gt;
-&lt;img src="pics/spatial-types.png" style="width:85%; height:auto;"&gt;
-&lt;/div&gt;
-]
-
-
----
-# Conceptualizations of space (cont.)
-
-**Continuous**
-- Areal distribution of characteristics
-- Measuring points (areas, spaces); resolution largely arbitrary (e.g. determined by the location and density of measuring stations)
-- Display and analysis often as contour or raster data
-- More prevalent in the natural and geosciences
-
-**Discrete**
-- (Aggregated) characteristics of fixed spatial objects (e.g. political-administrative units)
-- Display and analysis often as point, line and polygon data
-- Particularly popular in the social sciences
 
 
 ---
@@ -283,6 +311,68 @@ Things get more complicated when we assume a more realistic representation of th
 
 ---
 class: inverse, center, middle
+name: wrong
+
+# When geojournalism goes wrong
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+# Fox News 2009
+
+&lt;div align="center"&gt;
+&lt;img src="pics/fail-fox-iraq-egypt.jpg" style="width:65%; height:auto;"&gt;
+&lt;a href="https://www.huffpost.com/entry/fox-news-cant-find-egypt-map_n_816540" style="font-size:0.8em;"&gt;Source&lt;/a&gt;
+&lt;/div&gt;
+
+
+
+---
+# WSJ 2012
+
+&lt;div align="center"&gt;
+&lt;img src="pics/wsj-election-map.webp" style="width:65%; height:auto;"&gt;
+&lt;a href="https://www.vox.com/2015/2/18/8056325/bad-maps" style="font-size:0.8em;"&gt;Source&lt;/a&gt;
+&lt;/div&gt;
+
+.center[
+&lt;small&gt;Fox News. Alabama and Mississippi switched on a U.S. map.&lt;/small&gt;
+]
+
+
+
+
+---
+# Projection fail: the Mercator problem
+
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="pics/fail-mercator-africa-greenland.png" style="width:25%; height:auto;"&gt;
+&lt;img src="pics/world-projection.png" style="width:65%; height:auto;"&gt;
+
+&lt;/div&gt;
+
+.center[
+&lt;small&gt;On a Mercator map, Greenland appears the same size as Africa — but Africa is actually 14× larger. Try [thetruesize.com](https://thetruesize.com).&lt;/small&gt;
+]
+
+
+---
+# The world forgets New Zealand
+
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="pics/fail-no-new-zealand.png" style="width:70%; height:auto;"&gt;
+&lt;/div&gt;
+
+.center[
+&lt;small&gt;New Zealand is so frequently omitted from world maps that there's an entire subreddit dedicated to it: [r/MapsWithoutNZ](https://www.reddit.com/r/MapsWithoutNZ/).&lt;/small&gt;
+]
+
+
+
+---
+class: inverse, center, middle
 name: dosndonts
 
 # Maps: Dos and don'ts
@@ -291,10 +381,10 @@ name: dosndonts
 
 
 ---
-# Remember: maps are beautiful ...
+# Maps are beautiful ...
 
 &lt;div align="center"&gt;
-&lt;img src="pics/midtermmap-1.png" style="width:45%; height:auto;"&gt;
+&lt;img src="pics/midtermmap-1.png" style="width:65%; height:auto;"&gt;
 &lt;/div&gt;
 
 .center[
@@ -306,110 +396,82 @@ name: dosndonts
 # ... but sometimes misleading
 
 &lt;div align="center"&gt;
-&lt;img src="pics/midtermmap-1.png" style="width:42%; height:auto;"&gt; &amp;emsp;
-&lt;img src="pics/midtermmap-2.png" style="width:42%; height:auto;"&gt;
+&lt;br&gt;
+&lt;img src="pics/midtermmap-1.png" style="width:46%; height:auto;"&gt; &amp;emsp;
+&lt;img src="pics/midtermmap-2.png" style="width:46%; height:auto;"&gt;
 &lt;/div&gt;
 
-.center[
-&lt;small&gt;2019 US Midterm Election results; source: nytimes.com&lt;/small&gt;
+##  Don't confuse area size with actual data of interest
+
+Large geographic areas attract attention regardless of their data values. Consider cartograms, hex tile maps, or dot density maps to counteract this.&lt;/small&gt;
+
+
+
+---
+# Consider if a map is the right choice
+
+&lt;div align="center"&gt;
+&lt;img src="pics/liquor-map.gif" style="height:30%; width:auto;"&gt; &amp;emsp;
+&lt;img src="pics/liquor-small-multiples.png" style="height:30%; width:auto;"&gt;
+&lt;/div&gt;
+
+## Maps help highlight geographical patterns, but is that your story?
+Also discussed [here](https://statmodeling.stat.columbia.edu/2014/04/10/small-multiples-lineplots-maps-ok-always-yes-case/). The small multiple plot on the right does a much better job at showing the trends over time and comparing across countries, while the map on the left is more visually striking but less informative. The map also exaggerates the differences between countries due to the varying sizes of the areas.
+
+---
+# Consider if a map is the right choice
+
+&lt;div align="center"&gt;
+&lt;img src="pics/liquor-skewed-map.png" style="height:35%; width:auto;"&gt; &amp;emsp;
+&lt;img src="pics/liquor-small-multiples.png" style="height:30%; width:auto;"&gt;
+&lt;/div&gt;
+
+## Maps help highlight geographical patterns, but is that your story?
+Also discussed [here](https://statmodeling.stat.columbia.edu/2014/04/10/small-multiples-lineplots-maps-ok-always-yes-case/). The small multiple plot on the right does a much better job at showing the trends over time and comparing across countries, while the map on the left is more visually striking but less informative. The map also exaggerates the differences between countries due to the varying sizes of the areas. A *cartogram* is almost never the right choice.
+
+
+---
+# Why not try small map multiples?
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="pics/vouchermapsBAYES2000.png" width=450&gt;
+&lt;/div&gt;
+]
+
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="pics/temp-anomalies-ger.webp" width=400&gt;
+&lt;/div&gt;
 ]
 
 
 ---
-# Visualizing geospatial data
-&lt;div align="center"&gt;
-&lt;br&gt;
-&lt;img src="pics/geospatial-1.png" width=500&gt;
-&lt;/div&gt;
-
-
----
-# Colors
+# Use color scales wisely
 
 .pull-left[
-- There are three fundamental use cases for color in data visualizations:
+## Three fundamental use cases for color in data visualizations:
   1. We can use color to distinguish groups of data from each other;
   2. We can use color to **represent data values**; and 
   3. We can use color to highlight.
+  
+Use [ColorBrewer](https://colorbrewer2.org/) to choose palettes.
 ]
 
 .pull-right[
 &lt;div align="center"&gt;
 &lt;img src="pics/sequential-scales-1.png" width=350&gt;
-&lt;img src="pics/map-Texas-income-1.png" width=250&gt;
+&lt;img src="pics/map-Texas-rainbow-1.png" style="width:35%; height:auto;"&gt; &amp;emsp;
+&lt;img src="pics/map-Texas-income-1.png" style="width:35%; height:auto;"&gt;
 &lt;img src="pics/map-Texas-race-1.png" width=250&gt;
 &lt;/div&gt;
 ]
 
 
 
----
-# Small multiples (cont.)
-
-.pull-left[
-- Check out the example on the right, which was also discussed [here](https://statmodeling.stat.columbia.edu/2014/04/10/small-multiples-lineplots-maps-ok-always-yes-case/) and [there](https://junkcharts.typepad.com/junk_charts/2014/02/small-multiples-with-simple-axes.html).
-- What they did right (by Kaiser Fung):
-  - Did not put the data on a map
-  - Ordered the countries by the most recent data point rather than alphabetically
-  - Scale labels are found only on outer edge of the chart area, rather than one set per panel
-  - Only used three labels for the 11 years
-  - Did not overdo the vertical scale either
-  - The nicest feature was the XL scale applied only to South Korea. This destroys the small-multiples principle but draws attention to the top left corner, where the designer wants our eyes to go.
-- Sometimes maps are not a good alternative.
-]
-
-.pull-right[
-&lt;div align="center"&gt;
-&lt;br&gt;
-&lt;img src="pics/liquor-map.gif" width=400&gt;
-&lt;img src="pics/liquor-skewed-map.png" width=400&gt;
-&lt;/div&gt;
-]
-
-
----
-# Small multiples (cont.)
-
-.pull-left[
-- Check out the example on the right, which was also discussed [here](https://statmodeling.stat.columbia.edu/2014/04/10/small-multiples-lineplots-maps-ok-always-yes-case/) and [there](https://junkcharts.typepad.com/junk_charts/2014/02/small-multiples-with-simple-axes.html).
-- What they did right (by Kaiser Fung):
-  - Did not put the data on a map
-  - Ordered the countries by the most recent data point rather than alphabetically
-  - Scale labels are found only on outer edge of the chart area, rather than one set per panel
-  - Only used three labels for the 11 years
-  - Did not overdo the vertical scale either
-  - The nicest feature was the XL scale applied only to South Korea. This destroys the small-multiples principle but draws attention to the top left corner, where the designer wants our eyes to go.
-]
-
-.pull-right[
-&lt;div align="center"&gt;
-&lt;br&gt;
-&lt;img src="pics/liquor-small-multiples.png" width=500&gt;
-&lt;/div&gt;
-]
-
----
-# Small multiples (cont.)
-
-.pull-left[
-- Check out the example on the right, which was also discussed [here](https://statmodeling.stat.columbia.edu/2014/04/10/small-multiples-lineplots-maps-ok-always-yes-case/) and [there](https://junkcharts.typepad.com/junk_charts/2014/02/small-multiples-with-simple-axes.html).
-- What they did right (by Kaiser Fung):
-  - Did not put the data on a map
-  - Ordered the countries by the most recent data point rather than alphabetically
-  - Scale labels are found only on outer edge of the chart area, rather than one set per panel
-  - Only used three labels for the 11 years
-  - Did not overdo the vertical scale either
-  - The nicest feature was the XL scale applied only to South Korea. This destroys the small-multiples principle but draws attention to the top left corner, where the designer wants our eyes to go.
-- Sometimes maps are not a good alternative.
-- But you can do small multiples of maps!
-]
-
-.pull-right[
-&lt;div align="center"&gt;
-&lt;br&gt;
-&lt;img src="pics/vouchermapsBAYES2000.png" width=450&gt;
-&lt;/div&gt;
-]
 
 
 ---
@@ -419,6 +481,114 @@ name: dosndonts
 &lt;br&gt;
 &lt;img src="pics/minards-map-translated.png" width=1000&gt;
 &lt;/div&gt;
+
+## Keep things simple
+
+
+
+
+
+---
+# Normalize your data
+
+https://handsondataviz.org/normalize-choropleth.html
+
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="pics/normalize-choropleth-covid.png" style="width:80%; height:auto;"&gt;
+&lt;/div&gt;
+
+.center[
+&lt;small&gt;Left: absolute counts (misleading — large states dominate). Right: per capita rate (honest comparison). Never map raw counts on a choropleth.&lt;/small&gt;
+]
+
+
+
+
+
+---
+# Do: Add context and sources
+
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="pics/do-context-sources.png" style="width:70%; height:auto;"&gt;
+&lt;/div&gt;
+
+.center[
+&lt;small&gt;Good journalistic maps include: a title that tells the story, a legend, a data source, a scale bar or north arrow when needed, and annotations for key patterns.&lt;/small&gt;
+]
+
+
+---
+# Don't: Forget about your projection
+
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="pics/dont-wrong-projection.png" style="width:75%; height:auto;"&gt;
+&lt;/div&gt;
+
+.center[
+&lt;small&gt;Mercator for a world thematic map distorts areas at the poles. Use equal-area projections (e.g., Robinson, Equal Earth) for world maps showing data.&lt;/small&gt;
+]
+
+
+---
+# Do: Use interactivity wisely
+
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="pics/do-interactivity.png" style="width:70%; height:auto;"&gt;
+&lt;/div&gt;
+
+.center[
+&lt;small&gt;Tooltips, zoom, and filter let readers explore. But don't make interactivity a crutch for poor design — the default view should already tell the story.&lt;/small&gt;
+]
+
+
+---
+class: inverse, center, middle
+name: discussion
+
+# Discussion
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+# Discuss
+
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="pics/wilke-map-2.png" style="width:45%; height:auto;"&gt;
+&lt;img src="pics/wilke-map-3.png" style="width:45%; height:auto;"&gt;
+&lt;/div&gt;
+
+
+
+
+---
+# Summary: mapping checklist
+
+.pull-left[
+## Do
+- Normalize data (per capita, per km²)
+- Use sequential or diverging color scales
+- Include legend, source, title
+- Consider if a map is actually the best format
+- Test for colorblind accessibility
+- Use appropriate projections for the scale
+- Show your sources and methodology
+]
+
+.pull-right[
+## Don't
+- Map raw counts on a choropleth
+- Use rainbow or arbitrary color scales
+- Let large areas dominate when they shouldn't
+- Forget New Zealand (or other countries)
+- Use 3D when 2D would do
+- Assume readers know where places are — add labels
+- Forget to check your borders and labels (!)
+]
 
 
 
