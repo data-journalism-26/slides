@@ -60,13 +60,9 @@ background-color: #000000
 
 1. [Why space matters for journalism](#classics)
 
-2. [Spatial data fundamentals](#spatial)
+2. [Maps: dos and don'ts](#dosndonts)
 
-3. [When geojournalism goes wrong](#wrong)
-
-4. [Maps: Dos and Don'ts](#dosndonts)
-
-5. [Discussion](#discussion)
+3. [Beyond maps](#beyondmaps)
 
 
 
@@ -79,7 +75,21 @@ name: spatial
 
 
 ---
-# Why space matters
+# Why space matters generally
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+&lt;div align="center" style="font-size:2em;"&gt;
+&lt;b&gt;Everything is related to everything else,&lt;br&gt;but near things are more related than distant things.&lt;/b&gt;
+&lt;/div&gt;
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+Tobler, Waldo. (1970). A Computer Movie Simulating Urban Growth in the Detroit Region. *Economic Geography* 46:234-240. https://doi.org/10.2307/143141
+
+
+---
+# Why space matters for journalism
 
 &lt;br&gt;&lt;br&gt;&lt;br&gt;
 
@@ -116,7 +126,7 @@ N. Usher. News cartography and epistemic authority in the era of big data: Journ
 
 
 ---
-# Electoral geography
+# Mapping political outcomes
 
 &lt;div align="center"&gt;
 &lt;img src="pics/fivethirtyeight-maps.png" style="width:95%; height:auto;"&gt;
@@ -124,7 +134,7 @@ N. Usher. News cartography and epistemic authority in the era of big data: Journ
 
 
 ---
-# Electoral geography
+# Mapping political outcomes
 
 &lt;div align="center"&gt;
 &lt;img src="pics/zeit-wahlkarte-eu.png" style="width:60%; height:auto;"&gt;
@@ -134,7 +144,7 @@ N. Usher. News cartography and epistemic authority in the era of big data: Journ
 
 
 ---
-# Conflict zones
+# Unterstanding international affairs
 
 &lt;div align="center"&gt;
 &lt;img src="pics/economist-iran-war.png" style="width:60%; height:auto;"&gt;
@@ -143,7 +153,7 @@ N. Usher. News cartography and epistemic authority in the era of big data: Journ
 `Source` [The Economist](https://www.economist.com/interactive/middle-east-and-africa/2026/03/06/the-iran-war-has-entered-a-new-phase)
 
 ---
-# Conflict zones
+# Unterstanding international affairs
 
 &lt;div align="center"&gt;
 &lt;video width="900" autoplay muted loop&gt;
@@ -153,169 +163,41 @@ N. Usher. News cartography and epistemic authority in the era of big data: Journ
 
 `Source` [Die Zeit](https://www.zeit.de/wirtschaft/2026-03/strasse-von-hormus-schifffahrt-oeltanker-frachter-iran?freebie=640aed06)
 
+---
+# Educating geographically illiterate audiences
+
+&lt;div align="center"&gt;
+&lt;img src="pics/zeitzoff-finding-ukraine.png" style="width:36%; height:auto;"&gt;
+&lt;/div&gt;
+
+`Source` [Washington Post/Monkey Cage](https://www.washingtonpost.com/news/monkey-cage/wp/2014/04/07/the-less-americans-know-about-ukraines-location-the-more-they-want-u-s-to-intervene/); see also [Good Authority](https://goodauthority.org/news/finding-ukraine-on-a-map-revisited/).
+
+
 
 ---
 # The design space of journalistic maps
 
 &lt;div align="center"&gt;
+&lt;img src="pics/gomes-maps-journalists.png" style="width:80%; height:auto;"&gt;
 &lt;br&gt;
-&lt;img src="pics/gomes-maps-journalists.png" style="width:85%; height:auto;"&gt;
+&lt;code&gt;Source&lt;/code&gt; &lt;a href="https://arxiv.org/abs/2508.10903"&gt;Gomes et al. (2025) "How do Data Journalists Design Maps to Tell Stories?"&lt;/a&gt;
 &lt;/div&gt;
-
-`Source` [Gomes et al. (2025); "How do Data Journalists Design Maps to Tell Stories?"](https://arxiv.org/abs/2508.10903)
-
-
-
-
-
----
-class: inverse, center, middle
-name: spatial
-
-# Spatial data fundamentals
-&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
-
-
-
----
-# Conceptualizations of space
-
-.pull-left-wide2[
-## Data models in (sort-of) two-dimensional space
-
-- **Point**: single point location, such as a GPS reading or geocoded address
-- **Line**: set of ordered points, connected by straight line segments
-- **Polygon**: area, marked by one or more enclosing lines, possibly containing holes
-- **Grid**: collection of points or rectangular cells, organized in a regular lattice
-
-Things get more complicated when we assume a more realistic representation of the space that interests us most, i.e. more or less round planet Earth.
-]
-
-.pull-right-small2[
-&lt;div align="center"&gt;
-&lt;br&gt;
-&lt;img src="pics/spatial-types.png" style="width:85%; height:auto;"&gt;
-&lt;/div&gt;
-]
-
-
----
-# Conceptualizations of space (cont.)
-
-## Continuous
-
-- Areal distribution of characteristics
-- Measuring points (areas, spaces); resolution largely arbitrary (e.g. determined by the location and density of measuring stations)
-- Display and analysis often as contour or raster data
-- More prevalent in the natural and geosciences
-
-## Discrete
-
-- (Aggregated) characteristics of fixed spatial objects (e.g. political-administrative units)
-- Display and analysis often as point, line and polygon data
-- Particularly popular in the social sciences
-
-
-
----
-# Spatial data types
-
-.pull-left-wide[
-## Flavors of spatial data
-
-- **Shape** data a.k.a. 'points' and 'polygons'
-- **Raster** data a.k.a. 'pixels'
-
-Today we'll only deal with polygon data.
-]
-
-.pull-right-small[
-&lt;div align="center"&gt;
-&lt;img src="pics/berlin-shape.jpg" style="height:180px;"&gt; &lt;br&gt;
-&lt;img src="pics/berlin-1.png" style="height:180px;"&gt; &lt;br&gt;
-&lt;img src="pics/berlin-2.png" style="height:180px;"&gt;
-&lt;/div&gt;
-]
-
-
-
----
-# Spatial dependence
-
-.pull-left-wide2[
-## Tobler's First Law of Geography
-
-**"Everything is related to everything else, but near things are more related than distant things."**
-
-## 
-- Analogy between time-series and spatial data (but: time is uni-dimensional and -directional)
-- Spatial econometrics is about how to address spatial dependence in statistical inference
-- Think about: spatial lags; spatial interactions; spatial spillovers
-
-]
-
-.pull-right-small2[
-&lt;div align="center"&gt;
-&lt;img src="pics/ger-eu-parliament-2019-map.png" style="width:90%; height:auto;"&gt;
-&lt;br&gt;
-&lt;small&gt;&lt;em&gt;Source:&lt;/em&gt; Erinthecute; &lt;a href="https://w.wiki/e8n"&gt;w.wiki/e8n&lt;/a&gt;&lt;/small&gt;
-&lt;/div&gt;
-]
-
-
-
-
----
-# Conceptualizations of distance
-
-**Continuous**
-- (Euclidean) distance between points, polygons (centroids!)
-- Transformations if theoretically appropriate
-
-&lt;br&gt;
-
-**Discrete**
-- Based on concepts of contiguity
-- "Does Polygon A share a border with Polygon B?"; "Does Polygon A touch Polygon B?"
-
-
----
-# Continuous distances
-
-&lt;div align="center"&gt;
-&lt;img src="pics/neighbors-distance.png" style="width:62%; height:auto;"&gt;
-&lt;br&gt;
-&lt;img src="pics/neighbors-knn.png" style="width:58%; height:auto;"&gt;
-&lt;/div&gt;
-
-
----
-# Discrete distances
-
-&lt;div align="center"&gt;
-&lt;img src="pics/distance-chess.png" style="width:55%; height:auto;"&gt;
-&lt;br&gt;
-&lt;img src="pics/distance-polygons.png" style="width:55%; height:auto;"&gt;
-&lt;/div&gt;
-
-
----
-# Discrete distances (cont.)
 
 &lt;div align="center"&gt;
 &lt;br&gt;
-&lt;img src="pics/neighbors-discrete.png" style="width:70%; height:auto;"&gt;
+&lt;img src="pics/geospatial-1.png" style="width:55%; height:auto;"&gt;
+&lt;br&gt;
+&lt;code&gt;Source&lt;/code&gt; &lt;a href="https://clauswilke.com/dataviz/geospatial-data.html"&gt;Wilke, Fundamentals of Data Visualization&lt;/a&gt;
 &lt;/div&gt;
 
 
 
 ---
 class: inverse, center, middle
-name: wrong
+name: dosndonts
 
-# When geojournalism goes wrong
+# Maps: Dos and don'ts
 &lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
-
 
 ---
 # Fox News 2009
@@ -324,8 +206,6 @@ name: wrong
 &lt;img src="pics/fail-fox-iraq-egypt.jpg" style="width:65%; height:auto;"&gt;
 &lt;a href="https://www.huffpost.com/entry/fox-news-cant-find-egypt-map_n_816540" style="font-size:0.8em;"&gt;Source&lt;/a&gt;
 &lt;/div&gt;
-
-
 
 ---
 # WSJ 2012
@@ -338,45 +218,6 @@ name: wrong
 .center[
 &lt;small&gt;Fox News. Alabama and Mississippi switched on a U.S. map.&lt;/small&gt;
 ]
-
-
-
-
----
-# Projection fail: the Mercator problem
-
-&lt;div align="center"&gt;
-&lt;br&gt;
-&lt;img src="pics/fail-mercator-africa-greenland.png" style="width:25%; height:auto;"&gt;
-&lt;img src="pics/world-projection.png" style="width:65%; height:auto;"&gt;
-
-&lt;/div&gt;
-
-.center[
-&lt;small&gt;On a Mercator map, Greenland appears the same size as Africa — but Africa is actually 14× larger. Try [thetruesize.com](https://thetruesize.com).&lt;/small&gt;
-]
-
-
----
-# The world forgets New Zealand
-
-&lt;div align="center"&gt;
-&lt;br&gt;
-&lt;img src="pics/fail-no-new-zealand.png" style="width:70%; height:auto;"&gt;
-&lt;/div&gt;
-
-.center[
-&lt;small&gt;New Zealand is so frequently omitted from world maps that there's an entire subreddit dedicated to it: [r/MapsWithoutNZ](https://www.reddit.com/r/MapsWithoutNZ/).&lt;/small&gt;
-]
-
-
-
----
-class: inverse, center, middle
-name: dosndonts
-
-# Maps: Dos and don'ts
-&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
 
 
 
@@ -431,6 +272,16 @@ Also discussed [here](https://statmodeling.stat.columbia.edu/2014/04/10/small-mu
 
 
 ---
+# Cartogram heatmaps can help (or confuse?)
+
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="pics/wilke-map-2.png" style="width:45%; height:auto;"&gt;
+&lt;img src="pics/wilke-map-3.png" style="width:45%; height:auto;"&gt;
+&lt;/div&gt;
+
+
+---
 # Why not try small map multiples?
 
 .pull-left[
@@ -454,9 +305,9 @@ Also discussed [here](https://statmodeling.stat.columbia.edu/2014/04/10/small-mu
 
 .pull-left[
 ## Three fundamental use cases for color in data visualizations:
-  1. We can use color to distinguish groups of data from each other;
+  1. We can use color to **distinguish groups** of data from each other;
   2. We can use color to **represent data values**; and 
-  3. We can use color to highlight.
+  3. We can use color to **highlight**.
   
 Use [ColorBrewer](https://colorbrewer2.org/) to choose palettes.
 ]
@@ -471,125 +322,156 @@ Use [ColorBrewer](https://colorbrewer2.org/) to choose palettes.
 ]
 
 
-
-
-
----
-# Minard's map of Napoleon's March
-
-&lt;div align="center"&gt;
-&lt;br&gt;
-&lt;img src="pics/minards-map-translated.png" width=1000&gt;
-&lt;/div&gt;
-
-## Keep things simple
-
-
-
-
-
 ---
 # Normalize your data
-
-https://handsondataviz.org/normalize-choropleth.html
 
 &lt;div align="center"&gt;
 &lt;br&gt;
 &lt;img src="pics/normalize-choropleth-covid.png" style="width:80%; height:auto;"&gt;
 &lt;/div&gt;
 
-.center[
-&lt;small&gt;Left: absolute counts (misleading — large states dominate). Right: per capita rate (honest comparison). Never map raw counts on a choropleth.&lt;/small&gt;
-]
+&lt;br&gt;
 
+## Mapping raw counts in choropleths can be misleading
 
+Absolute counts can be misleading - large units/states dominate (left plot). Instead, normalize using meaningful baselines, such as per capita rates (right plot). If your story is indead about area size, that is probably not necessary. [Source.](https://handsondataviz.org/normalize-choropleth.html)
 
 
 
 ---
-# Do: Add context and sources
+# Keep things simple
 
 &lt;div align="center"&gt;
-&lt;br&gt;
-&lt;img src="pics/do-context-sources.png" style="width:70%; height:auto;"&gt;
+&lt;img src="pics/minards-map-translated.png" width=800&gt;
 &lt;/div&gt;
 
-.center[
-&lt;small&gt;Good journalistic maps include: a title that tells the story, a legend, a data source, a scale bar or north arrow when needed, and annotations for key patterns.&lt;/small&gt;
+## Don't overload your map with too many variables
+
+Minard's famous [map of Napoleon's march on Russia in 1812](https://commons.wikimedia.org/wiki/File:Minard.png) has been regarded a masterpiece of data visualization. It combines multiple variables (geography, time, temperature, and troop size) in a clear and concise way. On the other hand, it's clearly **overloaded**, and one might ask if the same story could not have been told with several plots that are not as busy.
+
+
+---
+# Don't forget about your projection
+
+.pull-left[
+## The issue
+
+The Earth is a sphere, but maps are flat. The choice of projection can affect how readers perceive the data and the story you want to tell.
+
+On a Mercator map, Greenland appears the same size as Africa — but Africa is actually 14× larger. Try [thetruesize.com](https://thetruesize.com). Use equal-area projections (e.g., Robinson, Equal Earth) for world maps showing data.
+
+&lt;div align="center"&gt;
+&lt;img src="pics/world-projection.png" style="width:45%; height:auto;"&gt;
+&lt;/div&gt;
+&lt;code&gt;Source&lt;/code&gt; &lt;a href="https://clauswilke.com/dataviz/geospatial-data.html"&gt;Wilke, Fundamentals of Data Visualization&lt;/a&gt;
+]
+
+.pull-right-center[
+&lt;div align="center"&gt;
+&lt;img src="pics/world-projection.gif" style="width:85%; height:auto;"&gt;
+&lt;/div&gt;
+
+`Source` [Wikipedia](https://en.wikipedia.org/wiki/Mercator_projection#/media/File:Worlds_animate.gif)
 ]
 
 
 ---
-# Don't: Forget about your projection
+# Don't forget about your projection
+
+.pull-left[
+## The issue
+
+The Earth is a sphere, but maps are flat. The choice of projection can affect how readers perceive the data and the story you want to tell.
+
+On a Mercator map, Greenland appears the same size as Africa — but Africa is actually 14× larger. Try [thetruesize.com](https://thetruesize.com). Use equal-area projections (e.g., Robinson, Equal Earth) for world maps showing data.
 
 &lt;div align="center"&gt;
-&lt;br&gt;
-&lt;img src="pics/dont-wrong-projection.png" style="width:75%; height:auto;"&gt;
+&lt;img src="pics/world-projection.png" style="width:45%; height:auto;"&gt;
 &lt;/div&gt;
-
-.center[
-&lt;small&gt;Mercator for a world thematic map distorts areas at the poles. Use equal-area projections (e.g., Robinson, Equal Earth) for world maps showing data.&lt;/small&gt;
+&lt;code&gt;Source&lt;/code&gt; &lt;a href="https://clauswilke.com/dataviz/geospatial-data.html"&gt;Wilke, Fundamentals of Data Visualization&lt;/a&gt;
 ]
 
-
----
-# Do: Use interactivity wisely
-
+.pull-right-center[
 &lt;div align="center"&gt;
-&lt;br&gt;
-&lt;img src="pics/do-interactivity.png" style="width:70%; height:auto;"&gt;
+&lt;img src="pics/zeit-iran-flight-projection.png" style="width:70%; height:auto;"&gt;
 &lt;/div&gt;
 
-.center[
-&lt;small&gt;Tooltips, zoom, and filter let readers explore. But don't make interactivity a crutch for poor design — the default view should already tell the story.&lt;/small&gt;
+`Source` [DIE ZEIT](https://www.zeit.de/wirtschaft/2026-03/lufthansa-europa-asien-nahostkrieg-flugverkehr?freebie=8bcf7aa3)
 ]
 
 
 ---
 class: inverse, center, middle
-name: discussion
+name: beyond maps
 
-# Discussion
+# Beyond maps
 &lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
 
 
 ---
-# Discuss
+class: exercise
+# Discussion
 
-&lt;div align="center"&gt;
+## Discuss
 &lt;br&gt;
-&lt;img src="pics/wilke-map-2.png" style="width:45%; height:auto;"&gt;
-&lt;img src="pics/wilke-map-3.png" style="width:45%; height:auto;"&gt;
-&lt;/div&gt;
-
+1. **Beyond the map:** Geospatial data is often treated as input for maps — 
+   but what other analytical uses does it enable? Think of examples from 
+   journalism or your own work.
+   
+2. **Spatial thinking as a method:** When does location *explain* something, 
+   and when is it just context? How do you know when a spatial analysis 
+   adds real insight vs. visual appeal?
+   
+3. **Access and limits:** Where does geospatial data come from, and who controls it? What are the ethical and practical constraints journalists face when working with it?
 
 
 
 ---
-# Summary: mapping checklist
+class: center
 
-.pull-left[
-## Do
-- Normalize data (per capita, per km²)
-- Use sequential or diverging color scales
-- Include legend, source, title
-- Consider if a map is actually the best format
-- Test for colorblind accessibility
-- Use appropriate projections for the scale
-- Show your sources and methodology
-]
+# Streetmap data
 
-.pull-right[
-## Don't
-- Map raw counts on a choropleth
-- Use rainbow or arbitrary color scales
-- Let large areas dominate when they shouldn't
-- Forget New Zealand (or other countries)
-- Use 3D when 2D would do
-- Assume readers know where places are — add labels
-- Forget to check your borders and labels (!)
-]
+&lt;div align="center"&gt;
+&lt;img src="pics/nyt-streetmaps-voting.png" style="width:50%; height:auto;"&gt;
+&lt;/div&gt;
 
+`Source` [New York Times](https://www.nytimes.com/interactive/2021/upshot/trump-biden-geography-quiz.html)
+
+
+---
+class: center
+
+# Satellite data
+
+&lt;div align="center"&gt;
+&lt;img src="pics/buzzfeed-camps.png" style="width:50%; height:auto;"&gt;
+&lt;/div&gt;
+
+`Source` [Buzzfeed](https://www.buzzfeednews.com/article/meghara/china-new-internment-camps-xinjiang-uighurs-muslims)
+
+
+---
+# Geospatial data beyond maps
+
+## Location as a join key
+Link datasets that share no common ID but share space — e.g., match industrial 
+sites to asthma hospitalization records by proximity.
+
+##  Distance and proximity as a variable
+Not "where is X?" but "how far is X from Y, and does that distance predict 
+something?" — access to schools, pollution exposure, ...
+
+## Satellite and remote sensing data as a source
+Count ships in a port, measure deforestation, detect construction in sanctioned 
+countries. The imagery is evidence.
+
+## Geocoding as a method for record linkage
+Convert messy address data into coordinates to deduplicate records or match 
+across datasets that otherwise can't be joined.
+
+
+&gt; **Coordinates are a universal join key** — they connect datasets that have 
+nothing else in common. That's the analytical superpower, not (just) the map.
 
 
     </textarea>
