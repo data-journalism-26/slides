@@ -49,14 +49,14 @@ h2, h3, h4 {
   font-size: 22px;
   font-weight: bold;
   padding-top: 40px;
-  padding-bottom: 00px;
+  padding-bottom: 10px;    /* was 00px */
   color: #1D375B;
   text-shadow: none;
   font-weight: bold;
   text-align: left;
   margin-top: -30px;
   margin-left: 00px;
-  margin-bottom: -10px;
+  margin-bottom: 10px;     /* was -10px */
 }
 
 .remark-slide-content h3 {

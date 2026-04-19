@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Data Journalism</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Simon Munzert" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+    <script src="https://tikzjax.com/v1/tikzjax.js"></script>
+    <link rel="stylesheet" href="../simons-touch.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Data Journalism
+]
+.subtitle[
+## Session 7: Writing with data
+]
+.author[
+### Simon Munzert
+]
+.institute[
+### Hertie School | <a href="https://github.com/data-journalism-26">GRAD-E1493</a>
+]
+
+---
+
+
+&lt;style type="text/css"&gt;
+@media print {
+  .has-continuation {
+    display: block !important;
+  }
+}
+&lt;/style&gt;
+
+
+
+
+# Good writing
+
+
+.pull-left[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;div align="center" class = "font100"&gt;
+&lt;b&gt;You are not being trained as journalists.&lt;br&gt;&lt;br&gt;But if you analyze data, you will have to write, speak, or present about data.&lt;br&gt;&lt;br&gt;Today is about the craft of doing that well.&lt;/b&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;div align="center"&gt;
+&lt;img src="pics/it-crowd-fire.gif" height=300&gt;
+&lt;/div&gt;
+]
+
+
+
+---
+# Today
+
+&lt;/br&gt;&lt;/br&gt;
+
+1. [What makes a data story?](#whatisstorytelling)
+
+2. [Five lessons for writing with data](#lessons)
+
+3. [Ten bits of 1-minute advice](#oneminuteadvice)
+
+
+&lt;br&gt;
+
+.font90[
+
+]
+
+
+
+---
+class: inverse, center, middle
+name: whatisstorytelling
+
+# What makes a data story?
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+# Matei and Hunter, 2021
+
+&lt;div align="center"&gt;
+&lt;img src="pics/matei-abstract.png" width=900&gt;
+&lt;/div&gt;
+
+
+---
+class: exercise
+# Discussion
+
+## In pairs, discuss the following quotes from Matei and Hunter (2021):
+
+.pull-left[
+
+### When a story is good
+
+&gt; A story is good because it satisfies a necessary and sufficient conditions; a good story always connects a cause to an effect (Schank 1991). Something leads to something else. Further, it is necessary the cause be unexpected. A good story neither states the obvious nor uses common sense as a universal yardstick (Dahlstrom 2014).
+
+### The role of surprise
+
+&gt; The best stories employ surprise because surprise begets questions, which beget interest, which begets personal engagement, which leads to learning. All stories that use surprise work well, regardless of context or if they use numbers or not.
+
+]
+
+.pull-right[
+
+### On scientific storytelling
+
+&gt; Scientific storytelling, in turn, has a natural advantage over conventional storytelling because it consistently provides new, unexpected explanations. (...) By the nature of their practice, scientists can also be excellent storytellers. In fact, they are taught to think like storytellers.
+
+### On the role of novel explanations
+
+&gt; When relying on data to make their point, stories which use a new theoretical model (one that better fits the facts while violating previous theories) have a higher chance to capture public attention. Thus, it is the job of the professional communicator, especially data scientists or journalists, to seek explanations which violate assumptions and known theories in a justified manner.
+
+]
+
+
+
+---
+# Scientific vs. journalistic writing
+
+.pull-left[
+Scientific and journalistic writing are **two different genres**. They differ in their goals and audience, which has implications for the structure and style of the writing. 
+
+For instance:
+ 
+- **Language:** Scientific jargon vs. plain language
+- **Structure:** Archetypical IMRD (Introduction, Methods, Results, Discussion) vs. the inverted pyramid (lede first, details later)
+- **Titles:** Describe the topic vs. Deliver the finding (or create suspense)
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="pics/simon-titles.png" width=500&gt;
+&lt;/div&gt;
+]
+
+
+---
+# Science or journalism?
+
+&lt;script&gt;window.SG_DATA = [{"text":"Cash transfers reduce multidimensional poverty: evidence from a randomized trial in Kenya.","kind":"science","source":"working paper","url":""},{"text":"Cash, not training: a simple idea is rewriting how aid works.","kind":"journalism","source":"The Economist","url":""},{"text":"Germany's minimum wage rose. Employment didn't fall. Something else did.","kind":"journalism","source":"Die Zeit","url":""},{"text":"Heterogeneous labour-market effects of the German minimum wage: a synthetic control approach.","kind":"science","source":"journal article","url":""},{"text":"Why Berlin rents doubled ‚Äî and who cashed in.","kind":"journalism","source":"Tagesspiegel","url":""},{"text":"Rent-regulation spillovers in segmented housing markets: evidence from the Mietendeckel.","kind":"science","source":"IZA discussion paper","url":""},{"text":"Partisan motivated reasoning attenuates the efficacy of corrective information.","kind":"science","source":"political science journal","url":""},{"text":"Why even the best fact-checks can't change partisan minds.","kind":"journalism","source":"Vox","url":""},{"text":"Strangers, not friends, are the likeliest to get you your next job.","kind":"journalism","source":"The Atlantic","url":""},{"text":"Weak ties and the diffusion of labour-market opportunities: evidence from a large-scale field experiment.","kind":"science","source":"Science","url":""},{"text":"The causal effect of remote work on productivity: evidence from a Fortune 500 firm.","kind":"science","source":"NBER working paper","url":""},{"text":"Your boss was right. Remote work is slowly hurting your career.","kind":"journalism","source":"Bloomberg","url":""},{"text":"Hitler’s speeches and the rise of the Nazi party, 1927–1933","kind":"science","source":"American Political Science Review","url":""},{"text":"Meta-analysis of the effects of voting advice applications","kind":"science","source":"Political Communication","url":""},{"text":"Do Online Voter Guides Empower Citizens? Evidence from a Field Experiment with Digital Trace Data","kind":"science","source":"Public Opinion Quarterly","url":""},{"text":"How TikTok influenced hundreds of thousands of voters","kind":"journalism","source":"Die Zeit","url":"https://www.zeit.de/politik/deutschland/2025-10/soziale-medien-tiktok-wahleinfluss-reichweite-afd-die-linke"},{"text":"Another Benefit to Going to Museums? You May Live Longer","kind":"journalism","source":"New York Times","url":"https://www.nytimes.com/2019/12/22/us/arts-health-effects-ucl-study.html"},{"text":"Refugee labor market integration at scale: Evidence from Germany’s fast-track employment program","kind":"science","source":"PNAS","url":"https://www.pnas.org/doi/10.1073/pnas.2513863123"},{"text":"Why Biden-era clean energy investment policies had limited political returns","kind":"science","source":"PNAS","url":"https://www.pnas.org/doi/10.1073/pnas.2526802123"}];&lt;/script&gt;
+
+&lt;div id="sg" style="max-width:780px; margin:10px auto; font-family:inherit;"&gt;
+  &lt;div id="sg-score" style="text-align:right; color:#888; font-size:14px;"&gt;Score: 0 / 0&lt;/div&gt;
+  &lt;div id="sg-card" style="background:#fff; border:1px solid #ddd; border-radius:12px;
+       padding:28px; min-height:140px; box-shadow:0 4px 14px rgba(0,0,0,.08);
+       font-size:22px; line-height:1.45; margin-top:6px;"&gt;
+    &lt;span id="sg-text"&gt;Loading…&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div id="sg-feedback" style="min-height:30px; margin-top:10px; text-align:center; font-size:18px;"&gt;&lt;/div&gt;
+  &lt;div style="display:flex; justify-content:center; gap:18px; margin-top:8px;"&gt;
+    &lt;button onclick="sgGuess('journalism')"
+      style="padding:12px 28px; border:none; border-radius:8px;
+             background:#C2001A; color:#fff; cursor:pointer; font-size:16px;"&gt;
+      📰 Journalism
+    &lt;/button&gt;
+    &lt;button onclick="sgGuess('science')"
+      style="padding:12px 28px; border:none; border-radius:8px;
+             background:#1D375B; color:#fff; cursor:pointer; font-size:16px;"&gt;
+      🔬 Science
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+(function () {
+  const $ = id =&gt; document.getElementById(id);
+
+  function shuffle(a) {
+    for (let i = a.length - 1; i &gt; 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  let items = [], i = 0, right = 0, total = 0, locked = false;
+
+  function render() {
+    if (i &gt;= items.length) {
+      $('sg-text').innerHTML =
+        '&lt;b&gt;Done!&lt;/b&gt;&lt;br&gt;&lt;span style="font-size:18px; color:#666;"&gt;Final score: ' +
+        right + ' / ' + total + '&lt;/span&gt;';
+      $('sg-feedback').innerHTML =
+        '&lt;button onclick="sgRestart()" style="padding:6px 14px; font-size:14px;"&gt;Restart&lt;/button&gt;';
+      return;
+    }
+    $('sg-text').textContent = items[i].t;
+    $('sg-feedback').innerHTML = '';
+    locked = false;
+  }
+
+  window.sgGuess = function (k) {
+    if (locked || i &gt;= items.length) return;
+    locked = true; total++;
+    const ok = k === items[i].k; if (ok) right++;
+    $('sg-score').textContent = 'Score: ' + right + ' / ' + total;
+    const srcHtml = items[i].url
+      ? '&lt;a href="' + items[i].url + '" target="_blank" rel="noopener"&gt;' + items[i].s + '&lt;/a&gt;'
+      : items[i].s;
+    $('sg-feedback').innerHTML =
+      (ok ? '✅ Correct' : '❌ Wrong') +
+      ' — &lt;em&gt;' + items[i].k + '&lt;/em&gt; &lt;span style="color:#888;"&gt;(' + srcHtml + ')&lt;/span&gt;' +
+      ' &lt;button onclick="sgNext()" style="margin-left:12px; padding:6px 14px; font-size:14px;"&gt;Next →&lt;/button&gt;';
+  };
+
+  window.sgNext = function () { i++; render(); };
+
+  window.sgRestart = function () {
+    i = 0; right = 0; total = 0;
+    shuffle(items);
+    $('sg-score').textContent = 'Score: 0 / 0';
+    render();
+  };
+
+  // Data was baked in at knit time from app/headlines.csv — see the R chunk above.
+  const data = (window.SG_DATA || []).map(d =&gt; ({
+    t: (d.text || '').toString().trim(),
+    k: (d.kind || '').toString().toLowerCase().trim(),
+    s: (d.source || '').toString().trim(),
+    url: (d.url || '').toString().trim()
+  })).filter(it =&gt; it.t &amp;&amp; (it.k === 'science' || it.k === 'journalism'));
+
+  if (!data.length) {
+    $('sg-text').innerHTML =
+      '&lt;span style="color:#C2001A;"&gt;No headline data embedded.&lt;/span&gt;&lt;br&gt;' +
+      '&lt;span style="font-size:14px; color:#888;"&gt;' +
+      'Check that &lt;code&gt;app/headlines.csv&lt;/code&gt; exists with columns ' +
+      '&lt;code&gt;text&lt;/code&gt;, &lt;code&gt;kind&lt;/code&gt;, then re-knit.&lt;/span&gt;';
+    return;
+  }
+
+  items = data;
+  shuffle(items);
+  render();
+})();
+&lt;/script&gt;
+
+
+
+---
+# Common angles for data stories
+
+&lt;div align="center"&gt;
+&lt;img src="pics/data-angle-common.png" width=920&gt;
+&lt;/div&gt;
+
+`Source` [Paul Bradshaw, Online Journalism Blog](https://onlinejournalismblog.com/2020/08/11/here-are-the-7-types-of-stories-most-often-found-in-data/)
+
+---
+# &amp;nbsp;
+
+&lt;div align="center"&gt;
+&lt;img src="pics/data-angle-1-scale.png" width=700&gt;
+&lt;/div&gt;
+
+---
+# Scale: How big is an issue
+
+&lt;div align="center"&gt;
+&lt;img src="pics/data-angle-1-scale.png" width=700&gt;
+&lt;/div&gt;
+
+
+---
+# &amp;nbsp;
+
+&lt;div align="center"&gt;
+&lt;img src="pics/data-angle-2-change.png" width=700&gt;
+&lt;/div&gt;
+
+---
+# Change: Things getting better/up or worse/down
+
+&lt;div align="center"&gt;
+&lt;img src="pics/data-angle-2-change.png" width=700&gt;
+&lt;/div&gt;
+
+---
+# &amp;nbsp;
+
+&lt;div align="center"&gt;
+&lt;img src="pics/data-angle-3-ranking.png" width=700&gt;
+&lt;/div&gt;
+
+---
+# Ranking: The best/worst/outliers
+
+&lt;div align="center"&gt;
+&lt;img src="pics/data-angle-3-ranking.png" width=700&gt;
+&lt;/div&gt;
+
+---
+# &amp;nbsp;
+
+&lt;div align="center"&gt;
+&lt;img src="pics/data-angle-4-variation.png" width=700&gt;
+&lt;/div&gt;
+
+---
+# Variation: Things are different across space/subgroups
+
+&lt;div align="center"&gt;
+&lt;img src="pics/data-angle-4-variation.png" width=700&gt;
+&lt;/div&gt;
+
+---
+# &amp;nbsp;
+
+&lt;div align="center"&gt;
+&lt;img src="pics/data-angle-5-explore.png" width=900&gt;
+&lt;/div&gt;
+
+---
+# Exploration: Tools, simulators, interactivity, personalization
+
+&lt;div align="center"&gt;
+&lt;img src="pics/data-angle-5-explore.png" width=900&gt;
+&lt;/div&gt;
+
+---
+# &amp;nbsp;
+
+&lt;div align="center"&gt;
+&lt;img src="pics/data-angle-6-relationships.png" width=900&gt;
+&lt;/div&gt;
+
+---
+# Relationships: How things are (causally) connected (and why)
+
+&lt;div align="center"&gt;
+&lt;img src="pics/data-angle-6-relationships.png" width=900&gt;
+&lt;/div&gt;
+
+---
+# &amp;nbsp;
+
+&lt;div align="center"&gt;
+&lt;img src="pics/data-angle-7-data.png" width=700&gt;
+&lt;/div&gt;
+
+---
+# Data: Bad data, good data, hey we got the data stories
+
+&lt;div align="center"&gt;
+&lt;img src="pics/data-angle-7-data.png" width=700&gt;
+&lt;/div&gt;
+
+
+
+---
+class: inverse, center, middle
+name: lessons
+
+# Five lessons for writing with data
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+# Lesson 1: Start from the one-sentence claim
+
+.pull-left[
+## The lesson
+
+- **Before you write a single paragraph, write your claim in one sentence.** If you can't, you don't yet know what you're writing about.
+- The one-sentence claim becomes your **organizing principle** — the headline, the lede, the conclusion all point at it.
+- If your claim changes halfway through the draft, fine — but rewrite the opening to match.
+- **A headline is a claim, not a topic.** "Housing in Berlin" is not a headline. "Berlin rents rose faster last year than in any year since 1991" is.
+- Good test: can your reader tell, from the headline alone, what the story is? If not, rewrite.
+]
+
+.pull-right[
+
+## A simple template
+
+*"[In population / context], [what happened / is happening], [by how much / compared to what]."*
+
+## Examples
+
+| ❌ Topic headline | ✅ Finding headline |
+|---|---|
+| "A look at EU antibiotic use" | "Europe is winning the antibiotic battle — unevenly" |
+| "Gender in German startups" | "German startups led by women raise half as much" |
+| "Housing in Berlin" | "Berlin's rents rose 130% in a decade" |
+]
+
+---
+class: exercise
+# Exercise: Write the claim
+
+## You have this finding:
+
+&gt; A new analysis of Germany's startup ecosystem, based on data from the Federal Statistical Office and Crunchbase covering roughly 500 venture-backed companies founded between 2019 and 2024, sheds light on how founder demographics may relate to early-stage fundraising outcomes. The study, which considers firms across sectors including fintech, climate tech, and enterprise software, examines a range of variables including founding team size, geographic location, and prior work experience. Among its findings, the analysis indicates that, all else being roughly equal, founders under the age of 30 tend to close their Series A rounds at valuations that translate to approximately €1.2 million less on average than their counterparts aged 30 and above — a gap that persists even after accounting for the fact that the two groups showed broadly comparable revenue growth trajectories in the twelve months leading up to the round. Industry observers have long debated whether age serves as a proxy for experience, network depth, or investor bias, and while this study does not resolve that question, the results arguably add a quantitative data point to an ongoing conversation.
+
+## Task (3 minutes, individually)
+
+Write the **one-sentence claim** you would put at the top of the article. Aim for:
+- A verb that does work (not "examines", not "looks at")
+- A specific number
+- A comparison or a "but"
+
+---
+class: exercise
+# Exercise: Rewrite these headlines
+
+## Topic → Finding (5 minutes)
+
+Rewrite each topic headline as a **finding headline**. You will need to invent plausible numbers — that's fine, it's an exercise in form.
+
+&lt;br&gt;
+
+1. *"A study of commuting patterns in German cities"*
+
+2. *"An analysis of climate spending in the EU budget"*
+
+3. *"Women in German politics"*
+
+4. *"AI adoption in small businesses"*
+
+
+---
+# Lesson 2: Build  a solid structure — the inverted pyramid
+
+.pull-left[
+## The lesson
+
+- **Most important thing first.** Less important after. Caveats last.
+- Readers drop off paragraph by paragraph. Write so that whenever they stop, they still got the point.
+
+
+## The classic order
+
+  1. **Lede** — the finding addressing the five Ws
+  2. **Nut graf** — why it matters in a NUTshell
+  3. **Evidence** — the key numbers
+  4. **Context** — comparisons, history
+  5. **Voices** — quotes, alternative views
+  6. **Methods &amp; caveats** — how we know
+
+More freestyle narrative arcs work too — but only if you have a reason to use one.
+]
+
+.pull-right-center[
+
+&lt;div align="center"&gt;
+&lt;img src="pics/inverted-pyramid.png" width=250&gt;
+&lt;/div&gt;
+
+&lt;div align="center"&gt;
+&lt;img src="pics/five-ws-h.jpg" width=200&gt;
+&lt;/div&gt;
+
+`Source` [Wikipedia](https://en.wikipedia.org/wiki/News_style)
+]
+
+
+---
+class: exercise
+# Exercise: Put the paragraphs in order
+
+## Here are six paragraphs from a story — shuffled. Put them in inverted-pyramid order.
+
+.font90[
+**(a)** *"The study used anonymised tax records from 2015 to 2023, controlling for age, sector, and firm size. Its authors caution that cross-country comparisons remain difficult."*
+
+**(b)** *"Germany's gender pay gap narrowed for the first time in a decade last year — and the driver was not what policymakers expected."*
+
+**(c)** *"The shift was driven almost entirely by wage growth among women in the public sector, where new collective bargaining agreements raised base salaries by 11% on average."*
+
+**(d)** *"'This is not a story about firms finally paying women fairly,' said Prof. Anna Weber of the DIW. 'It's a story about which sector women happen to be in.'"*
+
+**(e)** *"The gap now stands at 15.7%, down from 18.3% in 2022 — the sharpest single-year drop since Germany began tracking the measure."*
+
+**(f)** *"If the finding holds up, it suggests that private-sector pay practices have scarcely budged — and that the headline progress masks deeper stagnation."*
+]
+
+
+---
+class: exercise
+# Exercise: Put the paragraphs in order
+
+## Here are six paragraphs from a story — shuffled. Put them in inverted-pyramid order.
+
+.font90[
+**(a)** *"The study used anonymised tax records from 2015 to 2023, controlling for age, sector, and firm size. Its authors caution that cross-country comparisons remain difficult."*
+
+**(b)** *"Germany's gender pay gap narrowed for the first time in a decade last year — and the driver was not what policymakers expected."*
+
+**(c)** *"The shift was driven almost entirely by wage growth among women in the public sector, where new collective bargaining agreements raised base salaries by 11% on average."*
+
+**(d)** *"'This is not a story about firms finally paying women fairly,' said Prof. Anna Weber of the DIW. 'It's a story about which sector women happen to be in.'"*
+
+**(e)** *"The gap now stands at 15.7%, down from 18.3% in 2022 — the sharpest single-year drop since Germany began tracking the measure."*
+
+**(f)** *"If the finding holds up, it suggests that private-sector pay practices have scarcely budged — and that the headline progress masks deeper stagnation."*
+]
+
+**Good order:** b → f → e → c → d → a. *Do you agree?*
+
+
+---
+# Lesson 3: Write a strong lede
+
+.pull-left[
+## The lesson
+
+- The **first sentence has one job**: make the reader stay for the second.
+- Two structures work:
+  (a) **direct lede** — state the finding.
+  (b) **scene-setting lede** — start with a person or place, then pivot by paragraph 2.
+- Both pieces need a **nut graf** — the paragraph that says *"this matters because…"* — within the first three paragraphs.
+- What does *not* work: the **background lede** ("For years, researchers have debated..."). Readers leave.
+
+## The litmus test: 
+Cover your first paragraph. Can the reader still tell what the story claims? If yes, your lede buries the finding. This is (often) bad.
+]
+
+.pull-right[
+## Good ledes: Examples
+
+
+### Accountability
+
+&gt; "Doctors in New Jersey have received at least **$2.1 billion** from drug companies over the past decade, according to federal records — payments that critics say skew prescribing decisions toward the companies' own products."
+
+### Puzzle in need of explanation
+
+&gt; "The United States is dying faster than it used to. After decades of gains, American life expectancy fell in **2015** — and it has barely recovered since."
+
+### Personal
+
+&gt; "If you were born in Berlin-Mitte in 1990, you have watched your rent rise **more than 130%**. If you were born in Gelsenkirchen, it has barely moved."
+
+]
+
+---
+class: exercise
+# Exercise: Compare two ledes
+
+## The story
+
+A study finds that German medical students from rural backgrounds are 40% less likely to become doctors in rural areas than their urban peers — the opposite of long-standing policy assumptions.
+
+&lt;br&gt;
+
+.pull-left[
+## Lede A
+*"For decades, German medical policy has assumed that recruiting students from rural areas will improve doctor shortages in the countryside. A new analysis from the Robert Koch Institute, published this week in the journal Gesundheitswesen, examined records of 12,000 medical school graduates across 16 federal states between 2005 and 2020…"*
+]
+
+.pull-right[
+## Lede B
+*"Germany's rural doctor shortage has a surprising source: rural medical students. A new analysis of 12,000 graduates finds that students from rural backgrounds are 40% less likely to practise in the countryside than their urban classmates — overturning a central assumption of national health policy."*
+]
+
+&lt;br&gt;
+
+**Discuss: Which lede do you find stronger? Why?** 
+
+
+---
+# Lesson 4: Make every number concrete
+
+&lt;br&gt;
+
+## The lesson
+
+- **Raw numbers don't land — they need anchors.** "€2 billion" is abstract. "€2 billion — more than the entire Berlin city budget" is concrete.
+- Use comparisons: **per person**, **per day**, **as a share of**, **a multiplier of something familiar**.
+- **One or two precise numbers per paragraph.** Round for prose, keep precision in tables.
+- Avoid false precision: "4,273 died" sounds scientific but often isn't. "More than 4,000" is usually more honest.
+- Never use a unit readers can't picture (hectares, petabytes, basis points) without translating.
+
+
+
+---
+class: exercise
+# Exercise: Make the numbers concrete
+
+## Rewrite each sentence to make the number land (5 minutes)
+
+&lt;br&gt;
+
+1. *"Germany spent €47.3 billion on defence in 2024."*
+
+2. *"The model's classification accuracy was 83.2%."*
+
+3. *"The study sampled 2,147 households."*
+
+4. *"The company's carbon footprint was 1.4 million tonnes of CO₂."*
+
+&lt;br&gt;
+
+## Share one with the group
+
+What **anchor** did you pick? (per capita? share of GDP? equivalent in cars, flights, trees?) Why that one?
+
+
+
+---
+# Lesson 5: Revise — cut hedging, jargon, filler
+
+&lt;br&gt;
+
+## The lesson
+
+- **First drafts hedge. Second drafts claim.**
+- Cut: *"it should be noted that"*, *"arguably"*, *"somewhat"*, *"a number of"*, *"in order to"*, *"at this point in time"*.
+- Replace jargon with plain words: *utilize* → *use*; *methodology* → *method*; *incentivize* → *pay*.
+- Shorten every sentence by 20%. Then do it again.
+- **Read the draft aloud.** If you stumble, the reader will too.
+- Be honest about uncertainty — but honestly, not evasively. *"We don't know"* is better than *"it remains to be seen"*.
+
+## Simple rule
+
+If you can delete a word without changing the meaning, delete it.
+
+
+---
+class: exercise
+# Exercise: Edit this paragraph
+
+## Cut it by at least 30%. Keep the meaning. (7 minutes)
+
+.font90[
+&gt; "Drawing on administrative data from Destatis and the Federal Employment Agency covering roughly 45,000 small and medium-sized enterprises (SMEs) in rural districts between 2014 and 2022, this analysis finds evidence of what appears to be a notable association between the expansion of broadband internet access and hiring activity at the firm level. Specifically, a 10-percentage-point increase in household broadband coverage within a district is associated with an approximately 3.4 percent higher annual hiring rate among local SMEs, with the effect being somewhat more pronounced for firms with fewer than 50 employees. It should be noted that these findings are correlational in nature and do not necessarily establish a causal relationship, and a number of methodological caveats apply, particularly regarding unobserved regional heterogeneity."
+]
+
+## Compare with your neighbour
+
+Whose cut was tighter? What did you each delete first? Any words you **kept** that your neighbour cut — and why?
+
+
+---
+class: exercise
+# Exercise: Edit this paragraph
+
+## Cut it by at least 30%. Keep the meaning. (7 minutes)
+
+.font90[
+&gt; "Drawing on administrative data from Destatis and the Federal Employment Agency covering roughly 45,000 small and medium-sized enterprises (SMEs) in rural districts between 2014 and 2022, this analysis finds evidence of what appears to be a notable association between the expansion of broadband internet access and hiring activity at the firm level. Specifically, a 10-percentage-point increase in household broadband coverage within a district is associated with an approximately 3.4 percent higher annual hiring rate among local SMEs, with the effect being somewhat more pronounced for firms with fewer than 50 employees. It should be noted that these findings are correlational in nature and do not necessarily establish a causal relationship, and a number of methodological caveats apply, particularly regarding unobserved regional heterogeneity."
+]
+
+## Compare with your neighbour
+
+Whose cut was tighter? What did you each delete first? Any words you **kept** that your neighbour cut — and why?
+
+.font80[
+*Sample answer: "New analysis of German federal data links rural broadband access to company hiring. The effect is large — but it may not last, and several caveats apply."*
+]
+
+
+
+
+---
+# Your writing workflow
+
+&lt;br&gt;
+
+.pull-left[
+## Before you write
+
+1. **Find the claim** — one sentence.
+2. Pick the **shape** — accountability, explanatory, personal.
+3. Identify your strongest **number** and your best **comparison**.
+
+## While you write
+
+4. **Headline first.** It disciplines the draft.
+5. **Lede second.** Lead with the point; pivot by paragraph 2.
+6. **Inverted pyramid** unless you have a reason not to.
+]
+
+.pull-right[
+## After you write
+
+7. **Cut 20%.** Then cut 10% more.
+8. **Read aloud.** Mark every stumble.
+9. **Hand it to someone** who has not seen your data. Can they state your claim after reading the first paragraph?
+
+&lt;br&gt;
+
+&gt; Writing about data is not a different skill from writing in general. It is writing in general — with the extra discipline of being exactly right about what the numbers show.
+]
+
+
+
+
+---
+class: inverse, center, middle
+name: oneminuteadvice
+
+# Ten bits of 1-minute advice
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+# 1. Small numbers
+
+.pull-left[
+
+&lt;h2 style="display:flow-root;"&gt;&lt;img src="pics/simon-says.png" height="70" style="float:left; margin-right:15px;"&gt;To make a very small proportion more understandable, divide it into 1.&lt;/h2&gt;
+
+For instance, 0.0081 (or 0.8%) is the proportion of the U.S. population who die every year (about 2.7 out of 335m). 
+
+Start from the raw ratio:
+
+`$$p = \frac{\text{deaths per year}}{\text{U.S. population}} = \frac{D}{N}$$`
+
+Inverting gives "1 in every":
+
+`$$\frac{1}{p} = \frac{N}{D}$$`
+
+Here, `\(\frac{1}{p} = \frac{1}{0.081}\approx 124\)`. So:
+
+&gt; 1 in 124 Americans dies each year.
+]
+
+.pull-right[
+
+## Your turn
+
+Turn the follwing into a *"1 in every ___"* statement.
+
+1. About **0.014** of German adults hold a doctorate.
+
+2. In 2023, about **2,800 people** died in road traffic in Germany. The population is **~84 million**.
+]
+
+
+---
+# 2. Small numbers II
+
+.pull-left[
+
+&lt;h2 style="display:flow-root;"&gt;&lt;img src="pics/simon-says.png" height="70" style="float:left; margin-right:15px;"&gt;For non-tiny proportions, prefer "X in 10" or "X in 100".&lt;/h2&gt;
+
+"1 in 124" is technical. **"X in 10"** and **"X in 100"** are cognitive landmarks:
+
+- **X in 10** — a group readers can picture (a classroom, a family, a team).
+- **X in 100** — the natural-frequency form of a percent. *"8 in 100"* and *"8%"* are mathematically identical, but readers reason more accurately with the first, especially about risk.
+
+### Rule of thumb:
+
+Match the denominator to the scale. For rare events, keep *"1 in N"*. For common ones, anchor to 10 or 100.
+
+.font90[See [Gigerenzer et al. (2007), *Psychological Science in the Public Interest*](https://journals.sagepub.com/doi/10.1111/j.1539-6053.2008.00033.x).]
+]
+
+.pull-right[
+
+## Your turn
+
+Rewrite each number in the most intuitive form — and say why you chose that denominator:
+
+1. **37%** of German households live in rented flats.
+
+2. **12.7%** of working-age adults receive some form of state benefit.
+
+3. The annual risk of dying on the road in Germany is about **1 in 30,000**.
+]
+
+
+---
+# 3. Rounding
+
+.pull-left[
+
+&lt;h2 style="display:flow-root;"&gt;&lt;img src="pics/simon-says.png" height="70" style="float:left; margin-right:15px;"&gt;Unless your numbers are very small, decimal points rarely matter.&lt;/h2&gt;
+
+&gt; *"I'm a big fan of rounding."*
+&gt; — Sarah Cohen, [*Numbers in the Newsroom*](https://businessjournalism.org/2012/03/sarah-cohen-on-taming-digits/)
+
+"About 37%" is almost always better than "37.24%". Trailing digits imply a precision your data usually can't support — a point [Andrew Gelman](https://statmodeling.stat.columbia.edu/2025/03/07/the-answer-to-the-how-many-significant-digits-problem-is-the-same-as-the-answer-to-the-what-to-graph-problem-the-click-through-solution/) makes repeatedly on his blog.
+
+### Rule of thumb:
+
+If the next decimal doesn't change your point, drop it.
+]
+
+.pull-right[
+## Good ([Pew Research Center](https://www.pewresearch.org/short-reads/2025/09/03/favorable-views-of-supreme-court-remain-near-historic-low/))
+
+&lt;div align="center"&gt;
+&lt;img src="pics/pew-supreme-court.png" width=250&gt;
+&lt;/div&gt;
+
+## Bad ([NYT](https://www.nytimes.com/interactive/2025/10/06/upshot/us-international-student-travel.html), discussed by [Kaiser Fung](https://www.junkcharts.com/the-story-on-international-students-coming-to-the-u-s/))
+
+&lt;div align="center"&gt;
+&lt;img src="pics/nyt_internationalstudents_bubblebag_asia_sm.png" width=250&gt;
+&lt;/div&gt;
+]
+
+
+---
+# 4. The 12-digit rule
+
+.pull-left[
+
+&lt;h2 style="display:flow-root;"&gt;&lt;img src="pics/simon-says.png" height="70" style="float:left; margin-right:15px;"&gt;No more than 12 digits per paragraph — and dates count.&lt;/h2&gt;
+
+*"2012"* is 4 digits. *"Between 2011 and 2012, Germany spent €47.3 billion on climate subsidies…"* is already **4 + 4 + 3 = 11 digits**. You're nearly out.
+
+Readers stop absorbing numbers long before you stop writing them. Put too many numbers into text, and you're writing a table disguised as a paragraph.
+
+See also [Reynolds Center — "Taming Digits"](https://businessjournalism.org/2012/03/sarah-cohen-on-taming-digits/).
+]
+
+.pull-right[
+
+## Your turn — count the digits
+
+&gt; *"Between **2015** and **2023**, Germany's primary energy consumption fell from **13,293** petajoules to **10,736** petajoules, while the share of renewables rose from **14.9%** to **22.1%** and CO₂ emissions dropped by **187** million tonnes."*
+
+
+1. How many digits?
+2. What would you cut to get under 12?
+3. What moves to a chart?
+]
+
+
+
+---
+# 5. Avoid "X times less"
+
+.pull-left[
+
+&lt;h2 style="display:flow-root;"&gt;&lt;img src="pics/simon-says.png" height="70" style="float:left; margin-right:15px;"&gt;"X times less" is mathematically ambiguous.&lt;/h2&gt;
+
+Does it mean **one-third** the original? A 300% reduction (impossible)? Most readers don't know — and neither does half the newsroom.
+
+**Use instead:**
+- Fractions: *"one-third as much"*, *"half as many"*
+- Percentages: *"a 67% decrease"*
+
+Applies to *"times smaller"*, *"times fewer"*, *"times lower"* — all the same trap.
+]
+
+.pull-right[
+
+## Your turn — rewrite
+
+Rewrite each sentence without *"times less"* or its cousins:
+
+&lt;br&gt;
+
+1. "Women in the sample were paid **1.6 times less** than men."
+
+2. "Public-sector salaries grew **three times slower** than inflation."
+
+3. "Rural broadband rollout has been **four times fewer** projects per capita than the urban one."
+]
+
+
+---
+# 6. Percent ≠ percentage points
+
+.pull-left[
+
+&lt;h2 style="display:flow-root;"&gt;&lt;img src="pics/simon-says.png" height="70" style="float:left; margin-right:15px;"&gt;A rate change has two numbers. Say which you mean.&lt;/h2&gt;
+
+A tax rate rising from **4% to 5%** is:
+- **+1 percentage point** (absolute)
+- **+25%** (relative)
+
+Both are correct. They describe very different stories.
+
+&gt; **Rule:** every time you report a change in a rate, say which one you mean — explicitly.
+
+.font90[Politicians and press releases exploit this ambiguity. Don't. See [Denise-Marie Ordway's explainer](https://journalistsresource.org/home/percent-change-math-for-journalists/) and this [interactive explainer](https://journalistsresource.org/media/infographic-percent-percentage-point/).]
+]
+
+.pull-right[
+## Your turn
+
+Come up with two headlines with different narratives based on the following data:
+
+- Meanville is an average town. Its latest overall budget is $50 million, up from $25 million the year before.
+- Last year's education budget was $2 million. After the windfall, it shot up to $3 million.
+- Education spending as proportion of the budget was 8% last year.
+]
+
+
+---
+# 7. Every number needs a denominator
+
+.pull-left[
+
+&lt;h2 style="display:flow-root;"&gt;&lt;img src="pics/simon-says.png" height="70" style="float:left; margin-right:15px;"&gt;Totals are meaningless without context.&lt;/h2&gt;
+
+Example questions to ask before publishing any number:
+
+- **Out of how many people?** (per capita)
+- **Over how long?** (per year, per decade)
+- **Compared to where?** (vs. national average, vs. last year)
+
+The denominator is the comparison that turns a number into a story.
+
+&gt; If you can't put a denominator on it, ask whether it's a number worth reporting at all.
+]
+
+.pull-right[
+
+## Your turn — add the denominators
+
+For each bare number, write the denominator sentence you'd want before publishing:
+
+1. "Berlin police made **5,183 drug-related arrests** last year."
+
+2. "Fraunhofer institutes filed **512 patents** in 2024."
+
+3. "**37,000 refugees** arrived in Lower Saxony since 2022."
+]
+
+
+
+---
+# 8. Link your sources
+
+.pull-left[
+
+&lt;h2 style="display:flow-root;"&gt;&lt;img src="pics/simon-says.png" height="70" style="float:left; margin-right:15px;"&gt;In digital media, your footnotes are hyperlinks. Use them.&lt;/h2&gt;
+
+A print reporter writes *"according to a 2023 OECD report"*. On the web, you can do better:
+
+- Link **directly to the dataset** — not the press release.
+- Link **the paper**, not the institution page.
+- Link **the filing, the regulation, the minutes** — the primary document.
+
+Readers who don't care won't click; readers who do will trust you more. See, e.g.,  [The Pudding](https://pudding.cool/) for how dense linking reads on the page.
+]
+
+.pull-right-center[
+
+&lt;div align="center"&gt;
+&lt;img src="pics/peter-why-does-link-change-colors-v0-ionjxvikcn3e1.webp" width=310&gt;
+&lt;/div&gt;
+
+`Source` [r/PeterExplainsTheJoke](https://www.reddit.com/r/PeterExplainsTheJoke/comments/1h1w9np/peter_why_does_link_change_colors/).
+]
+
+
+
+
+---
+# 9. Put the methodology at the end
+
+.pull-left[
+
+&lt;h2 style="display:flow-root;"&gt;&lt;img src="pics/simon-says.png" height="70" style="float:left; margin-right:15px;"&gt;Lead with the finding; park the method at the bottom.&lt;/h2&gt;
+
+The top of your piece is for claims and stakes. The bottom is where you show your work:
+
+- Data sources (with links — see #8)
+- What you included, excluded, and why
+- Reproducible code, where possible ([GitHub](https://github.com/), [Zenodo](https://zenodo.org/), [OSF](https://osf.io/))
+
+Being transparent is not the same as being technical up front. Readers want the result first; sceptics will scroll down.
+
+Now, as most of those tips, this might not apply to every piece. If your method is novel and part of the story, it may deserve a place in the lede. But if it's standard, or if your story is about the finding, not the method, put it at the end.
+]
+
+.pull-right-center[
+
+&lt;div align="center"&gt;
+&lt;img src="pics/methods-tagesspiegel.png" width=200&gt;
+&lt;/div&gt;
+
+`Source` [Tagesspiegel](https://interaktiv.tagesspiegel.de/lab/von-messermaennern-und-ficki-ficki-bereicherern-so-trug-die-afd-den-hass-in-die-parlamente/).
+
+
+&lt;div align="center"&gt;
+&lt;img src="pics/methods-pudding.png" width=200&gt;
+&lt;/div&gt;
+
+`Source` [The Pudding](https://pudding.cool/2025/07/kids-books/).
+]
+
+
+---
+# 10. Write with purpose — paragraph by paragraph
+
+.pull-left[
+
+&lt;h2 style="display:flow-root;"&gt;&lt;img src="pics/simon-says.png" height="70" style="float:left; margin-right:15px;"&gt;Every paragraph should do one job. Know what it is.&lt;/h2&gt;
+
+Before you keep a paragraph, ask:
+
+- **What is this paragraph arguing?**
+- **Does the first sentence signal the point?**
+- **Would the piece suffer if I cut it?**
+
+A trick from research writing: read your draft **back to front**, paragraph by paragraph. If the logic still holds in reverse, your structure is sound. If it collapses, the piece is leaning on sequence, not argument.
+
+Another trick: Just read the **first sentence of every paragraph**. Can you still understand the story? (Caveat: Sometimes you want to surprise the reader, or build suspense, or save the punchline for the end. Use your judgement.)
+]
+
+.pull-right-center[
+&lt;div align="center"&gt;
+&lt;img src="pics/zeit-nsdap.png" width=370&gt;
+&lt;/div&gt;
+
+`Source` [DIE ZEIT](https://www.zeit.de/wissen/2026-04/nsdap-mitgliederkartei-karteikarten-familienmitglieder-suche).
+]
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+  "highlightStyle": "github",
+  "highlightLines": true,
+  "countIncrementalSlides": false,
+  "ratio": "16:9",
+  "hash": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+<style>
+  .logo {
+    background-image: url("../hertieschool-neg.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 1.5em;
+    right: 1em;
+    width: 150px;
+    height: 128px;
+    z-index: 0;
+  }
+</style>
+  
+  <script>
+  document
+.querySelectorAll(
+  '.remark-slide-content' +
+    ':not(.title-slide)' +
+    ':not(.inverse)' +
+	
+    // add additional classes to exclude here, e.g.
+  // ':not(.inverse)' +
+    ':not(.hide-logo)'
+)
+.forEach(el => {
+  el.innerHTML += '<div class="logo"></div>';
+});
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
