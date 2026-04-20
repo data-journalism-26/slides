@@ -139,14 +139,15 @@ class: exercise
 .pull-left[
 Scientific and journalistic writing are **two different genres**. They differ in their goals and audience, which has implications for the structure and style of the writing. 
 
-For instance:
+## Compare
  
 - **Language:** Scientific jargon vs. plain language
 - **Structure:** Archetypical IMRD (Introduction, Methods, Results, Discussion) vs. the inverted pyramid (lede first, details later)
-- **Titles:** Describe the topic vs. Deliver the finding (or create suspense)
+- **Title:** Describe the topic vs. Deliver the finding (or create suspense)
 ]
 
 .pull-right[
+## A mix of rather unexciting research article headlines
 <div align="center">
 <img src="pics/simon-titles.png" width=500>
 </div>
@@ -155,6 +156,8 @@ For instance:
 
 ---
 # Science or journalism?
+
+<br>
 
 ```{r embed-swipe-data, echo=FALSE, results='asis', message=FALSE}
 # Bake app/headlines.csv into the HTML at knit time, so the slide deck is
@@ -182,15 +185,27 @@ if (file.exists(.sg_csv)) {
 }
 ```
 
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@800;900&display=swap');
+#sg-text {
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  font-weight: 900;
+  font-size: 26px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: #111;
+}
+</style>
+
 <div id="sg" style="max-width:780px; margin:10px auto; font-family:inherit;">
   <div id="sg-score" style="text-align:right; color:#888; font-size:14px;">Score: 0 / 0</div>
   <div id="sg-card" style="background:#fff; border:1px solid #ddd; border-radius:12px;
-       padding:28px; min-height:140px; box-shadow:0 4px 14px rgba(0,0,0,.08);
-       font-size:22px; line-height:1.45; margin-top:6px;">
+       padding:20px 28px; min-height:90px; box-shadow:0 4px 14px rgba(0,0,0,.08);
+       font-size:22px; line-height:1.4; margin-top:6px;
+       display:flex; align-items:center; justify-content:center; text-align:center;">
     <span id="sg-text">Loading…</span>
   </div>
-  <div id="sg-feedback" style="min-height:30px; margin-top:10px; text-align:center; font-size:18px;"></div>
-  <div style="display:flex; justify-content:center; gap:18px; margin-top:8px;">
+  <div style="display:flex; justify-content:center; gap:18px; margin-top:12px;">
     <button onclick="sgGuess('journalism')"
       style="padding:12px 28px; border:none; border-radius:8px;
              background:#C2001A; color:#fff; cursor:pointer; font-size:16px;">
@@ -202,6 +217,7 @@ if (file.exists(.sg_csv)) {
       🔬 Science
     </button>
   </div>
+  <div id="sg-feedback" style="min-height:30px; margin-top:14px; text-align:center; font-size:18px;"></div>
 </div>
 
 <script>
@@ -284,7 +300,7 @@ if (file.exists(.sg_csv)) {
 # Common angles for data stories
 
 <div align="center">
-<img src="pics/data-angle-common.png" width=920>
+<img src="pics/data-angle-common.png" width=720>
 </div>
 
 `Source` [Paul Bradshaw, Online Journalism Blog](https://onlinejournalismblog.com/2020/08/11/here-are-the-7-types-of-stories-most-often-found-in-data/)
@@ -405,9 +421,13 @@ name: lessons
 ## The lesson
 
 - **Before you write a single paragraph, write your claim in one sentence.** If you can't, you don't yet know what you're writing about.
-- The one-sentence claim becomes your **organizing principle** — the headline, the lede, the conclusion all point at it.
+- The one-sentence claim becomes your **organizing principle** — the headline, the lede etc. all point at it.
 - If your claim changes halfway through the draft, fine — but rewrite the opening to match.
-- **A headline is a claim, not a topic.** "Housing in Berlin" is not a headline. "Berlin rents rose faster last year than in any year since 1991" is.
+
+## The headline
+
+- In the end, your claim can be the headline. 
+- In any case, **a headline is a claim, not a topic.** "Housing in Berlin" is not a headline. "Berlin rents rose faster last year than in any year since 1991" is.
 - Good test: can your reader tell, from the headline alone, what the story is? If not, rewrite.
 ]
 
@@ -424,7 +444,12 @@ name: lessons
 | "A look at EU antibiotic use" | "Europe is winning the antibiotic battle — unevenly" |
 | "Gender in German startups" | "German startups led by women raise half as much" |
 | "Housing in Berlin" | "Berlin's rents rose 130% in a decade" |
+
+The headline is probably the last thing that you write — but it should be the first thing you think about.
+
 ]
+
+
 
 ---
 class: exercise
@@ -466,7 +491,7 @@ Rewrite each topic headline as a **finding headline**. You will need to invent p
 .pull-left[
 ## The lesson
 
-- **Most important thing first.** Less important after. Caveats last.
+- **Most important thing first.** Less important after. Caveats come last.
 - Readers drop off paragraph by paragraph. Write so that whenever they stop, they still got the point.
 
 
@@ -553,7 +578,7 @@ class: exercise
 - Both pieces need a **nut graf** — the paragraph that says *"this matters because…"* — within the first three paragraphs.
 - What does *not* work: the **background lede** ("For years, researchers have debated..."). Readers leave.
 
-## The litmus test: 
+## The litmus test
 Cover your first paragraph. Can the reader still tell what the story claims? If yes, your lede buries the finding. This is (often) bad.
 ]
 
@@ -607,7 +632,7 @@ A study finds that German medical students from rural backgrounds are 40% less l
 
 ## The lesson
 
-- **Raw numbers don't land — they need anchors.** "€2 billion" is abstract. "€2 billion — more than the entire Berlin city budget" is concrete.
+- **Raw numbers don't land — they need anchors.** "€2 billion" is abstract. "€2 billion — about double the yearly budget of the city of Potsdam" is concrete.
 - Use comparisons: **per person**, **per day**, **as a share of**, **a multiplier of something familiar**.
 - **One or two precise numbers per paragraph.** Round for prose, keep precision in tables.
 - Avoid false precision: "4,273 died" sounds scientific but often isn't. "More than 4,000" is usually more honest.
@@ -646,7 +671,7 @@ What **anchor** did you pick? (per capita? share of GDP? equivalent in cars, fli
 
 ## The lesson
 
-- **First drafts hedge. Second drafts claim.**
+- Your first draft is not your final draft.
 - Cut: *"it should be noted that"*, *"arguably"*, *"somewhat"*, *"a number of"*, *"in order to"*, *"at this point in time"*.
 - Replace jargon with plain words: *utilize* → *use*; *methodology* → *method*; *incentivize* → *pay*.
 - Shorten every sentence by 20%. Then do it again.
@@ -677,7 +702,7 @@ Whose cut was tighter? What did you each delete first? Any words you **kept** th
 class: exercise
 # Exercise: Edit this paragraph
 
-## Cut it by at least 30%. Keep the meaning. (7 minutes)
+## Reduce the following paragraph to 2 sentences. Keep the key messages (7 minutes)
 
 .font90[
 > "Drawing on administrative data from Destatis and the Federal Employment Agency covering roughly 45,000 small and medium-sized enterprises (SMEs) in rural districts between 2014 and 2022, this analysis finds evidence of what appears to be a notable association between the expansion of broadband internet access and hiring activity at the firm level. Specifically, a 10-percentage-point increase in household broadband coverage within a district is associated with an approximately 3.4 percent higher annual hiring rate among local SMEs, with the effect being somewhat more pronounced for firms with fewer than 50 employees. It should be noted that these findings are correlational in nature and do not necessarily establish a causal relationship, and a number of methodological caveats apply, particularly regarding unobserved regional heterogeneity."
@@ -685,7 +710,7 @@ class: exercise
 
 ## Compare with your neighbour
 
-Whose cut was tighter? What did you each delete first? Any words you **kept** that your neighbour cut — and why?
+Which version is more on point? What did you each delete first? Any words you **kept** that your neighbour cut — and why?
 
 .font80[
 *Sample answer: "New analysis of German federal data links rural broadband access to company hiring. The effect is large — but it may not last, and several caveats apply."*
@@ -708,7 +733,7 @@ Whose cut was tighter? What did you each delete first? Any words you **kept** th
 
 ## While you write
 
-4. **Headline first.** It disciplines the draft.
+4. **Headline first and last.** It disciplines the draft.
 5. **Lede second.** Lead with the point; pivot by paragraph 2.
 6. **Inverted pyramid** unless you have a reason not to.
 ]
@@ -743,7 +768,7 @@ name: oneminuteadvice
 
 <h2 style="display:flow-root;"><img src="pics/simon-says.png" height="70" style="float:left; margin-right:15px;">To make a very small proportion more understandable, divide it into 1.</h2>
 
-For instance, 0.0081 (or 0.8%) is the proportion of the U.S. population who die every year (about 2.7 out of 335m). 
+For instance, 0.0091 (or 0.9%) is the proportion of the U.S. population who die every year (about 3.1 out of 335m). 
 
 Start from the raw ratio:
 
@@ -753,9 +778,9 @@ Inverting gives "1 in every":
 
 $$\frac{1}{p} = \frac{N}{D}$$
 
-Here, $\frac{1}{p} = \frac{1}{0.081}\approx 124$. So:
+Here, $\frac{1}{p} = \frac{1}{0.091}\approx 110$. So:
 
-> 1 in 124 Americans dies each year.
+> 1 in 110 Americans dies each year.
 ]
 
 .pull-right[
@@ -777,7 +802,7 @@ Turn the follwing into a *"1 in every ___"* statement.
 
 <h2 style="display:flow-root;"><img src="pics/simon-says.png" height="70" style="float:left; margin-right:15px;">For non-tiny proportions, prefer "X in 10" or "X in 100".</h2>
 
-"1 in 124" is technical. **"X in 10"** and **"X in 100"** are cognitive landmarks:
+"1 in 110" is technical. **"X in 10"** and **"X in 100"** are cognitive landmarks:
 
 - **X in 10** — a group readers can picture (a classroom, a family, a team).
 - **X in 100** — the natural-frequency form of a percent. *"8 in 100"* and *"8%"* are mathematically identical, but readers reason more accurately with the first, especially about risk.

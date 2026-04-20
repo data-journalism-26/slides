@@ -1,20 +1,44 @@
 text,kind,source,url
-Cash transfers reduce multidimensional poverty: evidence from a randomized trial in Kenya.,science,working paper,
-"Cash, not training: a simple idea is rewriting how aid works.",journalism,The Economist,
-Germany's minimum wage rose. Employment didn't fall. Something else did.,journalism,Die Zeit,
-Heterogeneous labour-market effects of the German minimum wage: a synthetic control approach.,science,journal article,
-Why Berlin rents doubled - and who cashed in.,journalism,Tagesspiegel,
-Rent-regulation spillovers in segmented housing markets: evidence from the Mietendeckel.,science,IZA discussion paper,
-Partisan motivated reasoning attenuates the efficacy of corrective information.,science,political science journal,
-Why even the best fact-checks can't change partisan minds.,journalism,Vox,
-"Strangers, not friends, are the likeliest to get you your next job.",journalism,The Atlantic,
-Weak ties and the diffusion of labour-market opportunities: evidence from a large-scale field experiment.,science,Science,
-The causal effect of remote work on productivity: evidence from a Fortune 500 firm.,science,NBER working paper,
-Your boss was right. Remote work is slowly hurting your career.,journalism,Bloomberg,
-"Hitler's speeches and the rise of the Nazi party, 1927-1933",science,American Political Science Review,
-Meta-analysis of the effects of voting advice applications,science,Political Communication,
-Do Online Voter Guides Empower Citizens? Evidence from a Field Experiment with Digital Trace Data,science,Public Opinion Quarterly,
+ Cash transfer and multidimensional child poverty: evidence from Ghana,science,International Journal of Social Economics,https://doi.org/10.1108/IJSE-07-2021-0382
+ Show Them the Money: Why Giving Cash Helps Alleviate Poverty ,science,Foreign Affairs,https://www.jstor.org/stable/24483411
+Why your AI assistant is suddenly selling to you,journalism,The Economist,https://www.economist.com/business/2026/04/19/why-your-ai-assistant-is-suddenly-selling-to-you
+"Remote working, prices drive US home coffee consumption to highest in 14 years",journalism,Reuters,https://www.reuters.com/world/us/remote-working-prices-drive-us-home-coffee-consumption-highest-14-years-2026-04-14/
+Are You Drinking Coffee Too Early in the Morning? Neurologists Think So,journalism,WIRED,https://www.wired.com/story/when-to-drink-coffee-optimization/
+A dark side to quiet quitting is hurting workers,journalism,CBS News,https://www.cbsnews.com/news/quiet-quitting-quiet-firing-managers-are-pushing-workers-out/
+"Hitler's speeches and the rise of the Nazi party, 1927-1933",science,American Political Science Review,https://www.cambridge.org/core/journals/american-political-science-review/article/examining-a-most-likely-case-for-strong-campaign-effects-hitlers-speeches-and-the-rise-of-the-nazi-party-19271933/1E88D3B79217653D77735294CF2C8DED
+Meta-analysis of the effects of voting advice applications,science,Political Communication,https://www.tandfonline.com/doi/full/10.1080/10584609.2020.1843572
+Do Online Voter Guides Empower Citizens? Evidence from a Field Experiment with Digital Trace Data,science,Public Opinion Quarterly,https://academic.oup.com/poq/article/84/3/675/6104133
 How TikTok influenced hundreds of thousands of voters,journalism,Die Zeit,https://www.zeit.de/politik/deutschland/2025-10/soziale-medien-tiktok-wahleinfluss-reichweite-afd-die-linke
 Another Benefit to Going to Museums? You May Live Longer,journalism,New York Times,https://www.nytimes.com/2019/12/22/us/arts-health-effects-ucl-study.html
 Refugee labor market integration at scale: Evidence from Germany's fast-track employment program,science,PNAS,https://www.pnas.org/doi/10.1073/pnas.2513863123
 Why Biden-era clean energy investment policies had limited political returns,science,PNAS,https://www.pnas.org/doi/10.1073/pnas.2526802123
+Who nudges whom? Expert opinions on behavioural field experiments with public partners,science,Behavioural Public Policy,https://www.cambridge.org/core/product/identifier/S2398063X22000148/type/journal_article
+"Professors in the media: dynamics of cumulative advantage, reputation, and gender",science,European Sociological Review,https://doi.org/10.1093/esr/jcaf037
+Gender in the Markets for Expertise,science,American Sociological Review,https://doi.org/10.1177/00031224221087374
+Partisan Elites as Culprits? How Party Cues Shape Partisan Perceptual Gaps,science,American Journal of Political Science,https://onlinelibrary.wiley.com/doi/abs/10.1111/ajps.12349
+Trust in scientists in times of pandemic: Panel evidence from 12 countries,science,Proceedings of the National Academy of Sciences,https://www.pnas.org/doi/10.1073/pnas.2108576118
+Knowledge does not protect against illusory truth,science,Journal of Experimental Psychology. General,https://doi.org/10.1037/xge0000098
+Fighting Violent Extremism With Narrative Intervention: Evidence From a Field Experiment in West Africa,science,Psychological Science,https://doi.org/10.1177/09567976211031895
+Does accommodation work? Mainstream party strategies and the success of radical right parties,science,Political Science Research and Methods,https://www.cambridge.org/core/journals/political-science-research-and-methods/article/does-accommodation-work-mainstream-party-strategies-and-the-success-of-radical-right-parties/5C3476FCD26B188C7399ADD920D71770
+Do Voters Polarize When Radical Parties Enter Parliament?,science,American Journal of Political Science,https://onlinelibrary.wiley.com/doi/abs/10.1111/ajps.12449
+"Hate crime supporters are found across age, gender, and income groups and are susceptible to violent political appeals",science,Proceedings of the National Academy of Sciences,https://pnas.org/doi/10.1073/pnas.2212757120
+Sexism and the Far-Right Vote: The Individual Dynamics of Gender Backlash,science,American Journal of Political Science,https://onlinelibrary.wiley.com/doi/abs/10.1111/ajps.12759
+The corrosive effect of corruption on trust in politicians: Evidence from a natural experiment,science,Research & Politics,https://doi.org/10.1177/2053168017714185
+The effect of COVID-19 lockdowns on political support: Some good news for democracy?,science,European Journal of Political Research,https://onlinelibrary.wiley.com/doi/abs/10.1111/1475-6765.12401
+Politicians polarize and experts depolarize public support for COVID-19 management policies across countries,science,Proceedings of the National Academy of Sciences,https://www.pnas.org/doi/abs/10.1073/pnas.2117543119
+A systematic review of worldwide causal and correlational evidence on digital media and democracy,science,Nature Human Behaviour,https://www.nature.com/articles/s41562-022-01460-1
+The psychological drivers of misinformation belief and its resistance to correction,science,Nature Reviews Psychology,https://www.nature.com/articles/s44159-021-00006-y
+The Effect of Wartime Legacies on Electoral Mobilization after Civil War,science,The Journal of Politics,https://www.journals.uchicago.edu/doi/10.1086/718976
+"In the wake of a terrorist attack, do Americans' attitudes toward Muslims decline?",science,Research & Politics,https://doi.org/10.1177/2053168018806391
+Voting in the Shadow of Violence: Electoral Politics and Conflict in Peru,science,Journal of Global Security Studies,https://doi.org/10.1093/jogss/ogy001
+Global Racist Contagion Following Donald Trump's Election,science,British Journal of Political Science,https://www.cambridge.org/core/journals/british-journal-of-political-science/article/abs/global-racist-contagion-following-donald-trumps-election/222D3AC82A8E3BD95880F262EB3F1F87
+Public Perspectives on COVID-19 Vaccine Prioritization,science,JAMA Network Open,https://doi.org/10.1001/jamanetworkopen.2021.7943
+Affective partisan polarization and moral dilemmas during the COVID-19 pandemic,science,Political Science Research and Methods,https://www.cambridge.org/core/journals/political-science-research-and-methods/article/affective-partisan-polarization-and-moral-dilemmas-during-the-covid19-pandemic/18E8A747E3F74F278388337203404122
+The fentanyl funnel: How narcos sneak deadly chemicals through the U.S.,journalism,Reuters,https://www.reuters.com/investigates/special-report/usa-fentanyl-supply-chain-shipping/
+There used to be more snow,journalism,Die Zeit,https://www.zeit.de/wissen/2022-12/schneefall-klimawandel-deutschland-deutscher-wetterdienst
+Does the news reflect what we die from?,journalism,Our World in Data,https://ourworldindata.org/does-the-news-reflect-what-we-die-from
+"Climate Change Is So Bad, Even the Arctic Is On Fire",journalism,Bloomberg,https://www.bloomberg.com/graphics/2024-underground-wildfires/
+"When it comes to love, more of us are crossing the religious divide",journalism,ABC News,https://www.abc.net.au/news/2025-09-28/more-australians-are-marrying-across-the-religious-divide/105779468
+Investment in AI is exploding,journalism,Bloomberg,https://www.reuters.com/graphics/USA-ECONOMY/AI-INVESTMENT/gkvlqbgxkpb/
+China Built A Vast New Infrastructure To Imprison Uighurs,journalism,Buzzfeed,https://www.buzzfeednews.com/article/meghara/china-new-internment-camps-xinjiang-uighurs-muslims
+The collapse of insects,journalism,Reuters,https://www.reuters.com/graphics/GLOBAL-ENVIRONMENT/INSECT-APOCALYPSE/egpbykdxjvq/
