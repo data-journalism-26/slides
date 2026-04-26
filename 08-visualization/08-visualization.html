@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Data Journalism</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Simon Munzert" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+    <script src="https://tikzjax.com/v1/tikzjax.js"></script>
+    <link rel="stylesheet" href="../simons-touch.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Data Journalism
+]
+.subtitle[
+## Session 8: Designing effective visualizations
+]
+.author[
+### Simon Munzert
+]
+.institute[
+### Hertie School | <a href="https://github.com/data-journalism-26">GRAD-E1493</a>
+]
+
+---
+
+class: smalltext
+
+&lt;style type="text/css"&gt;
+@media print {
+  .has-continuation {
+    display: block !important;
+  }
+}
+&lt;/style&gt;
+
+
+
+
+
+# What we are *not* doing today
+
+.pull-left-small2[
+## Ground already covered
+
+- The **grammar of graphics** and **ggplot2 basics** ([Session 8 / IDS-25](https://raw.githack.com/intro-to-data-science-25/lectures/main/08-visualization/08-visualization.html))
+- **Chart types** and when to use each ([FT Visual Vocabulary](https://ft-interactive.github.io/visual-vocabulary/); [Claus Wilke's Fundamentals of Data Visualization](https://clauswilke.com/dataviz/))
+- **Cleveland/Tufte** principles: data-ink, proportional ink, comparison, etc. ([Session 8 / IDS-25](https://raw.githack.com/intro-to-data-science-25/lectures/main/08-visualization/08-visualization.html))
+- Most of the science of **communicating uncertainty** ([Session 3](https://raw.githack.com/data-journalism-26/slides/main/03-how-people-understand-numbers/03-how-people-understand-numbers.html))
+- **Basic ingredients** of data visualization, such as colors, line and plot types, etc. ([Session 8 / IDS-25](https://raw.githack.com/intro-to-data-science-25/lectures/main/08-visualization/08-visualization.html#60))
+
+Instead, we will spend the session on the things that
+separate an analyst's chart from a published one.
+]
+
+.pull-right-wide2[
+## Dos and Don'ts (click links for background)
+
+1. [Follow the principle of proportional ink.](https://clauswilke.com/dataviz/proportional-ink.html)
+2. [Maximize the data–ink ratio, within reason.](https://clauswilke.com/dataviz/balance-data-context.html)
+3. [Avoid invisible overplotting.](https://clauswilke.com/dataviz/overlapping-points.html)
+4. [Drop all the unimportant stuff.](https://clauswilke.com/dataviz/balance-data-context.html)
+5. [Don't overload graphs. Instead, use several.](https://clauswilke.com/dataviz/multi-panel-figures.html)
+6. [Use color scales that match the logic of the data scale.](https://clauswilke.com/dataviz/color-pitfalls.html)
+7. [Use color-vision deficient-friendly colors.](https://clauswilke.com/dataviz/color-pitfalls.html#not-designing-for-color-vision-deficiency)
+8. [Only use a legend when you need one.](https://clauswilke.com/dataviz/redundant-coding.html#designing-figures-without-legends)
+9. [Pay attention to legend order.](https://clauswilke.com/dataviz/figure-titles-captions.html#axis-and-legend-titles)
+10. [Label axes properly (but avoid trivial information).](https://clauswilke.com/dataviz/figure-titles-captions.html#figure-titles-and-captions)
+11. [Use grids and helper lines, within reason.](https://clauswilke.com/dataviz/balance-data-context.html#background-grids)
+12. [Don't order alphabetically ("Alabama first"). Use natural orders instead.](https://datajournalism.com/read/longreads/the-unspoken-rules-of-visualisation)
+13. [Bar chart axes should include zero.](https://datajournalism.com/read/longreads/the-unspoken-rules-of-visualisation)
+14. [Put the explanatory variable on the x axis, the outcome on the y axis.](https://datajournalism.com/read/longreads/the-unspoken-rules-of-visualisation)
+15. [Axes have canonical directions. Larger values are placed above/right of smaller values.](https://datajournalism.com/read/longreads/the-unspoken-rules-of-visualisation)
+16. [Avoid multiple y axes at all cost.](https://blog.datawrapper.de/dualaxis/)
+17. [Don't do pie charts. (Or maybe do?)](https://clauswilke.com/dataviz/visualizing-proportions.html)
+18. [Don't go 3D.](https://clauswilke.com/dataviz/no-3d.html)
+19. [Use readable fonts and font sizes.](https://clauswilke.com/dataviz/small-axis-labels.html)
+20. [Sometimes a table is just enough.](https://clauswilke.com/dataviz/figure-titles-captions.html#figure-titles-and-captions)
+]
+
+
+
+
+
+---
+# Today
+
+&lt;br&gt;
+
+1. [Warm-up: two charts, same data](#warmup)
+
+2. [Some non-obvious principles](#principles)
+
+3. [Workshop I — fix this chart (15 min, solo, in R)](#workshop1)
+
+4. [Workshop II — design a chart on the whiteboard (10 min, teams)](#workshop2)
+
+5. [Your charts: live discussion](#yours)
+
+
+
+
+&lt;!-- ############################################ --&gt;
+---
+class: inverse, center, middle
+name: warmup
+
+# Warm-up: two charts, same data
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+
+---
+# Which do you like better?
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="pics/economist-mistakes-truncating-scale-bad.png" style="width:80%; height:auto;"&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="pics/economist-mistakes-truncating-scale-good.png" style="width:80%; height:auto;"&gt;
+&lt;/div&gt;
+]
+
+--
+
+.footnote[`Source` [Sarah Leo, The Economist](https://medium.economist.com/mistakes-weve-drawn-a-few-8cdd8a42d368). Left ❌, right ✅ : truncated scale misleading, colors  misleading]
+
+
+---
+# Which do you like better?
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="pics/economist-mistakes-double-scales-bad.png" style="width:80%; height:auto;"&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="pics/economist-mistakes-double-scales-good.png" style="width:80%; height:auto;"&gt;
+&lt;/div&gt;
+]
+
+--
+
+.footnote[`Source` [Sarah Leo, The Economist](https://medium.economist.com/mistakes-weve-drawn-a-few-8cdd8a42d368). Left ❌, right ✅ : scales are cherry-picked, better plot makes proportional change comparable]
+
+
+---
+# Which do you like better?
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="pics/economist-mistakes-plot-type-good.png" style="width:80%; height:auto;"&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="pics/economist-mistakes-plot-type-bad.png" style="width:80%; height:auto;"&gt;
+&lt;/div&gt;
+]
+
+--
+
+.footnote[`Source` [Sarah Leo, The Economist](https://medium.economist.com/mistakes-weve-drawn-a-few-8cdd8a42d368). Right ❌, left ✅ : poor plot type choice that takes variation in opinion data at face value; also: y scale width. [Francis Gagnon](https://chezvoila.com/blog/yaxis/): "The bottom third of the plot area should remain empty for a line chart that doesn’t start at zero."]
+
+
+---
+# Which do you like better?
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="pics/economist-mistakes-mind-stretch-bad.png" style="width:80%; height:auto;"&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="pics/economist-mistakes-mind-stretch-good.png" style="width:80%; height:auto;"&gt;
+&lt;/div&gt;
+]
+
+--
+
+.footnote[`Source` [Sarah Leo, The Economist](https://medium.economist.com/mistakes-weve-drawn-a-few-8cdd8a42d368). Left ❌, right ✅ : difficult to read, combining negative and positive scale]
+
+
+---
+# Which do you like better?
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="pics/economist-mistakes-confusing-colors-good.png" style="width:80%; height:auto;"&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="pics/economist-mistakes-confusing-colors-bad.png" style="width:80%; height:auto;"&gt;
+&lt;/div&gt;
+]
+
+--
+
+.footnote[`Source` [Sarah Leo, The Economist](https://medium.economist.com/mistakes-weve-drawn-a-few-8cdd8a42d368). Right ❌, left ✅ : colors are not meaningful here;, replaced with opacity; axis title readability; two-way grid]
+
+
+
+---
+# Which do you like better?
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="pics/economist-mistakes-too-much-detail-bad.png" style="width:80%; height:auto;"&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="pics/economist-mistakes-too-much-detail-good.png" style="width:80%; height:auto;"&gt;
+&lt;/div&gt;
+]
+
+--
+
+.footnote[`Source` [Sarah Leo, The Economist](https://medium.economist.com/mistakes-weve-drawn-a-few-8cdd8a42d368). Left ❌, right ✅ :  too many colors and observations which are not important]
+
+
+
+
+&lt;!-- ############################################ --&gt;
+---
+class: inverse, center, middle
+name: principles
+
+# Some non-obvious principles
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+
+&lt;!-- ============== PRINCIPLE 1 ============== --&gt;
+---
+class: inverse, center, middle
+name: annotation
+
+# 1. Annotation is where the journalism happens
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+background-image: url("pics/burnmurdoch-covid-trajectories.png")
+background-size: contain
+background-color: #fff0e3
+
+# Burn-Murdoch's COVID charts (background [here](https://medium.com/nightingale/how-john-burn-murdochs-influential-dataviz-helped-the-world-understand-coronavirus-6cb4a09795ae))
+
+
+---
+# The science of annotations
+
+.pull-left[
+**Borkin et al. (2016)** — eye-tracked readers across ~400 charts.
+What they remembered most was the **title and text**, not the
+encoding. [*IEEE TVCG*](https://ieeexplore.ieee.org/document/7192646) ·
+[PDF](http://olivalab.mit.edu/Papers/07192646.pdf)
+
+**Kong, Liu &amp; Karahalios (2018)** — same chart, different titles.
+A title that slants toward one interpretation **shifts what readers
+take away**, even when the data is identical. A misaligned title can
+override the perception entirely.
+[*ACM CHI*](https://dl.acm.org/doi/10.1145/3173574.3174012) ·
+[PDF](https://dl.acm.org/doi/pdf/10.1145/3173574.3174012)
+
+**Hullman &amp; Diakopoulos (2011)** — frames annotation as one of
+**four editorial layers** (data, representation, annotation,
+interactivity). The annotation layer is *where rhetoric lives*, and
+where it is most often denied.
+[*IEEE TVCG*](https://ieeexplore.ieee.org/document/6064988) ·
+[PDF](https://users.eecs.northwestern.edu/~jhullman/vis_rhetoric.pdf)
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="pics/borkin-abstract.png" style="width:100%; height:auto;"&gt;
+&lt;/div&gt;
+
+`Source` [Borkin et al. (2016)](https://ieeexplore.ieee.org/document/7192646)
+]
+
+&gt; The words on a chart aren't decoration — they *are* the message that is most likely to be remembered.
+
+
+
+---
+# What to consider when using text ([Lisa Muth, Datawrapper](https://www.datawrapper.de/blog/text-in-data-visualizations))
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="pics/datawrapper-muth-annotation-01.png" style="width:100%;
+height:auto;"&gt;
+&lt;img src="pics/datawrapper-muth-annotation-02.png" style="width:100%; height:auto;"&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="pics/datawrapper-muth-annotation-03.png" style="width:100%; height:auto;"&gt;
+&lt;img src="pics/datawrapper-muth-annotation-04.png" style="width:100%; height:auto;"&gt;
+&lt;/div&gt;
+]
+
+
+---
+# What to consider when using text ([Lisa Muth, Datawrapper](https://www.datawrapper.de/blog/text-in-data-visualizations))
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="pics/datawrapper-muth-annotation-06.png" style="width:100%; height:auto;"&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="pics/datawrapper-muth-annotation-07.png" style="width:100%; height:auto;"&gt;
+&lt;/div&gt;
+
+More on which fonts to use in Datawrapper's typography guide [here](https://www.datawrapper.de/blog/fonts-for-data-visualization) (great read with examples!).
+]
+
+
+---
+# What to consider when using text ([Lisa Muth, Datawrapper](https://www.datawrapper.de/blog/text-in-data-visualizations))
+
+.pull-left[
+&lt;div align="center"&gt;
+&lt;img src="pics/datawrapper-muth-annotation-10.png" style="width:100%; height:auto;"&gt;
+&lt;img src="pics/datawrapper-muth-annotation-11.png" style="width:100%; height:auto;"&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="pics/datawrapper-muth-annotation-13.png" style="width:100%; height:auto;"&gt;
+&lt;img src="pics/datawrapper-muth-annotation-14.png" style="width:100%; height:auto;"&gt;
+&lt;/div&gt;
+]
+
+
+---
+background-image: url("pics/nyt-arctic-ice-low.png")
+background-size: contain
+background-color: white
+
+# Annotation up to 11 ([Derek Watkins for NYT, 2015](https://www.nytimes.com/interactive/2015/03/24/science/earth/arctic-ice-low-winter-maximum.html?_r=0))
+
+
+
+
+&lt;!-- ============== WORKSHOP 1 ============== --&gt;
+---
+class: inverse, center, middle
+name: workshop1
+
+# Workshop I (15 min, solo)
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+---
+class: exercise
+# Workshop I — fix this chart
+
+.pull-left[
+## Materials
+
+In `code/visualization/` (and on Moodle) you'll find:
+
+- a small dataset on **monthly year-on-year inflation, 2019–2025** (Eurostat HICP),
+- a script `workshop-improve-this-chart.R` that creates a deliberately bad ggplot chart,
+- a `#  Your turn` block.
+
+## Task (15 min, on your own)
+
+Turn the analyst's chart into a journalist's chart. Aim for *one* clear headline finding. 
+
+We'll come back together at the 15-minute mark.
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;br&gt;
+&lt;img src="pics/good_chart.png" style="width:100%; height:auto;"&gt;
+&lt;/div&gt;
+]
+
+
+&lt;!-- ============== PRINCIPLE 2 ============== --&gt;
+---
+class: inverse, center, middle
+name: defaults
+
+# 2. Defaults are editorial choices
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+---
+# Guess the outlet!
+
+&lt;script&gt;window.OG_DATA = {"items":[{"img":"app/ard.png","k":"ard"},{"img":"app/bild.png","k":"bild"},{"img":"app/economist.png","k":"economist"},{"img":"app/fivethirtyeight.png","k":"fivethirtyeight"},{"img":"app/ft.png","k":"ft"},{"img":"app/guardian.png","k":"guardian"},{"img":"app/owid.png","k":"owid"},{"img":"app/pew.png","k":"pew"},{"img":"app/sz.png","k":"sz"},{"img":"app/zdf.png","k":"zdf"},{"img":"app/zeit.png","k":"zeit"}],"outlets":[{"k":"ard","label":"ARD"},{"k":"bild","label":"Bild"},{"k":"economist","label":"The Economist"},{"k":"fivethirtyeight","label":"FiveThirtyEight"},{"k":"ft","label":"Financial Times"},{"k":"guardian","label":"The Guardian"},{"k":"owid","label":"Our World in Data"},{"k":"pew","label":"Pew Research Center"},{"k":"sz","label":"Süddeutsche Zeitung"},{"k":"zdf","label":"ZDF"},{"k":"zeit","label":"Die Zeit"}]};&lt;/script&gt;
+
+&lt;div id="og" style="max-width:880px; margin:6px auto; font-family:inherit;"&gt;
+  &lt;div id="og-score" style="text-align:right; color:#888; font-size:14px;"&gt;Score: 0 / 0&lt;/div&gt;
+  &lt;div id="og-card" style="background:#fff; border:1px solid #ddd; border-radius:12px;
+       padding:14px; min-height:360px; box-shadow:0 4px 14px rgba(0,0,0,.08);
+       margin-top:6px; display:flex; align-items:center; justify-content:center;"&gt;
+    &lt;img id="og-img" src="" alt="" style="max-height:340px; max-width:100%;
+         object-fit:contain; display:none;"&gt;
+    &lt;span id="og-msg" style="font-size:18px; color:#666;"&gt;Loading…&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div id="og-buttons" style="display:flex; flex-wrap:wrap; justify-content:center;
+       gap:10px; margin-top:12px;"&gt;&lt;/div&gt;
+  &lt;div id="og-feedback" style="min-height:30px; margin-top:10px; text-align:center;
+       font-size:16px;"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+(function () {
+  const $ = id =&gt; document.getElementById(id);
+
+  function shuffle(a) {
+    for (let i = a.length - 1; i &gt; 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  const data    = window.OG_DATA || {items: [], outlets: []};
+  let items     = (data.items   || []).slice();
+  const outlets = (data.outlets || []).slice();
+
+  let i = 0, right = 0, total = 0, locked = false;
+
+  function labelFor(k) {
+    const o = outlets.find(o =&gt; o.k === k);
+    return o ? o.label : k;
+  }
+
+  function renderButtons() {
+    // Inline onclick handlers survive remark.js re-parsing of slide HTML;
+    // addEventListener attached on the original DOM does not.
+    $('og-buttons').innerHTML = outlets.map(o =&gt;
+      '&lt;button onclick="window.ogGuess(\'' + o.k + '\')" ' +
+      'style="padding:10px 18px; border:none; border-radius:8px; ' +
+      'background:#1D375B; color:#fff; cursor:pointer; font-size:14px;"&gt;' +
+      o.label + '&lt;/button&gt;'
+    ).join('');
+  }
+
+  function setButtonsDisabled(state) {
+    $('og-buttons').querySelectorAll('button').forEach(b =&gt; b.disabled = state);
+  }
+
+  function render() {
+    if (i &gt;= items.length) {
+      $('og-img').style.display = 'none';
+      $('og-msg').style.display = 'block';
+      $('og-msg').innerHTML =
+        '&lt;b&gt;Done!&lt;/b&gt;&lt;br&gt;&lt;span style="font-size:16px; color:#666;"&gt;Final score: ' +
+        right + ' / ' + total + '&lt;/span&gt;';
+      $('og-feedback').innerHTML =
+        '&lt;button onclick="window.ogRestart()" ' +
+        'style="padding:6px 14px; font-size:14px;"&gt;Restart&lt;/button&gt;';
+      setButtonsDisabled(true);
+      return;
+    }
+    $('og-msg').style.display = 'none';
+    $('og-img').style.display = 'block';
+    $('og-img').src = items[i].img;
+    $('og-img').alt = 'Chart ' + (i + 1);
+    $('og-feedback').innerHTML = '';
+    setButtonsDisabled(false);
+    locked = false;
+  }
+
+  window.ogGuess = function (k) {
+    if (locked || i &gt;= items.length) return;
+    locked = true; total++;
+    const ok = (k === items[i].k); if (ok) right++;
+    $('og-score').textContent = 'Score: ' + right + ' / ' + total;
+    $('og-feedback').innerHTML =
+      (ok ? '✅ Correct' : '❌ Wrong') +
+      ' — &lt;em&gt;' + labelFor(items[i].k) + '&lt;/em&gt;' +
+      ' &lt;button onclick="window.ogNext()" ' +
+      'style="margin-left:12px; padding:6px 14px; font-size:14px;"&gt;Next →&lt;/button&gt;';
+    setButtonsDisabled(true);
+  };
+
+  window.ogNext    = function () { i++; render(); };
+
+  window.ogRestart = function () {
+    i = 0; right = 0; total = 0;
+    shuffle(items);
+    $('og-score').textContent = 'Score: 0 / 0';
+    render();
+  };
+
+  if (!items.length || !outlets.length) {
+    $('og-msg').innerHTML =
+      '&lt;span style="color:#C2001A;"&gt;No outlet screenshots embedded.&lt;/span&gt;&lt;br&gt;' +
+      '&lt;span style="font-size:14px; color:#888;"&gt;Drop PNG/JPG files into ' +
+      '&lt;code&gt;app/&lt;/code&gt; (filename = outlet key, e.g. &lt;code&gt;ft.png&lt;/code&gt;) ' +
+      'and re-knit.&lt;/span&gt;';
+    return;
+  }
+
+  renderButtons();
+  shuffle(items);
+  render();
+})();
+&lt;/script&gt;
+
+
+
+---
+# House styles
+
+.pull-left[
+## What is a house style?
+
+A house style is *internally consistent* and *externally
+recognisable*. Both matter.
+
+## Tools are not neutral
+
+Every tool encodes assumptions about what is *normal*:
+
+- `ggplot2`'s grey panel and serif title: "this is a plot for analysts".
+- Excel's pastel gradient: corporate-meeting-coded.
+- Datawrapper's blue–orange diverging: newsroom-neutral, but it *is* a choice.
+
+Each of these encodes who the chart is *for*. Choosing them passively
+is choosing — you just didn't know you were choosing.
+]
+
+.pull-right[
+## What this means for you
+
+You don't have a house style — *yet*. But every chart you publish is
+training your audience to expect one. So:
+
+1. Pick a small, fixed palette (3–5 colours, plus grey for "context"
+   data) and stick to it across pieces.
+2. Pick *one* font and use it everywhere. Default sans is fine.
+3. Decide once: do your titles end in a period? Do your axis labels
+   include units? Where does the source line live?
+4. Write a `theme_yourname()` and reuse it.
+]
+
+
+
+---
+# Don't reinvent the wheel — start from a base theme
+
+.pull-left[
+## Built into ggplot2
+
+`theme_grey()` *(default)*, `theme_bw()`, `theme_minimal()`, `theme_classic()`, `theme_void()`, `theme_dark()`, `theme_light()`.
+
+
+``` r
+R&gt; ggplot(mpg, aes(displ, hwy, colour = class)) +
++   geom_point() +
+*+   theme_minimal()
+```
+
+## Pre-baked publication looks: `ggthemes`
+
+
+``` r
+R&gt; install.packages("ggthemes")
+R&gt; library(ggthemes)
+```
+
+You get `theme_economist()`, `theme_fivethirtyeight()`, `theme_wsj()`, `theme_stata()`, `theme_excel_new()`, `theme_tufte()`, `theme_few()`, ... — each modelled on a real outlet's house style. I recommend none of them.
+]
+
+.pull-right[
+## Why bother with a base?
+
+A base theme decides **80%** of the boring stuff for you — panel
+background, axis lines, gridlines, default font sizes — so you can
+focus on the **20%** that's editorial: palette, type, annotation
+placement.
+
+## A common workflow
+
+1. Pick a base (`theme_minimal()` is a good neutral starting point).
+2. Override the few elements that matter for *your* style (`theme(...)`).
+3. Save the combination as `theme_yourname()`.
+4. Re-use across every chart in a project.
+]
+
+
+
+---
+# Same plot, four `ggthemes`
+
+&lt;img src="08-visualization_files/figure-html/ggthemes-compare-1.png" alt="" width="100%" style="display: block; margin: auto;" /&gt;
+
+
+---
+# Roll your own `theme_yourname()`
+
+.pull-left[
+A custom theme is just a function that returns a `theme()` object on
+top of a base.
+
+
+``` r
+R&gt; theme_dj &lt;- function(base_size = 12) {
++   theme_minimal(base_size = base_size) +
++     theme(
++       plot.title.position   = "plot",
++       plot.title            = element_text(
++         face = "bold", size = rel(1.15),
++         margin = margin(b = 4)),
++       plot.subtitle         = element_text(
++         colour = "grey30",
++         margin = margin(b = 14)),
++       plot.caption.position = "plot",
++       plot.caption          = element_text(
++         colour = "grey45", hjust = 0,
++         size = rel(0.7),
++         margin = margin(t = 12)),
++       panel.grid.minor      = element_blank(),
++       panel.grid.major.x    = element_blank(),
++       axis.text             = element_text(colour = "grey30")
++     )
++ }
+```
+]
+
+.pull-right[
+## Your theme in action
+
+
+``` r
+R&gt; ggplot(mpg, aes(displ, hwy)) +
++   geom_point() +
++   labs(title    = "Bigger engines, lower mileage",
++        subtitle = "EPA fuel-economy data, 1999–2008",
++        caption  = "Source: EPA fueleconomy.gov") +
+*+   theme_dj()
+```
+
+## Two patterns worth stealing
+
+- Use `rel()` for sizes so everything scales when you change `base_size`.
+- Set `plot.title.position = "plot"` so the title and caption align with the plot edges, not the panel — a small detail readers feel without naming.
+
+Once your theme is stable, drop it in a tiny `R/theme_dj.R` and `source()` it from every report. Same `theme_dj()`, every chart.
+]
+
+
+---
+# Example: Hertie brand for alumni survey
+
+
+&lt;div align="center"&gt;
+&lt;img src="pics/1-2-studies-satisfaction-full.png" style="width:60%; height:auto;"&gt;
+&lt;/div&gt;
+
+&lt;div align="center"&gt;
+&lt;img src="pics/4-3-first-job-employment-sector-full.png" style="width:60%; height:auto;"&gt;
+&lt;/div&gt;
+
+
+
+
+
+
+&lt;!-- ============== PRINCIPLE 3 ============== --&gt;
+---
+class: inverse, center, middle
+name: interactivity
+
+# 3. Interactivity has to earn its place
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+
+---
+# Most readers do not interact
+
+.pull-left[
+## What the research and newsroom analytics find
+
+- **Boy, Détienne &amp; Fekete (CHI 2015)** ran three field experiments on a major news site and a viz gallery: introductory "story" framing on an interactive chart **did not** increase subsequent exploration. ([HAL preprint](https://inria.hal.science/hal-01133305/) · [ACM](https://dl.acm.org/doi/10.1145/2702123.2702452))
+
+- **Archie Tse, NYT (Malofiej 2016)** — "Why we are doing fewer interactives". Internal NYT data: most clickable elements got &lt;10% engagement. ([Nieman Lab summary](https://www.niemanlab.org/2016/03/at-the-malofiej-infographics-world-summit-the-best-form-of-storytelling-is-often-static/) · [slides](https://github.com/archietse/malofiej-2016))
+
+- **Gregor Aisch, NYT (2017)** — pushes back, but confirms the underlying number: **~85% of readers** of NYT graphics from 2015 did not click any button. ([In Defense of Interactive Graphics](http://www.vis4.net/blog/in-defense-of-interactive-graphics/))
+]
+
+.pull-right[
+&lt;br&gt;
+&lt;div style="display:flex; justify-content:center; align-items:flex-start; gap:16px;"&gt;
+  &lt;video src="pics/scrolly-a.mp4" autoplay loop muted playsinline
+         style="width:32%; max-height:480px; object-fit:contain;"&gt;&lt;/video&gt;
+  &lt;video src="pics/scrolly-b.mp4" autoplay loop muted playsinline
+         style="width:32%; max-height:480px; object-fit:contain;"&gt;&lt;/video&gt;
+  &lt;video src="pics/scrolly-c.mp4" autoplay loop muted playsinline
+         style="width:32%; max-height:480px; object-fit:contain;"&gt;&lt;/video&gt;
+&lt;/div&gt;
+
+.center[`Source` [Russell Samora / The Pudding — *Responsive scrollytelling best practices*](https://pudding.cool/process/responsive-scrollytelling/)]
+]
+
+
+
+---
+# Default to static.
+
+.pull-left-small2[
+## 3 rules for visual storytelling
+
+1. If you make the reader click or do anything other than scroll, something spectacular has to happen.
+2. If you make a tooltip or rollover, assume no one will ever see it. If content is important for readers to see, don't hide it.
+3. When deciding whether to make something interactive, remember that getting it to work on all platforms is expensive.
+
+By [Archie Tse, NYT](https://github.com/archietse/malofiej-2016), 2016
+]
+
+.pull-right-wide2[
+## Case study
+&lt;div align="center"&gt;
+&lt;img src="pics/upshot-immigrants-1.png" style="width:75%; height:auto;"&gt;
+&lt;img src="pics/upshot-immigrants-2.png" style="width:75%; height:auto;"&gt;
+&lt;/div&gt;
+.center[`Source` [Anna Flagg for NYT The Upshot](https://www.nytimes.com/interactive/2018/03/30/upshot/crime-immigration-myth.html)
+]
+]
+
+
+---
+# Scrollytelling is the right ceiling, often
+
+.pull-left-small[
+## Good scrollytelling
+
+Scrolling is *also* an interaction — but it is the one your reader is
+already doing.
+
+- one chart that **transforms** as you scroll,
+- annotations that **arrive** at the right moment,
+- never asks the reader to *do* anything except keep going.
+
+This pattern carries the narrative without the cognitive overhead of
+filters, dropdowns, or dragging.
+]
+
+.pull-right-wide[
+&lt;br&gt;
+&lt;div style="display:flex; justify-content:center; align-items:flex-start; gap:16px;"&gt;
+  &lt;video src="pics/pudding-democracy.mp4" autoplay loop muted playsinline
+         style="width:100%; max-height:480px; object-fit:contain;"&gt;&lt;/video&gt;
+&lt;/div&gt;
+
+.center[`Source` [The Pudding — *In pursuit of democracy*](https://pudding.cool/2025/11/democracy/) (every use of the word "democracy" in the Congressional Record since 1880).]
+]
+
+
+
+
+&lt;!-- ============== PRINCIPLE 4 ============== --&gt;
+---
+class: inverse, center, middle
+name: mobile
+
+# 4. Build for the phone first
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+
+---
+# Where your readers actually are
+
+.pull-left[
+## Some evidence 
+- **Mobile is now the dominant news channel.** Reuters Institute *Digital News Report 2025* finds smartphones the most-used news device in most markets surveyed. ([report](https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2025))
+- **In the US, 86%** of adults get news at least sometimes from a smartphone, tablet, or computer; **21%** prefer apps and websites over any other source. (Pew Research, *News Platform Fact Sheet*, 2025 — [link](https://www.pewresearch.org/journalism/fact-sheet/news-platform-fact-sheet/))
+- The mobile viewport width of [common smartphones](https://yesviz.com/iphones.php) is **~400px wide**. Your typical reader sees the chart smaller than your laptop preview.
+
+&gt; A one-row, four-panel small-multiples chart that shines on a 27" monitor *dies* on a 390px column. Designing for desktop and "just hoping mobile works" is the modern equivalent of designing for print and assuming the website will be fine.
+]
+
+.pull-right[
+&lt;div style="display:flex; justify-content:center; align-items:flex-start; gap:16px;"&gt;
+  &lt;video src="pics/datawrapper-mobile.mp4" autoplay loop muted playsinline
+         style="width:100%; max-height:480px; object-fit:contain;"&gt;&lt;/video&gt;
+&lt;/div&gt;
+
+.center[
+`Source` [Datawrapper](https://www.datawrapper.de/academy/locator-maps-for-mobile-devices)
+]
+]
+
+
+---
+# Implications for your work
+
+.pull-left[
+
+## One chart, one finding.
+
+In that sense, mobile forces a discipline on you. If you have three findings, you have three charts. Stop combining too much into one chart.
+
+## A mobile sanity check before you publish
+
+1. Open the live page on your phone.
+2. Read it with your phone held normally — not zoomed in.
+3. Can you read every label? Can you tell what the headline finding is in 5 seconds?
+4. If you are using ggplot, render at `width = 4, height = 5, dpi = 300` and look at it small.
+
+Browser extensions like `Mobile simulator` let you emulate the mobile ezperience on desktop. If anything fails: cut a series, raise the type size, redo the title.
+]
+
+.pull-right[
+## What "mobile-first" actually changes
+
+| Feature | Desktop | Mobile |
+|---|---|---|
+| Aspect ratio | landscape (16:9) | portrait or square |
+| Series in one chart | up to ~6 | 1–2; rest go to small multiples or get cut |
+| Type size | 11–12pt | 14–16pt minimum |
+| Legend | OK | direct labels only |
+| Title | one line | wraps to 2–3 lines |
+| Axis labels | full text | abbreviated or removed |
+| Small multiples | grid (e.g. 4×4) | 1-column stack |
+| Interactivity | hover tooltips | tap-and-hold; usually drop |
+]
+
+
+
+
+&lt;!-- ============== WORKSHOP 2 ============== --&gt;
+---
+class: inverse, center, middle
+name: workshop2
+
+# Workshop II (10 min, in teams)
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+
+---
+class: exercise
+# Workshop II — design a chart on the whiteboard
+
+.pull-left[
+## The brief
+The **V-Dem Institute's 2024 release** shows the global
+electoral democracy index has fallen back to **1986 levels**. But the
+global average masks dramatic divergence: large democracies have
+backslid (US, India, Brazil under Bolsonaro), a handful of autocracies
+have liberalized, and entire regions move in opposite directions
+within the same decade.
+
+You have **10 minutes**, in teams of 3–4, to **sketch one chart on
+the whiteboard** for a piece on this. No laptops.
+
+## Constraints
+
+- **One chart only.**
+- It can be **static or interactive.**
+
+We'll walk around at the end.
+]
+
+.pull-right[
+## The dataset — V-Dem v14, country-year panel
+
+| Variable | Type | Description |
+|---|---|---|
+| `country` | chr | ~180 countries |
+| `year` | int | 1990 – 2023 |
+| `region` | chr | 10 world regions |
+| `v2x_polyarchy` | dbl | Electoral Democracy Index, 0–1 |
+| `regime_type` | chr | Closed autocracy → Liberal democracy (4 cats) |
+| `population` | dbl | Total population, optional weight |
+
+**Shape:** ~180 countries × 34 years ≈ **6,100 country-year rows.**
+
+&lt;br&gt;
+
+`Source` [V-Dem Institute, *Varieties of Democracy*](https://v-dem.net/data/the-v-dem-dataset/) · [Democracy Report 2024](https://v-dem.net/publications/democracy-reports/)
+]
+
+
+
+&lt;!-- ============== STUDENT GRAPHS ============== --&gt;
+---
+class: inverse, center, middle
+name: yours
+
+# Your charts: live discussion
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px style="width:1000px; margin:auto;"/&gt;&lt;/html&gt;
+
+
+
+---
+class: exercise
+# Your submitted charts
+
+.pull-left[
+A few of you volunteered charts from your own data-bit and other works. We'll go
+through them one by one. For each, the room will:
+
+1. **Read it cold.** What's the headline finding? (no help from the author)
+2. **Spot the editorial choices.** What was foregrounded? What was cut?
+3. **Provide constructive feedback.** Where does it shine? Where would we change it?
+4. **Author's reply.** What did you mean to say, and did the chart say it?
+
+The goal isn't to praise or pile on. It's to practise the act of
+*reading* a chart with the same care we apply to writing one.
+]
+
+.pull-right[
+&lt;div align="center"&gt;
+&lt;img src="pics/bob-ross.jpg" style="width:70%; height:auto;"&gt;
+&lt;/div&gt;
+]
+
+
+
+
+
+&lt;!-- ============== FURTHER READING ============== --&gt;
+---
+# Further reading
+
+**Books**
+- Claus Wilke, [*Fundamentals of Data Visualization*](https://clauswilke.com/dataviz/) — a standard reference.
+- Alberto Cairo, [*The Truthful Art*](https://www.oreilly.com/library/view/the-truthful-art/9780133440492/) and [*How Charts Lie*](https://wwnorton.com/books/9781324001560) — both written for practitioners.
+- Cole Nussbaumer Knaflic, [*Storytelling with Data: Let's Practice!*](https://www.storytellingwithdata.com/letspractice/downloads) — workshop-style, you're probably beyond this.
+
+**Blogs / Newsletters / Online material**
+- [Datawrapper Blog](https://www.datawrapper.de/blog) — Lisa Charlotte Muth's *Data Vis Dispatch* is the single best weekly digest.
+- [Junk Charts](https://www.junkcharts.com/) — Kaiser Fung's redesigns.
+- [Open Visualization Academy](https://openvisualizationacademy.org/) — Free courses by Alberto Cairo and others.
+- [The Functional Art](http://www.thefunctionalart.com/) — Alberto Cairo.
+
+**Newsroom showcases**
+- [FT Visual Vocabulary](https://ft-interactive.github.io/visual-vocabulary/)
+- [Reuters Graphics](https://www.reuters.com/graphics/) | [Pudding](https://pudding.cool/) | [NYT Upshot](https://www.nytimes.com/section/upshot)
+- [Sigma Awards](https://www.sigmaawards.org/) — annual data-journalism prize
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+  "highlightStyle": "github",
+  "highlightLines": true,
+  "countIncrementalSlides": false,
+  "ratio": "16:9",
+  "hash": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+<style>
+  .logo {
+    background-image: url("../hertieschool-neg.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 1.5em;
+    right: 1em;
+    width: 150px;
+    height: 128px;
+    z-index: 0;
+  }
+</style>
+  
+  <script>
+  document
+.querySelectorAll(
+  '.remark-slide-content' +
+    ':not(.title-slide)' +
+    ':not(.inverse)' +
+	
+    // add additional classes to exclude here, e.g.
+  // ':not(.inverse)' +
+    ':not(.hide-logo)'
+)
+.forEach(el => {
+  el.innerHTML += '<div class="logo"></div>';
+});
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
