@@ -6,7 +6,7 @@ body { font-family: 'Droid Serif', 'Palatino Linotype', 'Book Antiqua', Palatino
 
 /* Default background colour, and font size */
 .remark-slide-content{ font-family: 'Fira Sans', 'Yanone Kaffeesatz';
-                       font-size: 120%;    /* Regular text */
+                       font-size: 110%;    /* Regular text */
                      }
 
 .exercise {
